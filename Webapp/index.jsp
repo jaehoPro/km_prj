@@ -2,8 +2,7 @@
 <!doctype html>
 <html lang="en">
 
-<!-- 12/17/3/59 -->
-방금바뀜
+<!-- ㅂㅈㄷㄱ쇼ㅕㅑㅐ -->
 <head>
 
 	<!-- 헤더 css / jquery cdn -->
