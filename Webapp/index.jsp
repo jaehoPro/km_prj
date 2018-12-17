@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!doctype html>
 <html lang="en">
-<!-- 12/17/3/55 -->
+
+<!-- 12/17/3/59 -->
+방금바뀜
 <head>
 
 	<!-- 헤더 css / jquery cdn -->
