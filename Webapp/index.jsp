@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!doctype html>
 <html lang="en">
- <!--  김동현 바보 -->
+<!-- 12/17/3/17 -->
 <head>
 
 	<!-- 헤더 css / jquery cdn -->
