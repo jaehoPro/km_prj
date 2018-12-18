@@ -250,17 +250,20 @@ label {
     font-size: 15px;
     color: #71748d;
 }
-
+/* search box ----------------------------------------------------*/
 .form-control {
     display: block;
-    width: 100%;
-    font-size: 14px;
+    width:800px;
+    font-size: 18px;
     line-height: 1.42857143;
     color: #71748d;
     background-color: #fff;
     background-image: none;
     border: 1px solid #d2d2e4;
-    border-radius: 2px;
+    border-radius: 3px;
+    padding: 17px 17px 17px 0;
+  
+       
 }
 
 .form-control:focus {
@@ -1241,10 +1244,10 @@ Top Header
     font-size: 30px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #007bff;
+    color: #000000;
 }
 .navbar-brand:hover{
-    color: #007bff;
+    color: #4b4b4b;
 }
 .navbar-right-top {}
 
@@ -5282,10 +5285,10 @@ Vertical Timeline - by CodyHouse.co
     height: 48px;
     width: 48px;
 }
-
+/* -----------------------login icon----------------------------------- */
 .user-avatar-md {
-    height: 32px;
-    width: 32px;
+    height: 60px;
+    width: 60px;
 }
 
 .user-avatar-sm {
