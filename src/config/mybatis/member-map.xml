@@ -58,7 +58,7 @@
  			update member 
  			set user_del='y' 
  			where user_id=#{value} and user_del='n'
- 	</update>  <!-- 파라메터타입이 스르링잉ㄹ때에는 벨류를 이용해서 받아온다 -->
+ 	</update>  <!-- 파라메터타입이 스트링 때에는 벨류를 이용해서 받아온다 -->
  	
  	
  	<select id="member_detail" parameterType="String" resultMap="memberMap">
