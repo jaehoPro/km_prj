@@ -22,13 +22,15 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
+                            <div id="custom-search1" class="top-search-bar">
                                 <input class="form-control" type="text" placeholder="Search..">
                             </div>
-                            
+                            <!--  <div id="custom-search2" class="top-search-bar">
+                                <input class="form-control2" type="text" placeholder="Search..">
+                            </div> -->
                         </li>
                       
-                        
+                       
                           
                        
                        
@@ -48,13 +50,43 @@
                             <img src="assets/images/LOGIN.PNG" alt="" class="user-avatar-md rounded-circle" ></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
+                                    <h5 class="mb-0 text-white nav-user-name">Hi,<span class="status"></span><span class="ml-2">DahunPark</span> </h5> 
+                                   
                                 </div>
                                 
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="#">마이페이지</a>
+                                <br>
+                                <a class="dropdown-item" href="#">위시리스트</a>
+                                <br>
+                                <a class="dropdown-item" href="#">호스트 페이지</a>
+                                
+                                <hr color="#fff">
+                                
+                                 <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">RESERVATION </h5> 
+                                   
+                                </div>
+                               
+                                <a class="dropdown-item" href="#">예약확인</a>
+                                <br>
+                                <a class="dropdown-item" href="#">숙소</a>
+                                <hr color="#fff">
+                                <a class="dropdown-item" href="#">Logout</a>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                
                             </div>
                         </li>
                     </ul>

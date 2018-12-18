@@ -44,19 +44,92 @@
         
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <!-- <div class="container-fluid dashboard-content "> -->
                     <!-- ============================================================== -->
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
-                   
+                 
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
-                    <div class="ecommerce-widget">
-
-                        <div class="row">
-                          
-                          
+                    
+                    
+                   
+                    
+                    
+                    
+          <div class="banner-area relative" style="background-image: url(&quot;assets/images/배너.jpg&quot;);">
+				<div class="overlay overlay-bg"></div>				
+				<div class="container">
+					<div class="row fullscreen align-items-center justify-content-between" style="height: 918px;" >
+					
+				    <div class="col-lg-4 col-md-6 banner-right"> 
+					<div class="card">
+					
+				
+                            
+                             
+                        
+						 
+						<div class="card-body border-top">
+						<h5>목적지</h5>
+						<div id="custom-search2" class="top-search-bar">
+                                <input class="form-control2" type="text" placeholder="Search..">
+                            </div>
+						
+                                    <h5>체크인</h5>
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" />
+                                            <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                     <h5>체크인 시간</h5>
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" />
+                                            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                      <a href="#" class="btn btn-primary btn-block btn-lg">검색</a>
+                                    
+                         </div>
+                         
+                         
+							
+						<!--  <div class="card-body border-top">
+                                    <h5>Using Locales</h5>
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" />
+                                            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                          </div> -->
+                              
+                           
+                            </div>
+							
+							
+							
+					
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>			
+			
+			
+                         
+		
                       
                         <div class="row">
                             <!-- ============================================================== -->
@@ -222,13 +295,19 @@
               
                     </div>
                 </div>
-            </div>
+                </div>
            
-        </div>
+          <!--  </div> -->
+           
+           
+           
+           <%--  <!-- 푸터 영역 -->
+      <%@ include file="/include/footer.jsp" %> --%>
+
         <!-- ============================================================== -->
         <!-- end wrapper  -->
         <!-- ============================================================== -->
-    </div>
+   
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
     <!-- ============================================================== -->
@@ -237,11 +316,8 @@
  <%--  <%@ include file="/include/script.jsp" %> --%>
     
     
-    <!-- jquery 3.3.1 -->
-    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- main js -->
-    <script src="assets/libs/js/main-js.js"></script>
   
+    
     
     
     <!-- Optional JavaScript -->
@@ -265,6 +341,11 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+    
+    <script src="assets/vendor/datepicker/moment.js"></script>
+    <script src="assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
+    <script src="assets/vendor/datepicker/datepicker.js"></script>
+  
 </body>
  
 </html>

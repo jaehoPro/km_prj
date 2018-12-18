@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-<<<<<<< HEAD
-	<classpathentry kind="output" path="src"/>
-=======
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="build/classes"/>
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
+	<classpathentry kind="output" path="bin"/>
 </classpath>
