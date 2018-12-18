@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    
 
   <!-- bootstap bundle js -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>

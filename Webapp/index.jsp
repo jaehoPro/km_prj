@@ -127,6 +127,7 @@
                                                     <tr>
                                                         <td>4</td>
                                                         <td>
+                                      
                                                             <div class="m-r-10"><img src="assets/images/product-pic-4.jpg" alt="user" class="rounded" width="45"></div>
                                                         </td>
                                                         <td>Product #4 </td>
