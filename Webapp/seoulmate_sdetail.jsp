@@ -116,6 +116,7 @@
 												Free Trial</a>
 											
 											<p>체크인          Date: <input type="text" id="datepicker">
+									
 											
 											체크인 시간
 													<select class="selectpicker" data-size="5">

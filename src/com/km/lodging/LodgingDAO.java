@@ -34,6 +34,7 @@ public class LodgingDAO {
 			conn.close();
 		}
 		
+		
 		return list;
 	}
 	

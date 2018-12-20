@@ -41,7 +41,6 @@
 	</resultMap>
 	
 	
-
 	
 	
  	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_nation,addr_city,addr_state,addr_road,addr_unit,
