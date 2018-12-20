@@ -28,7 +28,7 @@ $(document).ready(function(){  //Jquery 시작
 <body>
 <div class="form-box">
     <div class="head">로그인</div>        
-    <form action="/login" id="login-form" method="POST">
+    <form action="/login" id="login-form" method="post">
         <div class="form-group">
           <label class="label-control">
             <span class="label-text">이메일</span>
