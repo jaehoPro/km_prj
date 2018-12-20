@@ -37,7 +37,8 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.jsp"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a>
+            <div class="card-header text-center"><a href="../index.jsp"><img class="logo-img" src="../assets/images/loginlogo.PNG" alt="logo"></a>
+            <br>
             <span class="splash-description">아이디와 비밀번호를 입력해주세요.</span></div>
             <div class="card-body">
                 <form action="/login" id="login-form" method="post">

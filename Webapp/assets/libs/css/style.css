@@ -168,6 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Circular Std Medium';
 }
 
+
 h1 {
 	font-size: 34px;
 }
@@ -194,6 +195,7 @@ h5 {
 h6 {
 	font-size: 12px;
 }
+
 
 p {
 	margin: 0px 0px 20px 0px;
@@ -2004,7 +2006,7 @@ Splash Container / Wrapper
 }
 
 .splash-container .card-header {
-	padding: 20px;
+	padding: 15px;
 }
 
 .splash-description {
@@ -2813,9 +2815,11 @@ Pageheader
 /*--- btn primary --*/
 .btn-primary {
 	color: #fff;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #000000;
+	border-color: #000000;
 }
+
+
 
 .btn-primary:hover {
 	color: #fff;
@@ -3305,6 +3309,7 @@ btn-link
 	background-color: #fff;
 	border-bottom: 1px solid #e6e6f2;
 }
+
 
 .card-title {
 	
