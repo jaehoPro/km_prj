@@ -28,8 +28,18 @@
 		<result property="lodging_name" 			column="lodging_name" />
 		<result property="lodging_condition" 		column="lodging_condition" />
 		<result property="usercode" 				column="usercode" />
-
 	</resultMap>
+	<resultMap id="reviewMap" type="com.km.lodging.ReviewScoreVO">
+			<id property="review_seq" column="review_seq" />
+			<result property="review_content" column="review_content" />
+			<result property="review_regdate" column="review_regdate" />
+			<result property="l_name" column="l_name" />
+			<result property="f_name" column="f_name" />
+			<result property="introduction" column="introduction" />
+			<result property="user_pic_path" column="user_pic_path" />
+			<result property="user_pic_oriname" column="user_pic_oriname" />
+	</resultMap>
+	
 	
 
 	
@@ -43,7 +53,7 @@
 			where lodging_seq=#{lodging_seq}
  	</select>
  	
- 	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+ 	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="reviewMap">
 			select r.review_seq, r.review_content, r.review_regdate,u.l_name,u.f_name, u.introduction, u.user_pic_path, u.user_pic_oriname
 			from review_score r, users u
 			where r.usercode = u.usercode

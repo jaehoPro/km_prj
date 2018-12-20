@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
- <mapper namespace="userNameSpace">
-
-
-
+<mapper namespace="usersNameSpace">
 
 	<resultMap id="usersMap" type="com.km.users.UsersVO">
 		<id property="usercode" column="usercode" />
@@ -50,55 +47,16 @@
 	</resultMap>
 	
 	
+	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
+		select usercode, confirm, grade from users
+		where email = #{email}
+		and password = #{password}
+	</select>
 	
-	<select id="login" parameterType="int" resultMap="usersMap">
-		select usercode,confirm, grade from users
-		where id = 
-		and password = 
-	</select>
+	<update id="logdate" parameterType="String">
+	 update users set logdate = sysdate
+	 where email = #{value}
+	</update>
+	
 
-	<select id="selectNextSseq" resultType="int">
-		select max(sseq)+1 as sseq from shop_info
-	</select>
-
-	<insert id="insertShopInfo" parameterType="com.biz.shop.ShopVO">
-		insert 
-		into shop_info(sseq,sname,sinfo,lat,lng,regid,regdate,placename)
-		values(#{sseq},#{sname},#{sinfo},#{lat},#{lng},#{regid},sysdate,#{placename})
-	</insert>
-
-	<insert id="insertShopPic"
-		parameterType="com.biz.shop.ShopPicVO">
-		insert 
-		into shop_pic(pseq, ppath, pname,sseq,pyn,sysname)
-		values(shop_pic_seq.nextval,#{ppath},
-						#{pname},#{sseq},#{pyn},#{sysname})
-	</insert>
-
-	<select id="selectShopInfo" parameterType="int"
-		resultMap="shop_pic_1n">
-			select i.sseq, i.sname, i.sinfo, i.lat, i.lng,
-						nvl(p.ppath,'c:/uploads') as ppath,
-						nvl(p.pname, '000.png') as pname
-			from shop_info i, shop_pic p
-			where i.sseq=#{sseq} 
-						and i.sseq = p.sseq(+)
-			order by p.pyn desc
-	</select>
-		
-	<select id="selectShopInfo" parameterType="int"
-		resultType="com.biz.shop.ShopVO">
-		select i.sseq, i.sname, i.sinfo, i.lat, i.lng
-		from shop_info i
-		where i.sseq=#{sseq}
-	</select>
-	<select id="selectShopPic" parameterType="int"
-		resultType="com.biz.shop.ShopPicVO">
-		select pseq
-					,nvl(ppath,'c:/uploads') as ppath
-					,nvl(pname, '000.png') as pname
-		from shop_pic
-		where sseq =#{sseq}
-		order by pseq desc
-	</select>
 </mapper>

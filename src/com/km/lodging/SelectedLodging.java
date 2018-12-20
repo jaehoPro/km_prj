@@ -28,8 +28,9 @@ public class SelectedLodging extends HttpServlet {
 		
 		request.setAttribute("KEY_LVO", lvo);
 		request.setAttribute("KEY_REVIEW", reviewlist);
+		request.setAttribute("KEY_REVIEW_COUNT", reviewlist.size());
 		
-		System.out.println(reviewlist.size());
+		System.out.println(reviewlist.get(0).getReview_content());
 		request.getRequestDispatcher("seoulmate_sdetail.jsp").forward(request, response);
 	}
 
