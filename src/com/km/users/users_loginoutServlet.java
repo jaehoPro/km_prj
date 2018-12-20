@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class users_loginoutServlet
  */
-@WebServlet("/users_loginoutServlet")
+@WebServlet("/login")
 public class users_loginoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,6 +42,8 @@ public class users_loginoutServlet extends HttpServlet {
 		mvo = dao.login(mvo);
 		//mvo = new MemberDAO().select(mvo);  //mvo(id,pw)
 		
+		System.out.println(mvo.getGrade());
+		/*
 		if(mvo.getUserGubun() == null || mvo.getUserGubun().equals(""))  {
 			response.sendRedirect("404.jsp");
 		} else {
@@ -74,7 +76,8 @@ public class users_loginoutServlet extends HttpServlet {
 				response.sendRedirect("admin/index.jsp");
 				//request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 			}
-		}
+		}*/
 	}
+	
 
 }

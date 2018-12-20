@@ -33,8 +33,6 @@
 	
 	<!-- mapper --> 
 	<mappers>
-		<mapper resource="config/mybatis/member-map.xml" />		
-		<mapper resource="config/mybatis/shop-map.xml" />
 		<mapper resource="config/mybatis/users-map.xml" />
 		<mapper resource="config/mybatis/lodging-map.xml" />
 	</mappers>

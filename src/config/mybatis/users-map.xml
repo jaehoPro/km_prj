@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <mapper namespace="usersNameSpace">
-
-
-
 
 	<resultMap id="usersMap" type="com.km.users.UsersVO">
 		<id property="usercode" column="usercode" />
@@ -48,17 +44,17 @@
 		<result property="cardnum" column="cardnum" />
 		<result property="expire_date" column="expire_date" />
 		<result property="cvc_code" column="cvc_code" />
-	</resultMap>s
+	</resultMap>
 	
 	
 	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
-		select usercode,confirm, grade from users
+		select usercode, confirm, grade from users
 		where email = #{email}
 		and password = #{password}
 	</select>
 	
 	<update id="logdate" parameterType="String">
-	 update users  set logdate = sysdate
+	 update users set logdate = sysdate
 	 where email = #{value}
 	</update>
 	
