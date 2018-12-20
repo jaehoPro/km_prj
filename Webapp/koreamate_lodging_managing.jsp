@@ -55,6 +55,7 @@
                                 <div class="card-body">
                                  
                                     <div class="row align-items-center">
+                   
                                         <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="user-avatar float-xl-left pr-4 float-none">
                                             
