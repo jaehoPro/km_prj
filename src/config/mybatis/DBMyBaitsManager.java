@@ -14,6 +14,7 @@ import com.km.users.UsersVO;
 
 
 public class DBMyBaitsManager {
+	
    public SqlSession mybatisConn() {
       String path2 = "config/mybatis/config-mybatis.xml";
       Reader reader;
@@ -41,38 +42,26 @@ public class DBMyBaitsManager {
       if(conn != null) conn.close();
    }
 
+   
+   
+   
+   
+   
+   
+   
    public static void main(String[] args) {
       DBMyBaitsManager db = new DBMyBaitsManager();
       SqlSession conn =db.mybatisConn();
       
       UsersVO vo = new UsersVO();
-      vo.setEmail("admin@kareamate");
-      vo.setPassword("444");
+      vo.setEmail("grz@koreamate.com");
+      vo.setPassword("0000");
 //      vo.setUserName("오알엠");
    
       
-      UsersVO res = conn.selectOne("userNameSpace.login", vo);
-      System.out.println(res.getF_name());
-      
-      UsersVO svo = new UsersVO();
-      svo.setEmail("abc");
-      svo.setPassword("111");
-      int ires= conn.insert("userNameSpace.member_register", svo);
-      System.out.println(ires+"건 입력");
-      
-      UsersVO uvo = new UsersVO();
-      uvo.setEmail("hong");
-      uvo.setPassword("555");
-      int ures = conn.update("userNameSpace.member_update", uvo);
-      System.out.println(ures+ "건 수정");
-      
-      String stringID="hong";
-      int dres = conn.update("userNameSpace.member_delete", stringID);
-      System.out.println(dres + "건 탈퇴");
-      
-      String idname = "sohee123";
-      UsersVO detailVO = conn.selectOne("userNameSpace.member_detail",idname);
-      System.out.println(detailVO.getF_name());
+      UsersVO res = conn.selectOne("usersNameSpace.login", vo);
+      System.out.println(res.getGrade());
+    
        
       
 //      conn.rollback();

@@ -10,15 +10,14 @@ public class UsersDAO {
 	
 	
 	
-	public int login() {
-		int res = 0;
+	public UsersVO login(UsersVO mvo) {
 		SqlSession conn =null;
 		try { 
 			conn = MyBatisFactory.getFactory().openSession();
-			res = conn.selectOne("shopNameSpace.selectCount");
+			mvo = conn.selectOne("usersNameSpace.login");
 		} finally {
 			conn.close();
 		}
-		return res;
+		return mvo;
 	}
 }
