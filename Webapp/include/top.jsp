@@ -36,7 +36,7 @@
                         
                           <a class="dropdown-item" id=login href="#">로그인</a>
                            -->
-                          <a href="login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div> &nbsp;로그인 &nbsp; </a>
+                          <a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div> &nbsp;로그인 &nbsp; </a>
                            <a href="pages/sign-up.jsp" id=register style="text-align: center;"><div class="splash-container"></div>회원가입</a>
                          
                          
