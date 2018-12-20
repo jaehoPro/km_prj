@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Users_regist
  */
-@WebServlet("/login")
+@WebServlet("/regist")
 public class Users_registServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -27,6 +27,7 @@ public class Users_registServlet extends HttpServlet {
 		
 		String email = (String) request.getAttribute("email");
 		String password = (String) request.getAttribute("password");
+		
 		
 		UsersDAO dao = new UsersDAO();
 		

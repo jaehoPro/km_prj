@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="userNameSpace"> <mapper namespace="com.biz.mapper.MemberMapper">
-<mapper namespace="usersNameSpace">
+<mapper namespace="userNameSpace">
 
 	<resultMap id="shop_pic_1nn" type="com.biz.shop.ShopVO" 
 		extends="shopMap">
@@ -144,6 +143,6 @@
 	<select id="selectCount" resultType="int">
 	 select count(1) as co from emp;
 	</select>
+-->
 
 </mapper>	
--->
