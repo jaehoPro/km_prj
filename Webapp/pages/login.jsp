@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!doctype html>
 <html>
@@ -57,7 +58,7 @@
                 <div class="card-footer-item card-footer-item-bordered">
                     <a href="#" class="footer-link">회원가입</a></div>
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">비밀번호 찾기</a>
+                    <a href="forgot-password.jsp" class="footer-link">비밀번호 찾기</a>
                 </div>
             </div>
         </div>

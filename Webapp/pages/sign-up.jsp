@@ -81,6 +81,60 @@
                    <!--  <input class="form-control " required="" placeholder="자기소개를 입력하세요" > -->
                     <textarea required="" class="form-control4" placeholder="자기소개를 입력하세요"></textarea>
                 </div>
+                
+                <div class="card-body border-top">
+                                        <h3 class="font-16">생년월일</h3>
+                                        <select class="form-control5">
+                                            <option selected="">년</option>
+                                            <option value="20-30">20-30</option>
+                                            <option value="30-40">30-40</option>
+                                            <option value="40-50">40-50</option>
+                                        </select>
+                                        
+                                        <select class="form-control5">
+                                            <option selected="">월</option>
+                                            <option value="20-30">20-30</option>
+                                            <option value="30-40">30-40</option>
+                                            <option value="40-50">40-50</option>
+                                        </select>
+                                        
+                                        
+                                        <select class="form-control5">
+                                            <option selected="">일</option>
+                                            <option value="20-30">20-30</option>
+                                            <option value="30-40">30-40</option>
+                                            <option value="40-50">40-50</option>
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                      <div class="control-group">
+            <label class="control-label"><strong><font color="red">*</font> 대표사진</strong> </label>
+            <div class="controls">
+              <input class="input-file" id="mainPic" name="mainPic" type="file">
+             
+              <div id="prev-img-div1"></div>
+			
+            </div>
+          </div>
+          <br>
+
+		  <div class="control-group">
+            <label class="control-label"><strong>기타사진</strong> </label>
+            <div class="controls">
+              <input class="input-file" id="addtionalPic" name="addtionalPic" Multiple type="file">
+              <div id="prev-img-div2"></div>
+            </div>
+          </div>
+          <br>
+          
+                                    
+                                   <!--  <label class="btn btn-outline-light btn-upload m-b-0" for="inputImage" title="Upload image file">
+                                <input type="file" class="sr-only" id="inputImage" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="" data-original-title="Import image with Blob URLs">
+                          <span class="fa fa-upload"></span>
+                                </span>
+                            </label> -->
                   
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
