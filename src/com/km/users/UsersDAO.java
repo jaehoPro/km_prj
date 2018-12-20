@@ -14,7 +14,7 @@ public class UsersDAO {
 		SqlSession conn =null;
 		try { 
 			conn = MyBatisFactory.getFactory().openSession();
-			mvo = conn.selectOne("usersNameSpace.login");
+			mvo = conn.selectOne("usersNameSpace.login", mvo);
 		} finally {
 			conn.close();
 		}

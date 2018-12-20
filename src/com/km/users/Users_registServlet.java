@@ -28,6 +28,7 @@ public class Users_registServlet extends HttpServlet {
 		String email = (String) request.getAttribute("email");
 		String password = (String) request.getAttribute("password");
 		
+		
 		UsersDAO dao = new UsersDAO();
 		
 		
