@@ -161,16 +161,18 @@ body {
     font-weight: normal;
     font-size: 14px;
     color: #71748d;
-    background-color: #efeff6;
+    background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
 }
+
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+h7 {
     color: #3d405c;
     margin: 0px 0px 15px 0px;
     font-family: 'Circular Std Medium';
@@ -201,6 +203,12 @@ h5 {
 
 h6 {
     font-size: 12px;
+}
+
+h7 {
+    font-size: 30px;
+    
+    
 }
 
 p {
@@ -3241,7 +3249,11 @@ btn-link
 /* ----------------------- 
 2.3  Cards
 -------------------------*/
-
+.img-fluid{
+	  width:3600px;
+    height: auto;
+	
+} 
 .card {
     margin-bottom: 30px;
     border: none;
@@ -3254,6 +3266,8 @@ btn-link
     background-color: #fff;
     border-bottom: 1px solid #e6e6f2;
 }
+
+
 
 .card-title {}
 
@@ -3975,6 +3989,11 @@ Pills vertical
     border: 1px solid #d9d9e3;
     margin-top: -1px;
 }
+
+/* .accrodion-outline .card-body2 {
+    border: 1px solid #d9d9e3;
+    margin-top: -1px;
+} */
 
 .accrodion-outline .card .card-header {
     font-size: 16px;
