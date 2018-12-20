@@ -24,7 +24,15 @@ public class Users_registServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("로그인눌렀");
-		//response.sendRedirect("index.jsp");
+		
+		String email = (String) request.getAttribute("email");
+		String password = (String) request.getAttribute("password");
+		
+		UsersDAO dao = new UsersDAO();
+		
+		
+		
+		response.sendRedirect("index.jsp");
 	}
 
 }

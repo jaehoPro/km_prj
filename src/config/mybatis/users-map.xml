@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="userNameSpace">
+
+
+
+
+	<resultMap id="usersMap" type="com.km.users.UsersVO">
+		<id property="usercode" column="usercode" />
+		<result property="email" column="email" />
+		<result property="password" column="password" />
+		<result property="f_name" column="f_name" />
+		<result property="l_name" column="l_name" />
+		<result property="sex" column="sex" />
+		<result property="birth_y" column="birth_y" />
+		<result property="birth_m" column="birth_m" />
+		<result property="birth_d" column="birth_d" />
+		<result property="nation" column="nation" />
+		<result property="tel" column="tel" />
+		<result property="user_pic_path" column="user_pic_path" />
+		<result property="user_pic_oriname" column="user_pic_oriname" />
+		<result property="user_pic_rename" column="user_pic_rename" />
+		<result property="introduction" column="introduction" />
+		<result property="confirm" column="confirm" />
+		<result property="grade" column="grade" />
+		<result property="user_regdate" column="user_regdate" />
+		<result property="logdate" column="logdate" />
+		<result property="user_drop" column="user_drop" />
+		<result property="user_dropdate" column="user_dropdate" />
+		<result property="regpath" column="regpath" />
+	</resultMap>
+	
+	
+	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
+		<id property="usercode" column="usercode" />
+		<result property="id_pic_path" column="id_pic_path" />
+		<result property="id_pic_oriname" column="id_pic_oriname" />
+		<result property="id_pic_rename" column="id_pic_rename" />
+	</resultMap>
+	
+	
+	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
+	<id property="usercode" column="usercode" />
+		<result property="cardname" column="cardname" />
+		<result property="cardowner" column="cardowner" />
+		<result property="cardnum" column="cardnum" />
+		<result property="expire_date" column="expire_date" />
+		<result property="cvc_code" column="cvc_code" />
+	</resultMap>
+	
+	
+	
+	<select id="login" parameterType="int" resultMap="usersMap">
+		select usercode,confirm, grade from users
+		where id = 
+		and password = 
+	</select>
+
+	<select id="selectNextSseq" resultType="int">
+		select max(sseq)+1 as sseq from shop_info
+	</select>
+
+	<insert id="insertShopInfo" parameterType="com.biz.shop.ShopVO">
+		insert 
+		into shop_info(sseq,sname,sinfo,lat,lng,regid,regdate,placename)
+		values(#{sseq},#{sname},#{sinfo},#{lat},#{lng},#{regid},sysdate,#{placename})
+	</insert>
+
+	<insert id="insertShopPic"
+		parameterType="com.biz.shop.ShopPicVO">
+		insert 
+		into shop_pic(pseq, ppath, pname,sseq,pyn,sysname)
+		values(shop_pic_seq.nextval,#{ppath},
+						#{pname},#{sseq},#{pyn},#{sysname})
+	</insert>
+
+	<select id="selectShopInfo" parameterType="int"
+		resultMap="shop_pic_1n">
+			select i.sseq, i.sname, i.sinfo, i.lat, i.lng,
+						nvl(p.ppath,'c:/uploads') as ppath,
+						nvl(p.pname, '000.png') as pname
+			from shop_info i, shop_pic p
+			where i.sseq=#{sseq} 
+						and i.sseq = p.sseq(+)
+			order by p.pyn desc
+	</select>
+		
+	<select id="selectShopInfo" parameterType="int"
+		resultType="com.biz.shop.ShopVO">
+		select i.sseq, i.sname, i.sinfo, i.lat, i.lng
+		from shop_info i
+		where i.sseq=#{sseq}
+	</select>
+	<select id="selectShopPic" parameterType="int"
+		resultType="com.biz.shop.ShopPicVO">
+		select pseq
+					,nvl(ppath,'c:/uploads') as ppath
+					,nvl(pname, '000.png') as pname
+		from shop_pic
+		where sseq =#{sseq}
+		order by pseq desc
+	</select>
+</mapper>
