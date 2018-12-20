@@ -55,8 +55,33 @@
                 <div class="form-group">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" required="" placeholder="Confirm">
+                    <input class="form-control form-control-lg" required="" placeholder="비밀번호 설정">
                 </div>
+                
+                 <div class="form-group">
+                    <input class="form-control form-control-lg" required="" placeholder="비밀번호 확인">
+                </div>
+                  <hr color="#e6e6f2">
+                  
+                  
+                  <label class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">남성</span>
+                                            </label>
+                <input type="radio" name="radio-inline" checked="" class="custom-control-input">                            
+                  
+                <label class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">여성</span>
+                                            </label>
+                 <input type="radio" name="radio-inline" class="custom-control-input"> 
+                 
+                 <div class="form-group">
+                    <input class="form-control form-control-lg" required="" placeholder="전화번호">
+                </div>
+                 <div class="form-group">
+                   <!--  <input class="form-control " required="" placeholder="자기소개를 입력하세요" > -->
+                    <textarea required="" class="form-control4" placeholder="자기소개를 입력하세요"></textarea>
+                </div>
+                  
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
                 </div>
@@ -80,6 +105,7 @@
         </div>
     </form>
 </body>
+
 
  
 </html>

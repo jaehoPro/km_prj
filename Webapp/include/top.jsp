@@ -32,11 +32,9 @@
                        
                        
                         <!-- 상단 우측 바======================================================================== -->
-                     <!--  <a class="dropdown-item" id=register href="#">회원가입</a>
-                        
-                          <a class="dropdown-item" id=login href="#">로그인</a>
-                           -->
-                          <a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div> &nbsp;로그인 &nbsp; </a>
+                     
+                          
+                          <a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그인 &nbsp; </a>
                            <a href="pages/sign-up.jsp" id=register style="text-align: center;"><div class="splash-container"></div>회원가입</a>
                          
                          
@@ -92,4 +90,5 @@
                 </div>
             </nav>
 		
+      
       

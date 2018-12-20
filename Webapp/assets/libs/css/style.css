@@ -168,6 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Circular Std Medium';
 }
 
+
 h1 {
 	font-size: 34px;
 }
@@ -194,6 +195,7 @@ h5 {
 h6 {
 	font-size: 12px;
 }
+
 
 p {
 	margin: 0px 0px 20px 0px;
@@ -280,6 +282,18 @@ label {
 	padding: 17px 17px 17px 0;
 }
 
+.form-control4 {
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #71748d;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #d2d2e4;
+	border-radius: 2px;
+}
+
 .form-control:focus {
 	color: #71748d;
 	background-color: #fff;
@@ -334,6 +348,16 @@ textarea.form-control {
 	border-radius: 2px;
 	padding: 12px 16px;
 }
+
+  textarea.form-control4 {
+	height: 200px;
+	color: #71748d;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #d2d2e4;
+	border-radius: 2px;
+	padding: 12px 16px;
+}  
 
 input::-webkit-input-placeholder {
 	color: #71748d !important;
@@ -2004,7 +2028,7 @@ Splash Container / Wrapper
 }
 
 .splash-container .card-header {
-	padding: 20px;
+	padding: 15px;
 }
 
 .splash-description {
@@ -2813,9 +2837,11 @@ Pageheader
 /*--- btn primary --*/
 .btn-primary {
 	color: #fff;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #000000;
+	border-color: #000000;
 }
+
+
 
 .btn-primary:hover {
 	color: #fff;
@@ -3305,6 +3331,7 @@ btn-link
 	background-color: #fff;
 	border-bottom: 1px solid #e6e6f2;
 }
+
 
 .card-title {
 	
@@ -6491,6 +6518,8 @@ translateX
 	padding: 12px 0;
 }
 
+
+
 .form-group.row label {
 	white-space: nowrap;
 }
@@ -7207,6 +7236,7 @@ Media Query
 		padding: 17px 29px;
 	}
 }
+
 
 }
 
