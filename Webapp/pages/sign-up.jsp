@@ -53,7 +53,6 @@
                     <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="pass1" type="password" required="" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" required="" placeholder="Confirm">
