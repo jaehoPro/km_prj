@@ -70,12 +70,12 @@
                             <!-- ============================================================== -->
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2>게시물 제목이 들어간다게시물 제목이 들어간다게시물 제목이 들어간다</h2>
-                                    <p class="lead">방 설명: 싸고 좋은 방입니다.  </p>
+                                    <h2>${KEY_LVO.lodging_name}</h2>
+                                    <p class="lead">${KEY_LVO.lodging_explain}</p>
                                     <ul class="list-unstyled arrow">
-                                        <li> 인원 : 5명</li>
-                                        <li> 침대 : 2개 </li>
-                                        <li> 욕실 : 1개 </li>
+                                        <li> 인원 : ${KEY_LVO.max_lodging_people}명</li>
+                                        <li> 방갯수 : ${KEY_LVO.room_cnt} 개 </li>
+                                        <li> 욕실 : ${KEY_LVO.bath_cnt} 개 </li>
                                         <li></li>
                                     </ul>
                                 </div>
@@ -90,13 +90,14 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="section-block" id="basicform">
-                                    <h3 class="section-title">여기에는 아무거나</h3>
+                                    <h3 class="section-title"></h3>
                                     <p>Use custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
                                 </div>
                                 <div class="card">
-                                    <h5 class="card-header">후기 14개</h5>
+                                    <h5 class="card-header">후기 4개</h5>
                                     <div class="card-body">
-			                                        <div class="chat-module-body">
+			                            <div class="chat-module-body">
+			                                <forEach var="vo" >
 			                                <div class="media chat-item">
 			                                    <img alt="William" src="../assets/images/avatar-1.jpg" class="rounded-circle user-avatar-lg">
 			                                    <div class="media-body">
@@ -109,100 +110,7 @@
 			                                        </div>
 			                                    </div>
 			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="Komal" src="../assets/images/avatar-2.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">Komal</span>
-			                                            <span>4 days ago</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <p>Nice one <a href="#">@Komal</a>, Nulla ut diam porttitor odio malesuada malesuada eu at ipsum.
-			                                            </p>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="tanu" src="../assets/images/avatar-3.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">Tanu</span>
-			                                            <span>3 days ago</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <p>Roger that boss! <a href="#">@Ravi</a> Donec quis ante ut felis tincidunt blandit. 🔥</p>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="Bhoomi" src="../assets/images/avatar-4.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">Bhoomi</span>
-			                                            <span>3 days ago</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <h1 id="-">😉</h1>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="William" src="../assets/images/avatar-1.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">William</span>
-			                                            <span>2 days ago</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <p>Can't wait! <a href="#">@David</a> Curabitur nec massa ultrices, consequat erat sit amet, luctus justo. <a href="#">  Meeting</a>?</p>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="Daniel" src="../assets/images/avatar-2.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">Daniel</span>
-			                                            <span>Yesterday</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <p>Quisque condimentum elit quis nibh condimentum, in maximus tortor viverra. 🤓</p>
-			                                        </div>
-			                                        <div class="media media-attachment">
-			                                            <div class="avatar bg-primary">
-			                                                <i class="fas fa-file"></i>
-			                                            </div>
-			                                            <div class="media-body">
-			                                                <a href="#" class="">questionnaire-draft.doc</a>
-			                                                <span>24kb Document</span>
-			                                            </div>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="Fallon" src="../assets/images/avatar-3.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">Fallon</span>
-			                                            <span>2 hours ago</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <p>Great start guys, Fusce tempus ipsum a mi rutrum, at dignissim mauris vulputate.</p>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="media chat-item">
-			                                    <img alt="Kimberly" src="../assets/images/avatar-4.jpg" class="rounded-circle user-avatar-lg">
-			                                    <div class="media-body">
-			                                        <div class="chat-item-title">
-			                                            <span class="chat-item-author">Kimberly</span>
-			                                            <span>Just now</span>
-			                                        </div>
-			                                        <div class="chat-item-body">
-			                                            <p>Well done <a href="#">@all</a>. See you all Fusce tempus ipsum a mi rutrum, at dignissim mauris vulputate. 🤜</p>
-			                                        </div>
-			                                    </div>
-			                                </div>
+			                                
 			                            </div>
 			                            <!-- ============================================================== -->
 				                        <!-- 댓글끝  -->

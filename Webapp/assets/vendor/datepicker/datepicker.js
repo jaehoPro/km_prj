@@ -36,6 +36,13 @@ jQuery(document).ready(function($) {
 
     }
     
+    if ($("#datetimepicker44").length) {
+        $('#datetimepicker44').datetimepicker({
+            format: 'L'
+        });
+
+    }
+    
     if ($("#datetimepicker5").length) {
         $('#datetimepicker5').datetimepicker();
 

@@ -1,19 +1,42 @@
 package com.km.lodging;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.km.common.MyBatisFactory;
 
 
 public class LodgingDAO {
-	public LodgingVO memberLogin(LodgingVO lvo)
+	public LodgingVO selectOneLodging(LodgingVO lvo)
 	{
 		SqlSession conn = null;
 		
-		conn = MyBatisFactory.getFactory().openSession();
-		lvo=conn.selectOne("userNameSpace.selectOneLodging", lvo);
-
+		try {
+		
+			conn = MyBatisFactory.getFactory().openSession();
+			lvo=conn.selectOne("LodgingSpace.selectOneLodging", lvo);
+		}finally {
+			conn.close();
+		}
 		return lvo;
 	}
+	
+	public ArrayList<ReviewScoreVO> selectLodgingReview(LodgingVO lvo)
+	{
+		ArrayList<ReviewScoreVO> list = new ArrayList<ReviewScoreVO>();
+		SqlSession conn = null;
+		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			list=(ArrayList)conn.selectList("LodgingSpace.selectLodgingReview", lvo);
+		}finally {
+			conn.close();
+		}
+		
+		return list;
+	}
+	
+	
 
 }
