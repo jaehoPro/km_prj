@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 		
 
 
@@ -19,11 +20,12 @@
                 
                 
                 
+                
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
                             <div id="custom-search1" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
+                                <input class="form-control3" type="text" placeholder="Search..">
                             </div>
                             <!--  <div id="custom-search2" class="top-search-bar">
                                 <input class="form-control2" type="text" placeholder="Search..">

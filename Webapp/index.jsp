@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!doctype html>
-<html>
+<html lang="en">
  
 <head>
+
 
 	<!-- 헤더 css / jquery cdn -->
   	<%@ include file="/include/header.jsp" %>
@@ -103,20 +105,6 @@
                          </div>
                          
                          
-							
-						<!--  <div class="card-body border-top">
-                                    <h5>Using Locales</h5>
-                                    <div class="form-group">
-                                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" />
-                                            <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                          </div> -->
-                              
-                           
                             </div>
 							
 							
@@ -128,10 +116,6 @@
 				</div>	
 			</div>			
 			
-			
-                         
-		
-                      
                         <div class="row">
                             <!-- ============================================================== -->
                       
