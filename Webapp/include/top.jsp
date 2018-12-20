@@ -16,9 +16,6 @@
                 
                 
                 
-                
-                
-                
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
