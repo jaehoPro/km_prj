@@ -20,4 +20,16 @@ public class UsersDAO {
 		}
 		return mvo;
 	}
+	
+	public void logdate(String email) {
+		SqlSession conn =null;
+		try { 
+			conn = MyBatisFactory.getFactory().openSession();
+			conn.update("usersNameSpace.logdate", email);
+			conn.commit();
+		} finally {
+			conn.close();
+		}
+		return;
+	}
 }

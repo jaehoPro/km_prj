@@ -34,23 +34,38 @@
                        
                         <!-- 상단 우측 바======================================================================== -->
                      
+								
+		        			
+                         <c:choose>
+		        					<c:when test="${sessionScope.SESS_USERCODE == null}"> 
+		                		<a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그인 &nbsp; </a>
+                           		<a href="pages/sign-up.jsp" id=register style="text-align: center;"><div class="splash-container"></div>회원가입</a>
+		                	</c:when>
+		                	<c:otherwise>
+		                		<a href="/login" id=logout style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그아웃 &nbsp; </a>             		
+		                	</c:otherwise>
+                	</c:choose> 
+                         
                           
-                          <a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그인 &nbsp; </a>
-                           <a href="pages/sign-up.jsp" id=register style="text-align: center;"><div class="splash-container"></div>회원가입</a>
                          
-                         
+                          
                         
                       	
                           
-                        <li class="nav-item dropdown nav-user">
+                        <c:choose>
+		        					<c:when test="${sessionScope.SESS_USERCODE == null}"></c:when>
+		                	<c:otherwise>
+		                	<li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
                              aria-expanded="false">
                             <img src="assets/images/LOGIN.PNG" alt="" class="user-avatar-md rounded-circle" ></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+		                		<div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">Hi,<span class="status"></span><span class="ml-2">DahunPark</span> </h5> 
                                    
-                                </div>
+                                </div>           		
+		                	
+                            
                                 
                                 <a class="dropdown-item" href="#">마이페이지</a>
                                 <br>
@@ -88,6 +103,8 @@
                             </div>
                         </li>
                     </ul>
+                    </c:otherwise>
+                    </c:choose>
                 </div>
             </nav>
 		

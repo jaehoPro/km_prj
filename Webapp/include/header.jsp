@@ -17,5 +17,29 @@
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <title>KOREA MATE</title>
+    
+    <script>
+//<a href="#" onClick="goLoginPage()">
+function userlimit() {
+	alert("회원만 이용가능합니다.");
+	location.href("/pages/login.jsp");
+}
+function confirmlimit() {
+	alert("인증 후 이용가능합니다.");
+	location.href("/pages/login.jsp");
+}
+function hostlimit() {
+	alert("호스트등록 후 이용가능합니다.")
+	location.href("/pages/login.jsp");
+}
+
+//<a href="#" class="dropdown-item has-icon loginCheck">
+$(document).ready(function(){	
+	
+	 /*  $("").click(function(){
+		  
+    }); */
+});       
+</script>
   
 <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
