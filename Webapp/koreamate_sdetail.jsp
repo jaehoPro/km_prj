@@ -12,18 +12,43 @@
 
 <!-- 헤더 css / jquery cdn -->
 <%@ include file="/include/header.jsp"%>
+<script>
+$(document).ready(function(){
+	 $("#ui-datepicker-div").click(function(){
+			console.log($("#datepicker").val())
+	 });
+	 
+	 $("#datepicker2").click(function(){
+			console.log($("#datepicker2").val())
+	 });
+});
+</script>
 
 <script>
 	  $(function() {
 	    $( "#datepicker" ).datepicker();
 	  });
 	
-	</script>
+</script> 
 
 <script>
 	  $(function() {
 	    $( "#datepicker2" ).datepicker();
 	  });
+
+</script>
+
+<script>
+
+function sumAllpay(var checkindate, var checkoutdate, var checkintime, var checkouttime, var daypay, var hourpay){
+	   var sum = 0;
+	   var sum_daypay
+	   sum = ((checkoutdate-checkindate)*24)+(24-checkintime)+checkouttime;
+	   sum_daypay=(sum / 24)*daypay;
+   
+	   return sum_daypay;
+	}
+
 
 </script>
 </head>
@@ -92,65 +117,116 @@
 							<!-- overview  -->
 							<!-- ============================================================== -->
 							<div class="row">
-								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-									<h2>${KEY_LVO.lodging_name}</h2>
-									<p class="lead">${KEY_LVO.lodging_explain}</p>
-									<ul class="list-unstyled arrow">
-										<li>인원 : ${KEY_LVO.max_lodging_people}명</li>
-										<li>방갯수 : ${KEY_LVO.room_cnt} 개</li>
-										<li>욕실 : ${KEY_LVO.bath_cnt} 개</li>
-										<li></li>
-									</ul>
-								</div>
+							
+								<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
+	                                <div class="card">
+	                                    <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
+	                                    <div class="card-body">
+	                                        <h3 class="card-title">${KEY_LVO.lodging_name}</h3>
+	                                        <p class="card-text">${KEY_LVO.lodging_explain} ${KEY_LVO.lodging_explain} ${KEY_LVO.lodging_explain}</p>
+	                                    </div>
+	                                    <div class="card-body">
+		                                    <ul class="list-unstyled">
+		                                        <li> 인원 : ${KEY_LVO.max_lodging_people}명</li>
+												<li> 방갯수 : ${KEY_LVO.room_cnt} 개</li>
+												<li> 욕실 : ${KEY_LVO.bath_cnt} 개</li>
+												<li> 위치 : ${KEY_LVO.location_score_avg}</li>
+												<li> 체크인 : ${KEY_LVO.checkin_score_avg}</li>
+												<li> 청결도 : ${KEY_LVO.clean_score_avg}</li>
+		                                    </ul>
+	                                    </div>
+	                                </div>
+                           		</div>
+								
 
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 									<div class="card">
 										<div class="card-header bg-white text-center p-4 ">
-											<h3 class="mb-1">예약하기</h3>
+											<h3 class="mb-1">총 결제 금액</h3>
 											
 											<h1 class=" mb-1">
 												<span class="font-24">$</span><sub class="display-4">19</sub>
 											</h1>
-											<p>a month per user</p>
-											<a href="#" class="btn btn-secondary mb-2">Start 14 Day
-												Free Trial</a>
+											
+											
 											
 											<p>체크인          Date: <input type="text" id="datepicker">
 									
 											
 											체크인 시간
 													<select class="selectpicker" data-size="5">
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
-														<option>7</option>
-														<option>8</option>
-														<option>9</option>
-														<option>10</option>
-														<option>11</option>
-														<option>12</option>
+														<option>0:00</option>
+														<option>1:00</option>
+														<option>2:00</option>
+														<option>3:00</option>
+														<option>4:00</option>
+														<option>5:00</option>
+														<option>6:00</option>
+														<option>7:00</option>
+														<option>8:00</option>
+														<option>9:00</option>
+														<option>10:00</option>
+														<option>11:00</option>
+														<option>12:00</option>
+														<option>13:00</option>
+														<option>14:00</option>
+														<option>15:00</option>
+														<option>16:00</option>
+														<option>17:00</option>
+														<option>18:00</option>
+														<option>19:00</option>
+														<option>20:00</option>
+														<option>21:00</option>
+														<option>22:00</option>
+														<option>23:00</option>
 													</select>
 											
 											</p>
-											<p>체크아웃         Date: <input type="text" id="datepicker2"></p>
+											<p>체크아웃         Date: <input type="text" id="datepicker2">
+											체크아웃 시간
+													<select class="selectpicker" data-size="5">
+														<option>0:00</option>
+														<option>1:00</option>
+														<option>2:00</option>
+														<option>3:00</option>
+														<option>4:00</option>
+														<option>5:00</option>
+														<option>6:00</option>
+														<option>7:00</option>
+														<option>8:00</option>
+														<option>9:00</option>
+														<option>10:00</option>
+														<option>11:00</option>
+														<option>12:00</option>
+														<option>13:00</option>
+														<option>14:00</option>
+														<option>15:00</option>
+														<option>16:00</option>
+														<option>17:00</option>
+														<option>18:00</option>
+														<option>19:00</option>
+														<option>20:00</option>
+														<option>21:00</option>
+														<option>22:00</option>
+														<option>23:00</option>
+													</select>
+											
+											</p>
 										</div>
 										<div class="card-body">
 											<ul class="list-unstyled bullet-check mb-0">
-												<li>7,000원/시간</li>
-												<li>60,000원/박</li>
+												<li>${KEY_LVO.time_price}원/시간</li>
+												<li>${KEY_LVO.day_price}원/박</li>
 												<li>예약 확정 전에는 요금이 청구 되지 않습니다.</li>
 											</ul>
 										</div>
 										<div class="card-body border-top">
 											<ul class="list-unstyled">
-												<li>60,000 X 2박</li>
-												<li>21,000 X 3시간</li>
+												<li>${KEY_LVO.time_price} X 2박</li>
+												<li>${KEY_LVO.day_price} X 3시간</li>
 												<li>합계 : 81,000원</li>
 											</ul>
-											<a href="#"
+											<a href="javascript:document.myform.submit();"
 												class="btn btn-outline-secondary btn-block btn-lg">예약하기</a>
 										</div>
 									</div>
@@ -204,100 +280,7 @@
 						<!-- ============================================================== -->
 						<!-- select options  -->
 						<!-- ============================================================== -->
-						<div class="row">
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-								<div class="section-block" id="select">
-									<h3 class="section-title">예약하기</h3>
-									<p>Use custom button styles for actions in forms, dialogs,
-										and more with support for multiple sizes, states, and more.</p>
-								</div>
-								<div class="card">
-
-									<h5 class="card-header">Select Example</h5>
-									<div class="card-body">
-										<form>
-											<div class="row">
-												<div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-													<h5>체크인</h5>
-													<div class="form-group">
-														<div class="input-group date" id="datetimepicker4"
-															data-target-input="nearest">
-															<input type="text"
-																class="form-control datetimepicker-input"
-																data-target="#datetimepicker4" />
-															<div class="input-group-append"
-																data-target="#datetimepicker4"
-																data-toggle="datetimepicker">
-																<div class="input-group-text">
-																	<i class="far fa-calendar-alt"></i>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-6 pl-0">
-
-													<h5>체크아웃</h5>
-													<div class="form-group">
-														<div class="input-group date" id="datetimepicker44"
-															data-target-input="nearest">
-															<input type="text"
-																class="form-control datetimepicker-input"
-																data-target="#datetimepicker44" />
-															<div class="input-group-append" data-target="#abc"
-																data-toggle="datetimepicker44">
-																<div class="input-group-text">
-																	<i class="far fa-calendar-alt"></i>
-																</div>
-															</div>
-														</div>
-													</div>
-
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-													<h5 class="card-title">체크인시간</h5>
-													<select class="selectpicker" data-size="5">
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
-														<option>7</option>
-														<option>8</option>
-														<option>9</option>
-														<option>10</option>
-														<option>11</option>
-														<option>12</option>
-													</select>
-												</div>
-												<div class="col-sm-6 pl-0">
-													<h5>체크아웃시간</h5>
-													<select class="selectpicker">
-														<option title="Combo 1">1</option>
-														<option title="Combo 2">2</option>
-														<option title="Combo 3">3</option>
-													</select>
-
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0"></div>
-												<div class="col-sm-6 pl-0">
-													<p class="text-right">
-														<button type="submit" class="btn btn-space btn-primary">예약하기</button>
-													</p>
-												</div>
-											</div>
-
-										</form>
-									</div>
-
-								</div>
-							</div>
-						</div>
+						
 						<!-- ============================================================== -->
 						<!-- end select options  -->
 						<!-- ============================================================== -->
@@ -362,6 +345,11 @@
 	<!-- ============================================================== -->
 	<!-- end main wrapper -->
 	<!-- ============================================================== -->
+	<form name="myform" method="post" action="/koreamate_payment.jsp">
+		<input type="hidden" name="lodging_name" value="${KEY_LVO.lodging_name}">
+	</form>
+	
+	
 	<!-- Optional JavaScript -->
 	   <!-- <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script> -->
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>

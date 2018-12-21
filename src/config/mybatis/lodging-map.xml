@@ -28,7 +28,12 @@
 		<result property="lodging_name" 			column="lodging_name" />
 		<result property="lodging_condition" 		column="lodging_condition" />
 		<result property="usercode" 				column="usercode" />
+		
+		<result property="clean_score_avg" column="clean_score_avg" />
+		<result property="location_score_avg" column="location_score_avg" />
+		<result property="checkin_score_avg" column="checkin_score_avg" />
 	</resultMap>
+	
 	<resultMap id="reviewMap" type="com.km.lodging.ReviewScoreVO">
 			<id property="review_seq" column="review_seq" />
 			<result property="review_content" column="review_content" />
@@ -38,6 +43,7 @@
 			<result property="introduction" column="introduction" />
 			<result property="user_pic_path" column="user_pic_path" />
 			<result property="user_pic_oriname" column="user_pic_oriname" />
+
 	</resultMap>
 	
 	
@@ -46,20 +52,28 @@
  	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_nation,addr_city,addr_state,addr_road,addr_unit,
  	addr_num,lodging_explain,out_in_interval,checkin_possible_start,checkin_possible_end,time_price,day_price,lodging_name,lodging_condition,usercode </sql>
  	
+ 	<!-- 숙소정보-->
  	<select id="selectOneLodging" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
-			select <include refid="commonSelect"  /><!-- 파라미터에는 맵 없음 -->
-			from lodging
-			where lodging_seq=#{lodging_seq}
+			select <include refid="commonSelect"  />, 
+		    (select avg(clean_score) from review_score	where lodging_seq=2 group by lodging_seq) as clean_score_avg, 
+		    (select avg(location_score) from review_score	where lodging_seq=2 group by lodging_seq) as location_score_avg, 
+		    (select avg(checkin_score) from review_score	where lodging_seq=2 group by lodging_seq) as checkin_score_avg
+    		from lodging where lodging_seq=#{lodging_seq}
  	</select>
- 	
+ 	<!-- 숙소 리뷰 리스트 불러오기 -->
  	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="reviewMap">
 			select r.review_seq, r.review_content, r.review_regdate,u.l_name,u.f_name, u.introduction, u.user_pic_path, u.user_pic_oriname
 			from review_score r, users u
 			where r.usercode = u.usercode
 				 and r.lodging_seq=#{lodging_seq}
  	</select>
- 	
- 	
+ 	<!-- 숙소평점 -->
+<!--  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+			select lodging_seq, avg(clean_score), avg(location_score),avg(checkin_score)
+			from review_score
+			where lodging_seq=#{lodging_seq}
+			group by lodging_seq
+ 	</select> -->
  	 	
  		
 	

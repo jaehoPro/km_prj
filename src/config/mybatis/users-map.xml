@@ -37,7 +37,7 @@
 	</resultMap>
 	
 	
-	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
+	<resultMap id="cardMap" type="com.km.users.CardVO">
 	<id property="usercode" column="usercode" />
 		<result property="cardname" column="cardname" />
 		<result property="cardowner" column="cardowner" />
@@ -48,9 +48,10 @@
 	
 	
 	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
-		select usercode, confirm, grade from users
+		select usercode, confirm, grade, f_name, l_name, user_pic_path, user_pic_oriname, user_pic_rename 
+		from users
 		where email = #{email}
-		and password = #{password}
+		and password =  #{password}
 	</select>
 	
 	<update id="logdate" parameterType="String">

@@ -49,7 +49,7 @@
                             <div class="error-section-content">
                                 <h1 class="display-3">Page Not Found</h1>
                                 <p> The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-                                <a href="../index.html" class="btn btn-secondary btn-lg">Back to homepage</a>
+                                <a href="../index.jsp" class="btn btn-secondary btn-lg">Back to homepage</a>
                             </div>
                         </div>
                     </div>

@@ -76,12 +76,12 @@
                         
 						 
 						<div class="card-body border-top">
-						<h5>목적지</h5>
+						<h5>목적지 ${sessionScope.SESS_LNAME }${sessionScope.SESS_FNAME }</h5>
 						<div id="custom-search2" class="top-search-bar">
                                 <input class="form-control2" type="text" placeholder="Search..">
                             </div>
 						
-                                    <h5>체크인</h5>
+                                    <h5>체크인 ${sessionScope.SESS_FNAME }</h5>
                                     <div class="form-group">
                                         <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" />

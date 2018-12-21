@@ -57,14 +57,23 @@ public class DBMyBaitsManager {
       vo.setEmail("grz@koreamate.com");
       vo.setPassword("0000");
 //      vo.setUserName("오알엠");
-   
+    System.out.println("yessssss");
       
-      UsersVO res = conn.selectOne("usersNameSpace.login", vo);
-      System.out.println(res.getGrade());
+      vo = conn.selectOne("usersNameSpace.login", vo);
+      
+      	System.out.println(vo.getUsercode());
+		System.out.println(vo.getGrade());
+		System.out.println(vo.getConfirm());
+		System.out.println(vo.getF_name());
+		System.out.println(vo.getL_name());
+		System.out.println(vo.getUser_pic_path());
+		System.out.println(vo.getUser_pic_oriname());
+		System.out.println(vo.getUser_pic_rename());
     
        
       
 //      conn.rollback();
+     
 //
 //
 //      MemberVO lvo = new MemberVO();

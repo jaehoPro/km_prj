@@ -33,6 +33,7 @@
 	
 	<!-- mapper --> 
 	<mappers>
+		<mapper resource="config/mybatis/users-map.xml" />
 		<mapper resource="config/mybatis/lodging-map.xml" />
 		
 	</mappers>

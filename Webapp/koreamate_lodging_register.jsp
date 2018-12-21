@@ -5,11 +5,19 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
 
 <!-- 헤더 css / jquery cdn -->
 <%@ include file="/include/header.jsp"%>
 
 
+=======
+ 
+	<!-- 헤더 css / jquery cdn -->
+  	<%@ include file="/include/header.jsp" %>
+  
+    
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 </head>
 
 <body>
