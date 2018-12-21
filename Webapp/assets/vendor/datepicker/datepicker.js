@@ -28,6 +28,14 @@ jQuery(document).ready(function($) {
             format: 'LT'
         });
     }
+    
+    if ($("#datetimepicker33").length) {
+
+        $('#datetimepicker33').datetimepicker({
+            format: 'LT'
+        });
+    }
+
 
     if ($("#datetimepicker4").length) {
         $('#datetimepicker4').datetimepicker({
