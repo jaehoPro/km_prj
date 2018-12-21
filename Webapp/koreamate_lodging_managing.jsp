@@ -60,8 +60,7 @@
                                             <div class="user-avatar float-xl-left pr-4 float-none">
                                             
                                             
-                                           
-                                           
+                                   
                                             
                                                 <img src="assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
                                                     </div>
