@@ -23,7 +23,7 @@ public class Users_registServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("로그인눌렀");
+		System.out.println("회원가입눌렀");
 		
 		String email = (String) request.getAttribute("email");
 		String password = (String) request.getAttribute("password");

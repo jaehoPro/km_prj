@@ -37,7 +37,7 @@
 	</resultMap>
 	
 	
-	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
+	<resultMap id="cardMap" type="com.km.users.CardVO">
 	<id property="usercode" column="usercode" />
 		<result property="cardname" column="cardname" />
 		<result property="cardowner" column="cardowner" />

@@ -28,19 +28,20 @@ public class Users_loginoutServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-		System.out.println("로그인");
+		System.out.println("로그인11");
 		//${param.userid} 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		System.out.println(email + password);
 		UsersVO mvo = new UsersVO();
 		mvo.setEmail(email);
 		mvo.setPassword(password);
 		
 		UsersDAO dao = new UsersDAO();
 		
-		mvo = dao.login(mvo);
+		//mvo = dao.login(mvo);
 		
-		System.out.println(mvo.getGrade());
+		//System.out.println(mvo.getGrade());
 		
 		
 	}
