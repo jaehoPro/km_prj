@@ -4,20 +4,125 @@
 <!doctype html>
 <html lang="en">
 
+<script>
+
+
+//jQuery 지원 : 첨부파일 미리보기 ---------------------
+$(document).ready(function(){
+$("#mainPic").on("change", myFilePreviewFunc1); //동적바인딩 버튼 추가 할때마다 동적으로 할당된것은 이것으로 해야 버튼이 먹는다
+$("#addtionalPic").on("change", myFilePreviewFunc2); //동적바인딩 버튼 추가 할때마다 동적으로 할당된것은 이것으로 해야 버튼이 먹는다
+//$("#pname").change(function(){
+function myFilePreviewFunc1(e) {
+      $("#prev-img-div1").empty();  // 내용만 지워라   remove() --> div태그를 없앤다.
+      var files = e.target.files;           //[object FileList]가 전체로 들어온다
+      //FileList into an array 
+      //var fileArr = Array.prototype.slice.call(files);         
+      var fileArr = Array.from(files); //[object File],[object File],[object File]
+         
+      /* if(fileArr.length > 3) {  //files.length
+            alert("이미지 첨부는 최대 3개만 가능합니다.");
+            $("#pname").val("");
+            return false;
+      } */
+      
+      var fileSize = 0;
+      fileArr.forEach(function(f) {   //fileArr forEach를 이렇게 돌리네
+            fileSize += f.size;
+      });
+      if(fileSize > 10*1024*1024) {
+            alert("이미지 첨부는 최대 10MB만 가능합니다.");
+            $("#mainPic").val("");
+            return false;
+      }
+      
+      
+      
+      fileArr.forEach(function (f) {
+         if(!f.type.match("image.*")) {
+               alert("이미지 첨부만 가능합니다.");
+               $("#mainPic").val("");
+            
+               return false;
+         } 
+         
+         var reader = new FileReader();
+         var htmlStr = "";
+         reader.onload = function(e) {
+               htmlStr += "<img src='"+e.target.result+"' style='height:200px;width:200px;'> ";
+               $("#prev-img-div1").append(htmlStr);
+         
+               //alert(htmlStr)
+         }
+         reader.readAsDataURL(f);  //htmlStr 읽기위한
+      });
+   
+      //<input id="pname" type="file" class="form-control" name="pname" multiple> multiple추가만 하면된다.
+}
+
+function myFilePreviewFunc2(e) {
+   
+   $("#prev-img-div2").empty();  // 내용만 지워라   remove() --> div태그를 없앤다.
+   var files = e.target.files;           //[object FileList]가 전체로 들어온다
+   //FileList into an array 
+   //var fileArr = Array.prototype.slice.call(files);         
+   var fileArr = Array.from(files); //[object File],[object File],[object File]
+      
+   /* if(fileArr.length > 3) {  //files.length
+         alert("이미지 첨부는 최대 3개만 가능합니다.");
+         $("#pname").val("");
+         return false;
+   } */
+   
+   var fileSize = 0;
+   fileArr.forEach(function(f) {   //fileArr forEach를 이렇게 돌리네
+         fileSize += f.size;
+   });
+   if(fileSize > 10*1024*1024) {
+         alert("이미지 첨부는 최대 10MB만 가능합니다.");
+      
+         $("#addtionalPic").val("");
+         return false;
+   }
+   
+   
+   
+   fileArr.forEach(function (f) {
+      if(!f.type.match("image.*")) {
+            alert("이미지 첨부만 가능합니다.");
+         
+            $("#addtionalPic").val("");
+            return false;
+      } 
+      
+      var reader = new FileReader();
+      var htmlStr = "";
+      reader.onload = function(e) {
+            htmlStr += "<img src='"+e.target.result+"' style='height:150px;width:150px;'> ";
+      
+            $("#prev-img-div2").append(htmlStr);
+            //alert(htmlStr)
+      }
+      reader.readAsDataURL(f);  //htmlStr 읽기위한
+   });   
+   //<input id="pname" type="file" class="form-control" name="pname" multiple> multiple추가만 하면된다.
+}
+
+	$("#regBtn").click(function(){
+	   	$("#register").submit();
+	});
+	
+/* documentready */
+});
+</script>
+
 <head>
-<<<<<<< HEAD
+
 
 <!-- 헤더 css / jquery cdn -->
 <%@ include file="/include/header.jsp"%>
 
 
-=======
- 
-	<!-- 헤더 css / jquery cdn -->
-  	<%@ include file="/include/header.jsp" %>
-  
-    
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
+
 </head>
 
 <body>
@@ -55,10 +160,8 @@
 
 									<div class="row">
 										<div class="card-header ">
-											<h5>
-												<br>Whoni'sKosmoRoom</br>
-											</h5>
-											<div class="card-body border-top">
+
+											<div class="card-body ">
 												<h2 class="card-title mb-2">등록하실 숙소 종류는 무엇인가요?</h2>
 												<form id="validationform" data-parsley-validate=""
 													novalidate="">
@@ -101,8 +204,8 @@
 
 
 													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label"><h7>최대 숙박 인원</h7></label>
+														<label class="col-12 col-sm-3 col-form-label"><h7>최대
+															숙박 인원</h7></label>
 
 														<div class="quantity">
 															<input type="number" min="1" max="999" step="1" value="1">
@@ -111,17 +214,115 @@
 
 													</div>
 
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+													<h2 class="card-title mb-2">
+														<br>사용할 수 있는 침대는 몇 개인가요?</br>
+													</h2>
+
 
 													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Max
-															Length</label>
-														<div class="col-12 col-sm-8 col-lg-6">
+														<label class="col-12 col-sm-3 col-form-label"><h7>침대</h7></label>
+
+														<div class="quantity">
+															<input type="number" min="1" max="10" step="1" value="1">
+														</div>
+
+
+													</div>
+
+													<h2 class="card-title mb-2">
+														<br>사용할 수 있는 욕실은 몇 개인가요?</br>
+													</h2>
+
+
+													<div class="form-group row">
+														<label class="col-12 col-sm-3 col-form-label"><h7>욕실</h7></label>
+
+														<div class="quantity">
+															<input type="number" min="1" max="10" step="1" value="1">
+														</div>
+
+
+													</div>
+
+													<h2 class="card-title mb-2">
+														<br>숙소의 위치를 알려주세요.</br>
+													</h2>
+
+
+													<div class="form-group row">
+														<div class="col-sm-8 col-lg-5 mb-3 mb-sm-0">
+															<h7>시/도</h7>
+
 															<input type="text" required="" data-parsley-maxlength="6"
-																placeholder="Max 6 chars." class="form-control">
+																placeholder="서울 특별시" class="form-control">
+														</div>
+														<div class="col-sm-8 col-lg-5">
+															<h7>시/군</h7>
+
+															<input type="text" required="" data-parsley-maxlength="6"
+																placeholder="동작구" class="form-control">
+
 														</div>
 													</div>
+
+
+													<div class="form-group row">
+
+														<div class="col-sm-8 ">
+															<h7>도로명/건물번호/아파트 이름/건물 이름</h7>
+
+															<input type="text" required="" data-parsley-maxlength="6"
+																placeholder="사당로23바길 9" class="form-control">
+														</div>
+													</div>
+
+													<div class="form-group row">
+
+														<div class="col-sm-8 ">
+															<h7>동호수(선택사항)</h7>
+
+															<input type="text" required="" data-parsley-maxlength="6"
+																placeholder="101동 806호" class="form-control">
+														</div>
+													</div>
+
+													<div class="form-group row">
+
+														<div class="col-sm-8 ">
+															<h7>우편번호</h7>
+
+															<input type="text" required="" data-parsley-maxlength="6"
+																placeholder="156-800" class="form-control">
+														</div>
+													</div>
+
+													<h2 class="card-title mb-2">
+														<br>게스트에게 숙소의 모습을 보여주세요.</br>
+													</h2>
+
+													<div class="control-group">
+														<label class="control-label"><strong><font
+																color="red">*</font> 대표사진</strong> </label>
+														<div class="controls">
+															<input class="input-file" id="mainPic" name="mainPic"
+																type="file">
+
+															<div id="prev-img-div1"></div>
+
+														</div>
+													</div>
+
+													<div class="control-group">
+														<label class="control-label"><strong>기타사진</strong>
+														</label>
+														<div class="controls">
+															<input class="input-file" id="addtionalPic"
+																name="addtionalPic" Multiple type="file">
+															<div id="prev-img-div2"></div>
+														</div>
+													</div>
+
 													<div class="form-group row">
 														<label
 															class="col-12 col-sm-3 col-form-label text-sm-right">Range
@@ -523,39 +724,41 @@
 		<script src="assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
 		<script src="assets/vendor/datepicker/datepicker.js"></script>
 		<script>
-        jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
-        jQuery('.quantity').each(function() {
-            var spinner = jQuery(this),
-                input = spinner.find('input[type="number"]'),
-                btnUp = spinner.find('.quantity-up'),
-                btnDown = spinner.find('.quantity-down'),
-                min = input.attr('min'),
-                max = input.attr('max');
+			jQuery(
+					'<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>')
+					.insertAfter('.quantity input');
+			jQuery('.quantity').each(
+					function() {
+						var spinner = jQuery(this), input = spinner
+								.find('input[type="number"]'), btnUp = spinner
+								.find('.quantity-up'), btnDown = spinner
+								.find('.quantity-down'), min = input
+								.attr('min'), max = input.attr('max');
 
-            btnUp.click(function() {
-                var oldValue = parseFloat(input.val());
-                if (oldValue >= max) {
-                    var newVal = oldValue;
-                } else {
-                    var newVal = oldValue + 1;
-                }
-                spinner.find("input").val(newVal);
-                spinner.find("input").trigger("change");
-            });
+						btnUp.click(function() {
+							var oldValue = parseFloat(input.val());
+							if (oldValue >= max) {
+								var newVal = oldValue;
+							} else {
+								var newVal = oldValue + 1;
+							}
+							spinner.find("input").val(newVal);
+							spinner.find("input").trigger("change");
+						});
 
-            btnDown.click(function() {
-                var oldValue = parseFloat(input.val());
-                if (oldValue <= min) {
-                    var newVal = oldValue;
-                } else {
-                    var newVal = oldValue - 1;
-                }
-                spinner.find("input").val(newVal);
-                spinner.find("input").trigger("change");
-            });
+						btnDown.click(function() {
+							var oldValue = parseFloat(input.val());
+							if (oldValue <= min) {
+								var newVal = oldValue;
+							} else {
+								var newVal = oldValue - 1;
+							}
+							spinner.find("input").val(newVal);
+							spinner.find("input").trigger("change");
+						});
 
-        });
-        </script>
+					});
+		</script>
 </body>
 
 </html>
