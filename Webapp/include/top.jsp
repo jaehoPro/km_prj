@@ -39,7 +39,7 @@
                          <c:choose>
 		        					<c:when test="${sessionScope.SESS_USERCODE == null}"> 
 		                		<a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그인 &nbsp; </a>
-                           		<a href="pages/sign-up.jsp" id=register style="text-align: center;"><div class="splash-container"></div>회원가입</a>
+                           		<a href="pages/regist.jsp" id=register style="text-align: center;"><div class="splash-container"></div>&nbsp;회원가입&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 		                	</c:when>
 		                	<c:otherwise>
 		                		<a href="/login" id=logout style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그아웃 &nbsp; </a>             		

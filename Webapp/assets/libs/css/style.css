@@ -243,6 +243,8 @@ label {
 	font-size: 15px;
 	color: #71748d;
 }
+
+
 /* search box ----------------------------------------------------*/
 .form-control {
 	display: block;
@@ -258,7 +260,7 @@ label {
 
 .form-control2 {
 	display: block;
-	width: 200px;
+	width: 650px;
 	font-size: 18px;
 	line-height: 1.42857143;
 	color: #71748d;
@@ -304,19 +306,12 @@ label {
 	background-image: none;
 	border: 1px solid #d2d2e4;
 	border-radius: 2px;
+	padding: 4px 4px 4px 0;
+	/* margin:10px 20px 30px 40px; */
 }
 
-/* .form-control6 {
-	display: block;
-	width: 60px;
-	font-size: 14px;
-	line-height: 1.42857143;
-	color: #71748d;
-	background-color: #fff;
-	background-image: none;
-	border: 1px solid #d2d2e4;
-	border-radius: 2px;
-}  */
+
+
 
 .form-control:focus {
 	color: #71748d;
@@ -3387,6 +3382,8 @@ btn-link
 .card-body {
 	
 }
+
+
 
 .card-text {
 	
@@ -7279,6 +7276,7 @@ Media Query
 		padding: 17px 29px;
 	}
 }
+
 
 }
 
