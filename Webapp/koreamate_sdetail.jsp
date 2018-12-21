@@ -29,7 +29,7 @@ $(document).ready(function(){
 	    $( "#datepicker" ).datepicker();
 	  });
 	
-</script>
+</script> 
 
 <script>
 	  $(function() {

@@ -105,7 +105,7 @@
                                             </label>
                                             <input class="form-control currency-inputmask" id="currency-mask" type="text" im-insert="true">
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div class="card-body border-top">
                                         <div class="form-group">
                                             <label>Currency<small class="text-muted">$9999</small>
