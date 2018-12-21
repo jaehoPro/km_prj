@@ -122,7 +122,7 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
 	                                <div class="card">
 	                                    <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
 	                                    <div class="card-body">
-	                                        <h3 class="card-title">${KEY_LVO.lodging_name}</h3>
+	                                        <h3 class="card-title">${KEY_L$VO.lodging_name}</h3>
 	                                        <p class="card-text">${KEY_LVO.lodging_explain} ${KEY_LVO.lodging_explain} ${KEY_LVO.lodging_explain}</p>
 	                                    </div>
 	                                    <div class="card-body">
