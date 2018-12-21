@@ -9,7 +9,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <title>회원가입</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -42,13 +42,9 @@
     <form class="splash-container">
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-1">Registrations Form</h3>
-                <p>Please enter your user information.</p>
+                <h3 class="mb-1">회원가입</h3>
             </div>
             <div class="card-body">
-                <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Username" autocomplete="off">
-                </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" autocomplete="off">
                 </div>
@@ -62,6 +58,9 @@
                     <input class="form-control form-control-lg" required="" placeholder="비밀번호 확인">
                 </div>
                   <hr color="#e6e6f2">
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" name="f_name" required="" placeholder="Username" autocomplete="off">
+                </div>
                   
                   
                   <label class="custom-control custom-radio custom-control-inline">

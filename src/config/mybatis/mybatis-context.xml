@@ -31,10 +31,9 @@
 		</environment>
 	</environments>
 	-->
-	<!-- mapper
+	
 	<mappers>
 		<mapper resource="user-map.xml" />		
 	</mappers>
-	 --> 
 
 </configuration>
