@@ -19,9 +19,15 @@ public class LodgingVO {
 	private int checkin_possible_end;
 	private int time_price;
 	private int day_price;
+	
 	private String lodging_name;
 	private String lodging_condition;
 	private String usercode;
+	
+	///////////////////리뷰평점을 저장하는 변수
+	private double clean_score_avg;
+	private double location_score_avg;
+	private double checkin_score_avg;
 	
 	
 	
@@ -150,6 +156,25 @@ public class LodgingVO {
 	}
 	public void setUsercode(String usercode) {
 		this.usercode = usercode;
+	}
+	
+	public double getClean_score_avg() {
+		return clean_score_avg;
+	}
+	public void setClean_score_avg(double clean_score_avg) {
+		this.clean_score_avg = clean_score_avg;
+	}
+	public double getLocation_score_avg() {
+		return location_score_avg;
+	}
+	public void setLocation_score_avg(double location_score_avg) {
+		this.location_score_avg = location_score_avg;
+	}
+	public double getCheckin_score_avg() {
+		return checkin_score_avg;
+	}
+	public void setCheckin_score_avg(double checkin_score_avg) {
+		this.checkin_score_avg = checkin_score_avg;
 	}
 	
 }

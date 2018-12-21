@@ -11,6 +11,7 @@ public class ReviewScoreVO {
 	private String review_content;
 	private String review_regdate;
 	private String usercode;
+	
 	///////////////////////////////////////////////////
 	
 	//---------------users table---------------
