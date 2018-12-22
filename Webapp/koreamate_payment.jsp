@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
-		prefix="c" %>   
+		prefix="c" %>
+		
+ <%
+ 	String lodging_name = request.getParameter("lodging_name").toString();
+ %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 	<!-- 헤더 css / jquery cdn -->
   	<%@ include file="/include/header.jsp" %>
+
   
-    
 </head>
 
 <body>
@@ -67,40 +70,54 @@
                         <!-- basic form  -->
                         <!-- ============================================================== -->
                         <div class="row">
-                        	<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
-                            </div>
                         	
-                            <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
+                        	
+                            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div class="card">
                                     <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <h3 class="card-title">Kitchen Sink</h3>
+                                        <h3 class="card-title"><%=lodging_name%></h3>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Cras justo odio</li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        <li class="list-group-item">게스트 : 2명</li>
+                                        <li class="list-group-item">2018년 1월 5일 ~ 2019년 1월 6일</li>
+                                        <li class="list-group-item">총 결제 금액 : 얼마</li>
                                     </ul>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Card link</a>
-                                        <a href="#" class="card-link">Another link</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
-                           	<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
+                           	<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        Card Header
+                                    	결제정보 입력
                                     </div>
-                                    <div class="card-body">
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">예약완료</a>
+                                    
+                                    <div class="card-body border-top">
+                                        <div class="form-group">
+                                            <label>Credit Card Number <small class="text-muted">9999 9999 9999 9999</small></label>
+                                            <input class="form-control cc-inputmask" id="cc-mask" type="text" im-insert="true">
+                                        </div>
                                     </div>
+                                    <div class="card-body border-top">
+                                        <div class="form-group">
+                                            <label>Currency<small class="text-muted">$9999</small>
+                                            </label>
+                                            <input class="form-control currency-inputmask" id="currency-mask" type="text" im-insert="true">
+                                        </div>
+                                    </div> 
+                                    <div class="card-body border-top">
+                                        <div class="form-group">
+                                            <label>Currency<small class="text-muted">$9999</small>
+                                            </label>
+                                            <input class="form-control currency-inputmask" id="currency-mask" type="text" im-insert="true">
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><a href="#" class="btn btn-primary">예약완료</a></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
-                            </div>
+                           
                             
                         </div>
                         

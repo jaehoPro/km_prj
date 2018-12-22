@@ -17,6 +17,7 @@ public class SelectedLodging extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LodgingVO lvo = new LodgingVO();
+				
 		ArrayList<ReviewScoreVO> reviewlist = new ArrayList<ReviewScoreVO>();
 		lvo.setLodging_seq(2);			//임의의 값 넣어주기
 		
@@ -30,8 +31,8 @@ public class SelectedLodging extends HttpServlet {
 		request.setAttribute("KEY_REVIEW", reviewlist);
 		request.setAttribute("KEY_REVIEW_COUNT", reviewlist.size());
 		
-		System.out.println(reviewlist.get(0).getReview_content());
-		request.getRequestDispatcher("seoulmate_sdetail.jsp").forward(request, response);
+		System.out.println(lvo.getCheckin_score_avg());
+		request.getRequestDispatcher("koreamate_sdetail.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

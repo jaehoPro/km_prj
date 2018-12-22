@@ -1,45 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!doctype html>
 <html lang="en">
- 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>회원가입</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <style>
-    html,
-    body {
-        height: 100%;
-    }
 
-    body {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-        align-items: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    </style>
+<head>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>회원가입</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+<link href="../assets/vendor/fonts/circular-std/style.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="../assets/libs/css/style.css">
+<link rel="stylesheet"
+	href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+
+<script>
+   function validate() {
+	   var radio_val = $('input[name=radio_s]:checked').val();
+	   
+	  
+	   
+	   
+	   //-------------------------
+       if(reg.email.value=="") {
+           alert("이메일을 입력해 주세요");
+           reg.email.focus();
+           return false;
+       }
+       
+       if(reg.repassword.value=="") {
+           reg.alert("비밀번호을 입력해 주세요");
+           reg.password.focus();
+           return false;
+       }
+       if(reg.repassword.value=="") {
+           alert("비밀번호확인을 입력해 주세요");
+           reg.password.focus();
+           return false;
+       }
+	
+    	
+       if(reg.password.value != reg.repassword.value) {
+           alert("비밀번호가 다릅니다. 다시 확인해 주세요.");
+           reg.checkpw.value = "";
+           reg.checkpw.focus();
+           return false;
+       }
+
+       if(reg.f_name.value=="") {
+           alert("이름을 입력해 주세요");
+           reg.f_name.focus();
+           return false;
+       }
+       
+       if(reg.l_name.value=="") {
+           alert("성을 입력해 주세요");
+           reg.l_name.focus();
+           return false;
+       }
+
+       
+       if(radio_val ==""){
+    	   alert("성별을 선택해주세요");
+    	   return false;
+       }
+       
+       if(${"#birth_y.value"}=="" || reg.birth_m.value=="" || reg.birth_d.value==""){
+    	   alert("생년월일을 선택해주세요")
+    	   return false;
+       }
+       
+       if(${"#introduction.value"}=="") {
+           alert("자기소개를 적어주세요");
+           reg.introduction.focus();
+           return false;
+       }
+       
+       
+      
+       return true;
+   }
+</script>
+
+
+
+	
+	
+<style>
+html, body {
+	height: 100%;
+}
+
+body {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+</style>
 </head>
-<!-- ============================================================== -->
-<!-- signup form  -->
-<!-- ============================================================== -->
 
 <body>
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
-    <form class="splash-container">
+    <form class="splash-container" name="reg" id="reg" onsubmit="return validate();" action="/regist" method="post">
+    
         <div class="card">
             <div class="card-header">
                 <h3 class="mb-1">회원가입</h3>
@@ -47,8 +122,6 @@
             <div class="card-body">
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="email" name="email" id="email" required="" placeholder="이메일 입력" autocomplete="off">
-                </div>
-                <div class="form-group">
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" required="" id="password" placeholder="비밀번호 설정">
@@ -67,27 +140,19 @@
                   
                   
                   <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">남성</span>
+                                                <input type="radio" name="radio_s" value="남성" checked="" class="custom-control-input"><span class="custom-control-label">남성</span>
                                             </label>
-                <input type="radio" name="radio-inline" checked="" class="custom-control-input">                            
+                <input type="radio" name="radio_s" checked="" class="custom-control-input">                            
                   
                 <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">여성</span>
+                                                <input type="radio" name="radio_s" value="여성" class="custom-control-input"><span class="custom-control-label">여성</span>
                                             </label>
-                 <input type="radio" name="radio-inline" class="custom-control-input"> 
+                 <input type="radio" name="radio_s" class="custom-control-input"> 
                  
-                 <div class="form-group">
-                    <input class="form-control form-control-lg" required="" placeholder="전화번호">
-                </div>
-                 <div class="form-group">
-                   <!--  <input class="form-control " required="" placeholder="자기소개를 입력하세요" > -->
-                    <textarea required="" class="form-control4" placeholder="자기소개를 입력하세요"></textarea>
-                </div>
-                
-                <div class="card-body border-top">
+                 
                                         <h3 class="font-16">생년월일</h3>
-                                        <select class="form-control5">
-                                            <option selected="">년</option>
+                                        <select>
+                                            <option selected="" id="birth_y">년</option>
                                                 <option value="2018">2018</option>
 											    <option value="2017">2017</option>
 											    <option value="2016">2016</option>
@@ -202,9 +267,9 @@
 											    <option value="1907">1907</option>
 											    <option value="1906">1906</option>
 											    <option value="1905">1905</option>
-                                        </select>
+                                        </select><label>년</label>
                                         
-                                        <select class="form-control5">
+                                        <select  id="birth_m">
                                             <option selected="">월</option>
 											<option value='1'>1</option>
 											<option value='2'>2</option>
@@ -218,10 +283,10 @@
 											<option value='10'>10</option>
 											<option value='11'>11</option>
 											<option value='12'>12</option>
-                                        </select>
+                                        </select><label>월</label>
                                         
                                         
-                                        <select class="form-control5">
+                                        <select  id="birth_d">
                                             <option selected="">일</option>
                                             <option value='1'>1</option>
 											<option value='2'>2</option>
@@ -254,61 +319,58 @@
 											<option value='29'>29</option>
 											<option value='30'>30</option>
 											<option value='31'>31</option>
-                                        </select>
-                                    </div>
+                                        </select><label>일</label>
+                                                                        
+                 
+                 <div class="card-body border-top">
+                  <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" name="nation" id="nation" required="" placeholder="소속국가" autocomplete="off">
+                </div>
+                 
+                 <div class="form-group">
+                    <input class="form-control form-control-lg" required="" id="tel" placeholder="전화번호">
+                </div>
+                 <div class="form-group">
+                   <!--  <input class="form-control " required="" placeholder="자기소개를 입력하세요" > -->
+                    <textarea required="" class="form-control4"  id="introduction" placeholder="자기소개를 입력하세요"></textarea>
+                </div>
+                
+                
                                     
                                     
                                       <div class="control-group">
             <label class="control-label"><strong> 프로필사진</strong> </label>
             <div class="controls">
-              <input class="input-file" id="mainPic" name="mainPic" type="file">
+              <input class="input-file" id="profilePic" name="profilePic" type="file">
              
               <div id="prev-img-div1"></div>
 			
             </div>
           </div>
           <br>
-
-		  <div class="control-group">
-            <label class="control-label"><strong>기타사진</strong> </label>
-            <div class="controls">
-              <input class="input-file" id="addtionalPic" name="addtionalPic" Multiple type="file">
-              <div id="prev-img-div2"></div>
-            </div>
-          </div>
-          <br>
-          
-                                    
-                                   <!--  <label class="btn btn-outline-light btn-upload m-b-0" for="inputImage" title="Upload image file">
-                                <input type="file" class="sr-only" id="inputImage" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
-                                <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="" data-original-title="Import image with Blob URLs">
-                          <span class="fa fa-upload"></span>
-                                </span>
-                            </label> -->
-                  
-                <div class="form-group pt-2">
-                    <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
-                </div>
-                <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
-                    </label>
-                </div>
-                <div class="form-group row pt-0">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                        <button class="btn btn-block btn-social btn-facebook " type="button">Facebook</button>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <button class="btn  btn-block btn-social btn-twitter" type="button">Twitter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer bg-white">
-                <p>Already member? <a href="#" class="text-secondary">Login Here.</a></p>
-            </div>
-        </div>
-    </form>
+</div>
+				<div class="form-group pt-2">
+					<button class="btn btn-block btn-primary" type="submit">가입완료</button>
+				</div>
+				<div class="form-group row pt-0">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+						<button class="btn btn-block btn-social btn-facebook "
+							type="button">Facebook</button>
+					</div>
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<button class="btn  btn-block btn-social btn-twitter"
+							type="button">Twitter</button>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-white">
+				<p>
+					이미 회원이신가요? <a href="./login.jsp" class="text-secondary">로그인 하기</a>
+				</p>
+			</div>
+		</div>
+	</form>
 </body>
 
- 
+
 </html>

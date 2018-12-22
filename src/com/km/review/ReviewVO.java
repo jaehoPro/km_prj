@@ -3,7 +3,7 @@ package com.km.review;
 public class ReviewVO {
 	private String review_seq;
 	private String lodging_seq;	
-	private String reserve_seq;
+	private int reserve_seq;
 	private int clean_score;
 	private int location_score;
 	private int checkin_score;
@@ -23,10 +23,10 @@ public class ReviewVO {
 	public void setLodging_seq(String lodging_seq) {
 		this.lodging_seq = lodging_seq;
 	}
-	public String getReserve_seq() {
+	public int getReserve_seq() {
 		return reserve_seq;
 	}
-	public void setReserve_seq(String reserve_seq) {
+	public void setReserve_seq(int reserve_seq) {
 		this.reserve_seq = reserve_seq;
 	}
 	public int getClean_score() {

@@ -23,13 +23,14 @@ public class Users_registServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("회원가입눌렀");
+		System.out.println("회원가입왔쪄염 뿌우");
 		
-		String email = (String) request.getAttribute("email");
+		
+		String email = (String)request.getAttribute("email");
 		String password = (String) request.getAttribute("password");
 		
+		System.out.println(email + " : " + password);
 		
-		UsersDAO dao = new UsersDAO();
 		
 		
 		

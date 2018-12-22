@@ -24,7 +24,7 @@ public class UsersVO {
 	private String user_dropdate;
 	private String regpath;
 	
-	
+		
 	public String getUsercode() {
 		return usercode;
 	}

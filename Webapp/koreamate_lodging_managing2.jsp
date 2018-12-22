@@ -91,6 +91,7 @@
                                     
                                 </div>
                                 
+                                
                                 <div class="card-body border-top">
                                     <h2 class="card-title mb-2">위치</h2> 
                                     <p class="card-text">서울시 동작구 사당3동</p>  

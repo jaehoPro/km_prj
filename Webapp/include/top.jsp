@@ -10,7 +10,7 @@
 		<!-- 상단 검색창 -->
 		 <nav class="navbar navbar-expand-lg bg-white fixed-top">
                <!-- logo--------------------------------------- -->
-               <img src="assets/images/KOREAMATELOGO.PNG" alt="" class="user-avatar-md rounded-circle"> <a class="navbar-brand" href="index.jsp">KOREA MATE </a>
+               <img src="assets/images/KOREAMATELOGO.PNG" alt="" class="user-avatar-md rounded-circle"> <a class="navbar-brand" href="/index.jsp">KOREA MATE </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,7 +39,7 @@
                          <c:choose>
 		        					<c:when test="${sessionScope.SESS_USERCODE == null}"> 
 		                		<a href="pages/login.jsp" id=login style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그인 &nbsp; </a>
-                           		<a href="pages/sign-up.jsp" id=register style="text-align: center;"><div class="splash-container"></div>회원가입</a>
+                           		<a href="pages/regist.jsp" id=register style="text-align: center;"><div class="splash-container"></div>&nbsp;회원가입&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 		                	</c:when>
 		                	<c:otherwise>
 		                		<a href="/login" id=logout style="text-align: center;"><div class="splash-container2" ></div>&nbsp;로그아웃 &nbsp; </a>             		

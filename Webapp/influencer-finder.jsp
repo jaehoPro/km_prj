@@ -840,7 +840,7 @@
                                             <option value="40-50">40-50</option>
                                         </select>
                                     </div>
-                                    <div class="card-body border-top">
+                                    <div class="card-bod]y border-top">
                                         <a href="#" class="btn btn-secondary btn-lg btn-block">Submit</a>
                                     </div>
                                 </div>

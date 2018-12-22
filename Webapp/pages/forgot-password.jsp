@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <!-- ============================================================== -->
+    <!-- ==========================re==================================== -->
     <!-- forgot password  -->
     <!-- ============================================================== -->
     <div class="splash-container">
@@ -48,7 +48,7 @@
                 </form>
             </div>
             <div class="card-footer text-center">
-                <span>Don't have an account? <a href="sign-up.jsp">Sign Up</a></span>
+                <span>Don't have an account? <a href="regist.jsp">Sign Up</a></span>
             </div>
         </div>
     </div>
