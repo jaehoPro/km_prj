@@ -60,6 +60,7 @@
 		    (select avg(checkin_score) from review_score	where lodging_seq=2 group by lodging_seq) as checkin_score_avg
     		from lodging where lodging_seq=#{lodging_seq}
  	</select>
+ 	
  	<!-- 숙소 리뷰 리스트 불러오기 -->
  	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="reviewMap">
 			select r.review_seq, r.review_content, r.review_regdate,u.l_name,u.f_name, u.introduction, u.user_pic_path, u.user_pic_oriname
@@ -75,6 +76,7 @@
 			where lodging_seq=#{lodging_seq}
 			group by lodging_seq
  	</select> -->
+ 	
  	 	
  		
 	
