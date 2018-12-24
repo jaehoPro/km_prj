@@ -67,6 +67,7 @@
 			where r.usercode = u.usercode
 				 and r.lodging_seq=#{lodging_seq}
  	</select>
+ 	
  	<!-- 숙소평점 -->
 <!--  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
 			select lodging_seq, avg(clean_score), avg(location_score),avg(checkin_score)
