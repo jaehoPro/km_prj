@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <!--  
 <mapper namespace="userNameSpace"> 
 <mapper namespace="com.biz.mapper.UserMap">
 -->
+
+
+
 <mapper namespace="LodgingSpace">
+
+<!-- <resultMap id="shop_pic_reply_1nn" type="com.biz.shop.ShopVO" 
+		extends="shopMap">
+			<collection property="pvolist" resultMap="shopPicMap"/>
+			<collection property="rvolist" resultMap="replyMap"/>
+	</resultMap> -->
+	
+	<resultMap id="lodging_pic_reply" type="com.km.lodging.LodgingVO" 
+		extends="shopMap">
+			<collection property="lvolist" resultMap="LodgingMap"/>
+			
+	</resultMap> 
+
 	<resultMap id="LodgingMap" type="com.km.lodging.LodgingVO">
 		<id 	property="lodging_seq" 				column="lodging_seq" />
 		<result property="build_type" 				column="build_type" />
@@ -60,7 +77,6 @@
 		    (select avg(checkin_score) from review_score	where lodging_seq=2 group by lodging_seq) as checkin_score_avg
     		from lodging where lodging_seq=#{lodging_seq}
  	</select>
- 	
  	<!-- 숙소 리뷰 리스트 불러오기 -->
  	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="reviewMap">
 			select r.review_seq, r.review_content, r.review_regdate,u.l_name,u.f_name, u.introduction, u.user_pic_path, u.user_pic_oriname
@@ -68,7 +84,6 @@
 			where r.usercode = u.usercode
 				 and r.lodging_seq=#{lodging_seq}
  	</select>
- 	
  	<!-- 숙소평점 -->
 <!--  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
 			select lodging_seq, avg(clean_score), avg(location_score),avg(checkin_score)
@@ -76,6 +91,58 @@
 			where lodging_seq=#{lodging_seq}
 			group by lodging_seq
  	</select> -->
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<!-- 메인 조건검색 -->
+ 	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+ 	
+ 	
+ 	select l.lodging_seq , l.build_type ,l.lodging_type, l.lodging_name,
+		   l.time_price, l.day_price, lp.lodging_seq, lp.lodging_pic_oriname,
+		   lp.lodging_pic_path, lp.lodging_pic_typical
+	from lodging l, lodging_pic lp
+	where l.lodging_seq not in 
+                 (select tt.lodging_seq as lodging_seq
+                  from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
+                        from reserve r
+                        where (checkin_date >= #{value} and checkin_date <= #{value}) 
+                        or (checkout_date >= #{value} and checkout_date <= #{value})) tt
+                  where tt.checkout_time > 7 and tt.checkin_time <= 12)
+		and  l.lodging_seq = lp.lodging_seq
+		and lp.lodging_pic_typical = 'y'
+		</select>
+
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<!-- 메인 조건검색 -->
+ 	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+ 	
+ 	
+ 	select l.lodging_seq , l.build_type ,l.lodging_type, l.lodging_name,
+		   l.time_price, l.day_price, lp.lodging_seq, lp.lodging_pic_oriname,
+		   lp.lodging_pic_path, lp.lodging_pic_typical
+	from lodging l, lodging_pic lp
+	where l.lodging_seq not in 
+                 (select tt.lodging_seq as lodging_seq
+                  from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
+                        from reserve r
+                        where (checkin_date >= #{value} and checkin_date <= #{value}) 
+                        or (checkout_date >= #{value} and checkout_date <= #{value})) tt
+                  where tt.checkout_time > 7 and tt.checkin_time <= 12)
+		and  l.lodging_seq = lp.lodging_seq
+		and lp.lodging_pic_typical = 'y'
+		</select>
+
  	
  	 	
  		
