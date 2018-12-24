@@ -23,68 +23,24 @@
 
 <script>
    function validate() {
-	   var radio_val = $('input[name=radio_s]:checked').val();
-	   
+	   var radio_val = $("input[name=radio_s]:checked").val();
+	   var pass1 = document.forms['reg']["password"].value;
+	   var pass2 = document.forms['reg']["repassword"].value;
 	  
 	   
 	   
 	   //-------------------------
-       if(reg.email.value=="") {
-           alert("이메일을 입력해 주세요");
-           reg.email.focus();
-           return false;
-       }
-       
-       if(reg.repassword.value=="") {
-           reg.alert("비밀번호을 입력해 주세요");
-           reg.password.focus();
-           return false;
-       }
-       if(reg.repassword.value=="") {
-           alert("비밀번호확인을 입력해 주세요");
-           reg.password.focus();
-           return false;
-       }
-	
-    	
-       if(reg.password.value != reg.repassword.value) {
-           alert("비밀번호가 다릅니다. 다시 확인해 주세요.");
-           reg.checkpw.value = "";
-           reg.checkpw.focus();
-           return false;
-       }
-
-       if(reg.f_name.value=="") {
-           alert("이름을 입력해 주세요");
-           reg.f_name.focus();
-           return false;
-       }
-       
-       if(reg.l_name.value=="") {
-           alert("성을 입력해 주세요");
-           reg.l_name.focus();
-           return false;
-       }
-
+	   
+	   if(pass1 != pass2){
+		   alert("비밀번호확인이 일치하지 않습니다");
+    	   return false;
+	   }
+      
        
        if(radio_val ==""){
     	   alert("성별을 선택해주세요");
     	   return false;
        }
-       
-       if(${"#birth_y.value"}=="" || reg.birth_m.value=="" || reg.birth_d.value==""){
-    	   alert("생년월일을 선택해주세요")
-    	   return false;
-       }
-       
-       if(${"#introduction.value"}=="") {
-           alert("자기소개를 적어주세요");
-           reg.introduction.focus();
-           return false;
-       }
-       
-       
-      
        return true;
    }
 </script>
@@ -113,7 +69,7 @@ body {
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
-    <form class="splash-container" name="reg" id="reg" onsubmit="return validate();" action="/regist" method="post">
+    <form class="splash-container" name = "reg" id="reg" onsubmit="return validate()" action="/regist" method="post" enctype= "multipart/form-data">
     
         <div class="card">
             <div class="card-header">
@@ -121,21 +77,21 @@ body {
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="email" name="email" id="email" required="" placeholder="이메일 입력" autocomplete="off">
+                    <input class="form-control form-control-lg" type="email" name="email" id="email" placeholder="이메일 입력" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" required="" id="password" placeholder="비밀번호 설정">
+                    <input class="form-control form-control-lg" name="password" id="password"  type="text" placeholder="비밀번호 설정" autocomplete="off">
                 </div>
                 
                  <div class="form-group">
-                    <input class="form-control form-control-lg" required="" id="repassword" placeholder="비밀번호 확인">
+                    <input class="form-control form-control-lg"  name="repassword" id="repassword" type="text" placeholder="비밀번호 확인" autocomplete="off">
                 </div>
                   <hr color="#e6e6f2">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="f_name" id="f_name" required="" placeholder="이름" autocomplete="off">
+                    <input class="form-control form-control-lg" type="text" name="f_name" id="f_name" placeholder="이름" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="l_name" id="l_name" required="" placeholder="성" autocomplete="off">
+                    <input class="form-control form-control-lg" type="text" name="l_name" id="l_name" placeholder="성" autocomplete="off">
                 </div>
                   
                   
@@ -151,8 +107,8 @@ body {
                  
                  
                                         <h3 class="font-16">생년월일</h3>
-                                        <select>
-                                            <option selected="" id="birth_y">년</option>
+                                        <select name="birth_y">
+                                            <option selected="" >년</option>
                                                 <option value="2018">2018</option>
 											    <option value="2017">2017</option>
 											    <option value="2016">2016</option>
@@ -269,56 +225,56 @@ body {
 											    <option value="1905">1905</option>
                                         </select><label>년</label>
                                         
-                                        <select  id="birth_m">
+                                        <select  name="birth_m">
                                             <option selected="">월</option>
-											<option value='1'>1</option>
-											<option value='2'>2</option>
-											<option value='3'>3</option>
-											<option value='4'>4</option>
-											<option value='5'>5</option>
-											<option value='6'>6</option>
-											<option value='7'>7</option>
-											<option value='8'>8</option>
-											<option value='9'>9</option>
-											<option value='10'>10</option>
-											<option value='11'>11</option>
-											<option value='12'>12</option>
+											<option value="01">1</option>
+											<option value="02">2</option>
+											<option value="03">3</option>
+											<option value="04">4</option>
+											<option value="05">5</option>
+											<option value="06">6</option>
+											<option value="07">7</option>
+											<option value="08">8</option>
+											<option value="09">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
                                         </select><label>월</label>
                                         
                                         
-                                        <select  id="birth_d">
+                                        <select name="birth_d">
                                             <option selected="">일</option>
-                                            <option value='1'>1</option>
-											<option value='2'>2</option>
-											<option value='3'>3</option>
-											<option value='4'>4</option>
-											<option value='5'>5</option>
-											<option value='6'>6</option>
-											<option value='7'>7</option>
-											<option value='8'>8</option>
-											<option value='9'>9</option>
-											<option value='10'>10</option>
-											<option value='11'>11</option>
-											<option value='12'>12</option>
-											<option value='13'>13</option>
-											<option value='14'>14</option>
-											<option value='15'>15</option>
-											<option value='16'>16</option>
-											<option value='17'>17</option>
-											<option value='18'>18</option>
-											<option value='19'>19</option>
-											<option value='20'>20</option>
-											<option value='21'>21</option>
-											<option value='22'>22</option>
-											<option value='23'>23</option>
-											<option value='24'>24</option>
-											<option value='25'>25</option>
-											<option value='26'>26</option>
-											<option value='27'>27</option>
-											<option value='28'>28</option>
-											<option value='29'>29</option>
-											<option value='30'>30</option>
-											<option value='31'>31</option>
+                                            <option value="01">1</option>
+											<option value="02">2</option>
+											<option value="03">3</option>
+											<option value="04">4</option>
+											<option value="05">5</option>
+											<option value="06">6</option>
+											<option value="07">7</option>
+											<option value="08">8</option>
+											<option value="09">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+											<option value="25">25</option>
+											<option value="26">26</option>
+											<option value="27">27</option>
+											<option value="28">28</option>
+											<option value="29">29</option>
+											<option value="30">30</option>
+											<option value="31">31</option>
                                         </select><label>일</label>
                                                                         
                  
@@ -328,11 +284,11 @@ body {
                 </div>
                  
                  <div class="form-group">
-                    <input class="form-control form-control-lg" required="" id="tel" placeholder="전화번호">
+                    <input class="form-control form-control-lg" type="text"required="" name="tel" id="tel" placeholder="전화번호">
                 </div>
                  <div class="form-group">
                    <!--  <input class="form-control " required="" placeholder="자기소개를 입력하세요" > -->
-                    <textarea required="" class="form-control4"  id="introduction" placeholder="자기소개를 입력하세요"></textarea>
+                    <textarea required="" class="form-control4" type="text" name="introduction" id="introduction" placeholder="자기소개를 입력하세요"></textarea>
                 </div>
                 
                 

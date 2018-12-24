@@ -7,6 +7,7 @@
 <head>
 
 
+
 <!-- 헤더 css / jquery cdn -->
 <%@ include file="/include/header.jsp"%>
 
@@ -24,7 +25,7 @@
 		<div class="dashboard-header">
 
 			<!-- 상단 검색창/상단우측바 -->
-			<%@ include file="/include/top.jsp"%>
+			<%@ include file="/include/top_admin.jsp"%>
 
 		</div>
 		<!-- ============================================================== -->
