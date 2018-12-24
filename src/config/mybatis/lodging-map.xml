@@ -96,6 +96,7 @@
  	
  	
  	
+ 	
  	<!-- 메인 조건검색 -->
  	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
  	

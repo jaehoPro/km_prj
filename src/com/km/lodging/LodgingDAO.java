@@ -37,8 +37,7 @@ public class LodgingDAO {
 		
 		return list;
 	}
-	
-	
+		
 	public ArrayList<ReviewScoreVO> search(LodgingVO lvo)
 	{
 		ArrayList<ReviewScoreVO> list = new ArrayList<ReviewScoreVO>();

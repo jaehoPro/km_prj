@@ -18,6 +18,7 @@ public class LodgingPicVO {
 	public void setLodging_pic_path(String lodging_pic_path) {
 		this.lodging_pic_path = lodging_pic_path;
 	}
+	
 	public String getLodging_pic_oriname() {
 		return lodging_pic_oriname;
 	}

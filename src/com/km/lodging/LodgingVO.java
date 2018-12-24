@@ -2,6 +2,7 @@ package com.km.lodging;
 
 import java.util.ArrayList;
 
+
 public class LodgingVO {
 	private int lodging_seq;
 	private String build_type;

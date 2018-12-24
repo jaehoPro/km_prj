@@ -72,6 +72,7 @@
 
 							<div class="col-lg-8 col-md-10 banner-right">
 								<div class="card">
+								
 
 							<form method="post" id="searchkeyword" action="/SearchLodiginResult"enctype="multipart/form-data">
 									<div class="card-body border-top">
