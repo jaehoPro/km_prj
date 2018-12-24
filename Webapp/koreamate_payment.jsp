@@ -4,7 +4,9 @@
 		prefix="c" %>
 		
  <%
+ 	String lodging_seq = request.getParameter("lodging_seq").toString();
  	String lodging_name = request.getParameter("lodging_name").toString();
+	String lodging_explain = request.getParameter("lodging_explain").toString();
  %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -76,8 +78,8 @@
                                 <div class="card">
                                     <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <h3 class="card-title"><%=lodging_name%></h3>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h3 class="card-title"><%=lodging_name%> <%=lodging_seq %></h3>
+                                        <p class="card-text"><%=lodging_explain%></p>
                                     </div>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">게스트 : 2명</li>

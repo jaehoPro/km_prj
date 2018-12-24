@@ -54,7 +54,7 @@
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Form Elements</li>
+                                                <li class="breadcrumb-item active" aria-current="page">예약완료</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -72,14 +72,17 @@
                             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title mb-2">Card title</h3>
-                                        <h6 class="card-subtitle text-muted">Lorem ipusm dolro sit amet</h6>
+                                        <h3 class="card-title mb-2">예약이 완료되었습니다.</h3>
                                     </div>
                                     <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <p class="card-text">Luctus et ultrices posuere cubilia Curae Integer quis ipsum in augue posuere congue.</p>
-                                        <a href="#" class="card-link">홈으로 가기 </a>
-                                        <a href="#" class="card-link">예약내역 확인</a>
+	                                    <ul class="list-group list-group-flush">
+	                                        <li class="list-group-item">게스트 : 2명</li>
+	                                        <li class="list-group-item">2018년 1월 5일 ~ 2019년 1월 6일</li>
+	                                        <li class="list-group-item">
+	                                        	<a href="/index.jsp" class="btn btn-primary">홈으로가기</a>&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-primary">예약내역확인</a>
+	                                        </li>
+	                                    </ul>
                                     </div>
                                 </div>
                             </div>

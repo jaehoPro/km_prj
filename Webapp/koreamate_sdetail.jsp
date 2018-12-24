@@ -347,6 +347,8 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
 	<!-- ============================================================== -->
 	<form name="myform" method="post" action="/koreamate_payment.jsp">
 		<input type="hidden" name="lodging_name" value="${KEY_LVO.lodging_name}">
+		<input type="hidden" name="lodging_explain" value="${KEY_LVO.lodging_explain}">
+		<input type="hidden" name="lodging_seq" value="${KEY_LVO.lodging_seq}">
 	</form>
 	
 	
