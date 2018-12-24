@@ -97,26 +97,28 @@
                                     
                                     <div class="card-body border-top">
                                         <div class="form-group">
-                                            <label>Credit Card Number <small class="text-muted">9999 9999 9999 9999</small></label>
-                                            <input class="form-control cc-inputmask" id="cc-mask" type="text" im-insert="true">
+                                            <label>카드번호 <small class="text-muted">9999 9999 9999 9999</small></label>
+                                            <input class="form-control cc-inputmask" id="cc-mask" type="text" im-insert="true" >
+                                            
+                                   
                                         </div>
                                     </div>
                                     <div class="card-body border-top">
                                         <div class="form-group">
-                                            <label>Currency<small class="text-muted">$9999</small>
+                                            <label>만료일<small class="text-muted">YY/MM</small>
                                             </label>
                                             <input class="form-control currency-inputmask" id="currency-mask" type="text" im-insert="true">
                                         </div>
                                     </div> 
                                     <div class="card-body border-top">
                                         <div class="form-group">
-                                            <label>Currency<small class="text-muted">$9999</small>
+                                            <label>CVV<small class="text-muted"> &nbsp; 3자리</small>
                                             </label>
-                                            <input class="form-control currency-inputmask" id="currency-mask" type="text" im-insert="true">
+                                            <input class="form-control currency-inputmask2" id="currency-mask2" type="text" im-insert="true">
                                         </div>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><a href="#" class="btn btn-primary">예약완료</a></li>
+                                        <li class="list-group-item"><a href="koreamate_payment_result.jsp" class="btn btn-primary">예약완료</a></li>
                                     </ul>
                                 </div>
                            
@@ -204,7 +206,8 @@
             $(".cc-inputmask").inputmask("9999 9999 9999 9999"),
             $(".ssn-inputmask").inputmask("999-99-9999"),
             $(".isbn-inputmask").inputmask("999-99-999-9999-9"),
-            $(".currency-inputmask").inputmask("$9999"),
+            $(".currency-inputmask").inputmask("99/99"),
+            $(".currency-inputmask2").inputmask("999"),
             $(".percentage-inputmask").inputmask("99%"),
             $(".decimal-inputmask").inputmask({
                 alias: "decimal",
