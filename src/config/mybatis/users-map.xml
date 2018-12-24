@@ -46,6 +46,8 @@
 		<result property="cvc_code" column="cvc_code" />
 	</resultMap>
 	
+	<sql id="commonSelect">usercode ,email ,password ,f_name , l_name ,sex ,birth_y ,birth_m ,birth_d ,nation ,tel  ,user_pic_path ,user_pic_oriname ,user_pic_rename,introduction ,confirm ,grade ,user_regdate ,logdate ,user_drop ,user_dropdate ,regpath </sql>
+	
 	
 	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
 		select usercode, confirm, grade, f_name, l_name, user_pic_path, user_pic_oriname, user_pic_rename 
@@ -58,6 +60,17 @@
 	 update users set logdate = sysdate
 	 where email = #{value}
 	</update>
+	
+	<insert id="register" parameterType="com.km.users.UsersVO">
+	insert into users  
+	(usercode ,email ,password ,f_name , l_name ,sex ,birth_y ,birth_m ,birth_d ,
+	nation ,tel , user_pic_path ,user_pic_oriname ,user_pic_rename ,introduction, 
+	confirm ,grade ,user_regdate ,logdate ,user_drop ,user_dropdate ,regpath) 
+	values (#{usercode}, #{email}, #{password},	#{f_name}, #{l_name}, #{sex},
+		#{birth_y},	#{birth_m},	#{birth_d},	#{nation},	#{tel},	#{user_pic_path},	
+		#{user_pic_oriname}, #{user_pic_rename},#{introduction}, 'n', 'g',	sysdate,	
+		null,	'n',	null,	'k')  
+	</insert>
 	
 
 </mapper>

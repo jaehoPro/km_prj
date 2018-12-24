@@ -22,7 +22,6 @@
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-        
 					 <a class="navbar-brand" href="#"> 탈퇴하기 </a>    
                     
                           

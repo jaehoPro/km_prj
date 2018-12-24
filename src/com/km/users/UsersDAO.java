@@ -32,4 +32,19 @@ public class UsersDAO {
 		}
 		return;
 	}
+	
+	
+	public int register(UsersVO uvo) {
+		SqlSession conn =null;
+		int res = 0;
+		try { 
+			conn = MyBatisFactory.getFactory().openSession();
+			res = conn.insert("usersNameSpace.register", uvo);
+			conn.commit();
+		} finally {
+			conn.close();
+		}
+		return res; 
+	}
+	
 }

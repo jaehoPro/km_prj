@@ -74,7 +74,7 @@
             </div>
             <div class="card-footer bg-white p-0  ">
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">회원가입</a></div>
+                    <a href="regist.jsp" class="footer-link">회원가입</a></div>
                 <div class="card-footer-item card-footer-item-bordered">
                     <a href="forgot-password.jsp" class="footer-link">비밀번호 찾기</a>
                 </div>

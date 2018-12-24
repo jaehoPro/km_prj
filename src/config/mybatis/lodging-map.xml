@@ -97,6 +97,7 @@
  	
  	
  	
+<<<<<<< HEAD
  	
  	<!-- 메인 조건검색 -->
  	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
@@ -124,6 +125,8 @@
  	
  	
  	
+=======
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
  	<!-- 메인 조건검색 -->
  	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
  	
