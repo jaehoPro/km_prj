@@ -1,6 +1,7 @@
 package com.km.lodging;
 
 public class LodgingVO {
+
 	private int lodging_seq;
 	private String build_type;
 	private String lodging_type;
@@ -30,11 +31,23 @@ public class LodgingVO {
 	private double checkin_score_avg;
 	
 	
+	//////////
+	private String lodging_pic_oriname;
 	
+	
+	public void setLodging_seq(int lodging_seq) {
+		this.lodging_seq = lodging_seq;
+	}
+	public String getLodging_pic_oriname() {
+		return lodging_pic_oriname;
+	}
+	public void setLodging_pic_oriname(String lodging_pic_oriname) {
+		this.lodging_pic_oriname = lodging_pic_oriname;
+	}
 	public int getLodging_seq() {
 		return lodging_seq;
 	}
-	public void setLodging_seq(int lodging_seq) {
+	public void Lodging_seq(int lodging_seq) {
 		this.lodging_seq = lodging_seq;
 	}
 	public String getBuild_type() {

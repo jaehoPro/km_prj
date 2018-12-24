@@ -25,22 +25,31 @@ import oracle.jdbc.OracleResultSetMetaData.SecurityAttribute;
 public class SelectReviewServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReviewVO rvo = new ReviewVO();
-				
-		ArrayList<ReviewVO> reviewlist = new ArrayList<ReviewVO>();
-		rvo.setReserve_seq(1);	//임의의 값 넣어주기
+		LodgingVO lvo = new LodgingVO();
+		int lodgingseq=Integer.parseInt(request.getParameter("lodging_seq"));
+		System.out.println(lodgingseq+"===================");
+		ArrayList<ReviewScoreVO> reviewlist = new ArrayList<ReviewScoreVO>();
+		ArrayList<LodgingVO> lodginglist = new ArrayList<LodgingVO>();
+		lvo.setLodging_seq(lodgingseq);			//(숙소번호)임의의 값 넣어주기
 		
-		ReviewDAO dao = new ReviewDAO();
 		
-		rvo = dao.selectShowReview(rvo);	//선택된 숙소정보 불러오기
-		reviewlist = dao.selectReview(rvo);	//선택된 숙소의 리뷰정보
-
+		LodgingDAO dao = new LodgingDAO();
+	
+		reviewlist = dao.selectLodgingReview(lvo);	//선택된 숙소의 리뷰정보
+		lodginglist= dao.hostLodgingList(lvo);		//숙소 리스트 불러오기
+		System.out.println(lodginglist.size());
 		
-		request.setAttribute("KEY_RVO", rvo);
+		//숙소정보불러오기
+		
 		request.setAttribute("KEY_REVIEW", reviewlist);
 		request.setAttribute("KEY_REVIEW_COUNT", reviewlist.size());
 		
-		System.out.println(rvo.getReview_content());
+		
+		//호스트숙소리스트
+		request.setAttribute("KEY_Lodging", lodginglist);
+		//request.setAttribute("KEY_REVIEW_COUNT", lodginglist.size());
+		
+	//	System.out.println(rvo.getReview_content());
 		request.getRequestDispatcher("koreamate_Review.jsp").forward(request, response);
 	}
 

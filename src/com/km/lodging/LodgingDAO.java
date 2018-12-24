@@ -8,6 +8,7 @@ import com.km.common.MyBatisFactory;
 
 
 public class LodgingDAO {
+	//선택된 숙소정보 불러오기
 	public LodgingVO selectOneLodging(LodgingVO lvo)
 	{
 		SqlSession conn = null;
@@ -21,7 +22,7 @@ public class LodgingDAO {
 		}
 		return lvo;
 	}
-	
+	//선택된 숙소리뷰 불러오기
 	public ArrayList<ReviewScoreVO> selectLodgingReview(LodgingVO lvo)
 	{
 		ArrayList<ReviewScoreVO> list = new ArrayList<ReviewScoreVO>();
@@ -38,6 +39,23 @@ public class LodgingDAO {
 		return list;
 	}
 	
+	//해당 호스트의 숙소리스트불러오기
+	
+	public ArrayList<LodgingVO> hostLodgingList(LodgingVO lvo)
+	{
+		ArrayList<LodgingVO> list = new ArrayList<LodgingVO>();
+		SqlSession conn = null;
+		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			list=(ArrayList)conn.selectList("LodgingSpace.hostLodgingList", lvo);
+		}finally {
+			conn.close();
+		}
+		
+		
+		return list;
+	}
 	
 	
 
