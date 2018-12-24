@@ -73,8 +73,7 @@
 							<div class="col-lg-8 col-md-10 banner-right">
 								<div class="card">
 
-
-
+							<form method="post" id="searchkeyword" action="/SearchLodiginResult"enctype="multipart/form-data">
 									<div class="card-body border-top">
 
 										<div class="row">
@@ -82,11 +81,11 @@
 											<h7>목적지</h7>
 											<div id="custom-search2" class="top-search-bar">
 												<input class="form-control2" type="text"
-													placeholder="Search..">
+													placeholder="Search.." >
 											</div>
 										</div>
 										</div>
-
+							
 										<div class="row">
 
 											<div class="card-body border-top">
@@ -167,10 +166,11 @@
 												</div>
 
 											</div>
+											</form>
 
 											<div class="row">
 											<div class="card-body border-top">
-												<a href="#" class="btn btn-primary btn-block btn-lg">검색</a>
+												<a href="koreamate_search.jsp" class="btn btn-primary btn-block btn-lg">검색</a>
 											</div>
 											</div>
 

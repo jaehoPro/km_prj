@@ -39,6 +39,20 @@ public class LodgingDAO {
 	}
 	
 	
-	
+	public ArrayList<ReviewScoreVO> search(LodgingVO lvo)
+	{
+		ArrayList<ReviewScoreVO> list = new ArrayList<ReviewScoreVO>();
+		SqlSession conn = null;
+		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			list=(ArrayList)conn.selectList("LodgingSpace.selectLodgingReview", lvo);
+		}finally {
+			conn.close();
+		}
+		
+		
+		return list;
+	}
 
 }
