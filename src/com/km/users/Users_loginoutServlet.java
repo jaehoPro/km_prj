@@ -76,10 +76,11 @@ public class Users_loginoutServlet extends HttpServlet {
 			session.setAttribute("SESS_PIC_ORINAME", mvo.getUser_pic_oriname());
 			session.setAttribute("SESS_PIC_RENAME", mvo.getUser_pic_rename());
 		
-		
+			
 			System.out.println(mvo.getGrade());
 			if(mvo.getGrade().equals("g") || mvo.getGrade().equals("h")) {
 				//response.sendRedirect("index.jsp");
+				//Session값을 가져가야하므로 foward로...
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}else if(mvo.getGrade().equals("a")) {
 				response.sendRedirect("admin/index.jsp");

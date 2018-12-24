@@ -2,6 +2,7 @@ package config.mybatis;
 
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -70,6 +71,18 @@ public class DBMyBaitsManager {
 		System.out.println(vo.getUser_pic_oriname());
 		System.out.println(vo.getUser_pic_rename());
     
+		
+		
+		//---자고
+		StringBuffer rnd3 = new StringBuffer();
+		for(int i=0; i < 5; i++) {
+		Random rnd = new Random();
+		String randomStr = String.valueOf((char) ((int) (rnd.nextInt(26)) + 97));
+		rnd3.append(randomStr);
+		}
+		
+		
+		System.out.println(rnd3);
        
       
 //      conn.rollback();
