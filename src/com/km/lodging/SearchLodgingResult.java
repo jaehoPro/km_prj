@@ -15,34 +15,41 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/SearchLodiginResult")
 public class SearchLodgingResult extends HttpServlet {
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String search =request.getParameter("search");
-		
-		
-		
-		LodgingVO lvo = new LodgingVO();
-				
-		ArrayList<ReviewScoreVO> reviewlist = new ArrayList<ReviewScoreVO>();
-		lvo.setLodging_seq(2);			//임의의 값 넣어주기
-		
-		LodgingDAO dao = new LodgingDAO();
-		
-		lvo = dao.selectOneLodging(lvo);			//선택된 숙소정보 불러오기
-		reviewlist = dao.selectLodgingReview(lvo);	//선택된 숙소의 리뷰정보
-
-		
-		request.setAttribute("KEY_LVO", lvo);
-		request.setAttribute("KEY_REVIEW", reviewlist);
-		request.setAttribute("KEY_REVIEW_COUNT", reviewlist.size());
-		
-		System.out.println(lvo.getCheckin_score_avg());
-		request.getRequestDispatcher("koreamate_sdetail.jsp").forward(request, response);
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		System.out.println("다훈 안녕! 그만해!");
+		String destination = request.getParameter("destination");
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
+		int checkInTime = Integer.parseInt(request.getParameter("checkInTime"));  //데이터 형식
+		int checkOutTime = Integer.parseInt(request.getParameter("checkOutTime"));
 		
-		doGet(request, response);
+		System.out.println("목적지 : "+destination);
+		System.out.println("체크인시간 : "+checkIn);
+		System.out.println("체크아웃시간 : "+checkOut);
+
+		System.out.println("체크인타임 : "+checkInTime);
+		System.out.println("체크아웃타임 : "+checkOutTime);
+
+		
+//		String checkInTime = request.getParameter("checkInTime");  //데이터 형식
+//		String checkOutTime = request.getParameter("checkOutTime");
+		
+		ReserveVO rvo = new ReserveVO();
+		rvo.setAddr_city(destination);
+		rvo.setCheckin_date(checkIn);
+		rvo.setCheckout_date(checkOut);
+		rvo.setCheckin_time(checkInTime);
+		rvo.setCheckout_time(checkOutTime);
+		
+		LodgingDAO dao = new LodgingDAO();
+		ArrayList<ReserveVO> list = dao.search(rvo);
+		System.out.println(list.size() + " 건 검색 완료!!^^");
+		
+		request.setAttribute("SEARCH_LIST", list);
+		request.getRequestDispatcher("koreamate_search.jsp").forward(request, response);
 		
 	}
 

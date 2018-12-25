@@ -48,40 +48,39 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header" id="top">
-                                    <h2 class="pageheader-title">Form Elememnts </h2>
+                                    <h2 class="pageheader-title"> </h2>
                                     
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Form Elements</li>
-                                            </ol>
+                                           
                                         </nav>
                                     </div>
                                 </div>
                             </div>
                         </div>
   
-                        
+                        	
                         <!-- ============================================================== -->
                         <!-- 리스트 목록 시작  -->
                         <!-- ============================================================== -->
                         <div class="row">
                         <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
                             <div class="row">
+                            
+                            
+                            	<c:forEach var="vv" items="${SEARCH_LIST}">
                                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
                                     <div class="product-thumbnail">
                                         <div class="product-img-head">
                                             <div class="product-img">
-                                                <img src="assets/images/eco-product-img-1.png" alt="" class="img-fluid"></div>
+                                                <a href="/SelectedLodging?lodging_seq=${vv.lodging_seq}"><img src="/cdir/project/${vv.lodging_pic_rename}" alt="" class="img-fluid"></a></div>
                                             <div class="ribbons"></div>
                                             <div class="ribbons-text">New</div>
                                             <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
+                                                <h3 class="product-title">${vv.lodging_name} </h3>
                                                 <div class="product-rating d-inline-block">
                                                     <i class="fa fa-fw fa-star"></i>
                                                     <i class="fa fa-fw fa-star"></i>
@@ -89,7 +88,8 @@
                                                     <i class="fa fa-fw fa-star"></i>
                                                     <i class="fa fa-fw fa-star"></i>
                                                 </div>
-                                                <div class="product-price">$49.00</div>
+                                                <div>시간당 요금:${vv.time_price}</div>
+                                                <div>하루이용 요금:${vv.day_price}</div>
                                             </div>
                                             <div class="product-btn">
                                                 <a href="#" class="btn btn-primary">Add to Cart</a>
@@ -99,232 +99,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-2.png" alt="" class="img-fluid"></div>
-                                            <div class="ribbons bg-danger"></div>
-                                            <div class="ribbons-text">Sold</div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00</div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-3.png" alt="" class="img-fluid"></div>
-                                            <div class="ribbons bg-brand"></div>
-                                            <div class="ribbons-text">Offer</div>
-                                            <div class=""><a href="#" class="product-wishlist-btn active"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00
-                                                    <del class="product-del">$69.00</del>
-                                                </div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-4.png" alt="" class="img-fluid"></div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00</div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-3.png" alt="" class="img-fluid"></div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00
-                                                    <del class="product-del">$69.00</del>
-                                                </div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-2.png" alt="" class="img-fluid"></div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00</div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-1.png" alt="" class="img-fluid"></div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00</div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-2.png" alt="" class="img-fluid"></div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00</div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="product-thumbnail">
-                                        <div class="product-img-head">
-                                            <div class="product-img">
-                                                <img src="assets/images/eco-product-img-4.png" alt="" class="img-fluid"></div>
-                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-content-head">
-                                                <h3 class="product-title">T-Shirt Product Title</h3>
-                                                <div class="product-rating d-inline-block">
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                    <i class="fa fa-fw fa-star"></i>
-                                                </div>
-                                                <div class="product-price">$49.00
-                                                    <del class="product-del">$69.00</del>
-                                                </div>
-                                            </div>
-                                            <div class="product-btn">
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                                <a href="#" class="btn btn-outline-light">Details</a>
-                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
+                                </c:forEach>
+                                
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
@@ -360,28 +137,7 @@
                     <!-- ============================================================== -->
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
+            
         </div>
     </div>
     <!-- ============================================================== -->

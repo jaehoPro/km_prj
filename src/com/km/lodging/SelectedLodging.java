@@ -17,9 +17,10 @@ public class SelectedLodging extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LodgingVO lvo = new LodgingVO();
+		
 				
 		ArrayList<ReviewScoreVO> reviewlist = new ArrayList<ReviewScoreVO>();
-		lvo.setLodging_seq(2);			//임의의 값 넣어주기
+		lvo.setLodging_seq(Integer.parseInt(request.getParameter("lodging_seq")));			//임의의 값 넣어주기
 		
 		LodgingDAO dao = new LodgingDAO();
 		

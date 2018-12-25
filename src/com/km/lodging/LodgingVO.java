@@ -38,7 +38,17 @@ public class LodgingVO {
 	// 상세보기 페이지 : 이미지목록 n장
 	private ArrayList<LodgingPicVO> lvolist;
 	
+	private String lodging_pic_rename;
 	
+	
+	public String getLodging_pic_rename() {
+		return lodging_pic_rename;
+	}
+
+	public void setLodging_pic_rename(String lodging_pic_rename) {
+		this.lodging_pic_rename = lodging_pic_rename;
+	}
+
 	public LodgingPicVO getLodgingPicVO() {
 		return lodgingPicVO;
 	}
