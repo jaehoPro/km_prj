@@ -5,114 +5,112 @@
 <html lang="en">
 
 <script>
+	//jQuery 지원 : 첨부파일 미리보기 ---------------------
+	$(document)
+			.ready(
+					function() {
+						$("#mainPic").on("change", myFilePreviewFunc1); //동적바인딩 버튼 추가 할때마다 동적으로 할당된것은 이것으로 해야 버튼이 먹는다
+						$("#addtionalPic").on("change", myFilePreviewFunc2); //동적바인딩 버튼 추가 할때마다 동적으로 할당된것은 이것으로 해야 버튼이 먹는다
+						//$("#pname").change(function(){
+						function myFilePreviewFunc1(e) {
+							$("#prev-img-div1").empty(); // 내용만 지워라   remove() --> div태그를 없앤다.
+							var files = e.target.files; //[object FileList]가 전체로 들어온다
+							//FileList into an array 
+							//var fileArr = Array.prototype.slice.call(files);         
+							var fileArr = Array.from(files); //[object File],[object File],[object File]
 
+							/* if(fileArr.length > 3) {  //files.length
+							      alert("이미지 첨부는 최대 3개만 가능합니다.");
+							      $("#pname").val("");
+							      return false;
+							} */
 
-//jQuery 지원 : 첨부파일 미리보기 ---------------------
-$(document).ready(function(){
-$("#mainPic").on("change", myFilePreviewFunc1); //동적바인딩 버튼 추가 할때마다 동적으로 할당된것은 이것으로 해야 버튼이 먹는다
-$("#addtionalPic").on("change", myFilePreviewFunc2); //동적바인딩 버튼 추가 할때마다 동적으로 할당된것은 이것으로 해야 버튼이 먹는다
-//$("#pname").change(function(){
-function myFilePreviewFunc1(e) {
-      $("#prev-img-div1").empty();  // 내용만 지워라   remove() --> div태그를 없앤다.
-      var files = e.target.files;           //[object FileList]가 전체로 들어온다
-      //FileList into an array 
-      //var fileArr = Array.prototype.slice.call(files);         
-      var fileArr = Array.from(files); //[object File],[object File],[object File]
-         
-      /* if(fileArr.length > 3) {  //files.length
-            alert("이미지 첨부는 최대 3개만 가능합니다.");
-            $("#pname").val("");
-            return false;
-      } */
-      
-      var fileSize = 0;
-      fileArr.forEach(function(f) {   //fileArr forEach를 이렇게 돌리네
-            fileSize += f.size;
-      });
-      if(fileSize > 10*1024*1024) {
-            alert("이미지 첨부는 최대 10MB만 가능합니다.");
-            $("#mainPic").val("");
-            return false;
-      }
-      
-      
-      
-      fileArr.forEach(function (f) {
-         if(!f.type.match("image.*")) {
-               alert("이미지 첨부만 가능합니다.");
-               $("#mainPic").val("");
-            
-               return false;
-         } 
-         
-         var reader = new FileReader();
-         var htmlStr = "";
-         reader.onload = function(e) {
-               htmlStr += "<img src='"+e.target.result+"' style='height:200px;width:200px;'> ";
-               $("#prev-img-div1").append(htmlStr);
-         
-               //alert(htmlStr)
-         }
-         reader.readAsDataURL(f);  //htmlStr 읽기위한
-      });
-   
-      //<input id="pname" type="file" class="form-control" name="pname" multiple> multiple추가만 하면된다.
-}
+							var fileSize = 0;
+							fileArr.forEach(function(f) { //fileArr forEach를 이렇게 돌리네
+								fileSize += f.size;
+							});
+							if (fileSize > 10 * 1024 * 1024) {
+								alert("이미지 첨부는 최대 10MB만 가능합니다.");
+								$("#mainPic").val("");
+								return false;
+							}
 
-function myFilePreviewFunc2(e) {
-   
-   $("#prev-img-div2").empty();  // 내용만 지워라   remove() --> div태그를 없앤다.
-   var files = e.target.files;           //[object FileList]가 전체로 들어온다
-   //FileList into an array 
-   //var fileArr = Array.prototype.slice.call(files);         
-   var fileArr = Array.from(files); //[object File],[object File],[object File]
-      
-   /* if(fileArr.length > 3) {  //files.length
-         alert("이미지 첨부는 최대 3개만 가능합니다.");
-         $("#pname").val("");
-         return false;
-   } */
-   
-   var fileSize = 0;
-   fileArr.forEach(function(f) {   //fileArr forEach를 이렇게 돌리네
-         fileSize += f.size;
-   });
-   if(fileSize > 10*1024*1024) {
-         alert("이미지 첨부는 최대 10MB만 가능합니다.");
-      
-         $("#addtionalPic").val("");
-         return false;
-   }
-   
-   
-   
-   fileArr.forEach(function (f) {
-      if(!f.type.match("image.*")) {
-            alert("이미지 첨부만 가능합니다.");
-         
-            $("#addtionalPic").val("");
-            return false;
-      } 
-      
-      var reader = new FileReader();
-      var htmlStr = "";
-      reader.onload = function(e) {
-            htmlStr += "<img src='"+e.target.result+"' style='height:150px;width:150px;'> ";
-      
-            $("#prev-img-div2").append(htmlStr);
-            //alert(htmlStr)
-      }
-      reader.readAsDataURL(f);  //htmlStr 읽기위한
-   });   
-   //<input id="pname" type="file" class="form-control" name="pname" multiple> multiple추가만 하면된다.
-}
+							fileArr
+									.forEach(function(f) {
+										if (!f.type.match("image.*")) {
+											alert("이미지 첨부만 가능합니다.");
+											$("#mainPic").val("");
 
-	$("#regBtn").click(function(){
-	   	$("#register").submit();
-	});
-	
-/* documentready */
-});
+											return false;
+										}
+
+										var reader = new FileReader();
+										var htmlStr = "";
+										reader.onload = function(e) {
+											htmlStr += "<img src='"+e.target.result+"' style='height:200px;width:200px;'> ";
+											$("#prev-img-div1").append(htmlStr);
+
+											//alert(htmlStr)
+										}
+										reader.readAsDataURL(f); //htmlStr 읽기위한
+									});
+
+							//<input id="pname" type="file" class="form-control" name="pname" multiple> multiple추가만 하면된다.
+						}
+
+						function myFilePreviewFunc2(e) {
+
+							$("#prev-img-div2").empty(); // 내용만 지워라   remove() --> div태그를 없앤다.
+							var files = e.target.files; //[object FileList]가 전체로 들어온다
+							//FileList into an array 
+							//var fileArr = Array.prototype.slice.call(files);         
+							var fileArr = Array.from(files); //[object File],[object File],[object File]
+
+							/* if(fileArr.length > 3) {  //files.length
+							      alert("이미지 첨부는 최대 3개만 가능합니다.");
+							      $("#pname").val("");
+							      return false;
+							} */
+
+							var fileSize = 0;
+							fileArr.forEach(function(f) { //fileArr forEach를 이렇게 돌리네
+								fileSize += f.size;
+							});
+							if (fileSize > 10 * 1024 * 1024) {
+								alert("이미지 첨부는 최대 10MB만 가능합니다.");
+
+								$("#addtionalPic").val("");
+								return false;
+							}
+
+							fileArr
+									.forEach(function(f) {
+										if (!f.type.match("image.*")) {
+											alert("이미지 첨부만 가능합니다.");
+
+											$("#addtionalPic").val("");
+											return false;
+										}
+
+										var reader = new FileReader();
+										var htmlStr = "";
+										reader.onload = function(e) {
+											htmlStr += "<img src='"+e.target.result+"' style='height:150px;width:150px;'> ";
+
+											$("#prev-img-div2").append(htmlStr);
+											//alert(htmlStr)
+										}
+										reader.readAsDataURL(f); //htmlStr 읽기위한
+									});
+							//<input id="pname" type="file" class="form-control" name="pname" multiple> multiple추가만 하면된다.
+						}
+
+						$("#regBtn").click(function() {
+							$("#register").submit();
+						});
+
+						/* documentready */
+					});
 </script>
 
 <head>
@@ -297,208 +295,205 @@ function myFilePreviewFunc2(e) {
 														</div>
 													</div>
 
+
 													<h2 class="card-title mb-2">
 														<br>게스트에게 숙소의 모습을 보여주세요.</br>
 													</h2>
 
-													<div class="control-group">
-														<label class="control-label"><strong><font
-																color="red">*</font> 대표사진</strong> </label>
-														<div class="controls">
-															<input class="input-file" id="mainPic" name="mainPic"
-																type="file">
+													<div class="form-group row">
 
-															<div id="prev-img-div1"></div>
+														<div class="col-sm-8 ">
+															<div class="control-group">
 
-														</div>
-													</div>
-
-													<div class="control-group">
-														<label class="control-label"><strong>기타사진</strong>
-														</label>
-														<div class="controls">
-															<input class="input-file" id="addtionalPic"
-																name="addtionalPic" Multiple type="file">
-															<div id="prev-img-div2"></div>
-														</div>
-													</div>
-
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Range
-															Length</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input type="text" required=""
-																data-parsley-length="[5,10]"
-																placeholder="Text between 5 - 10 chars length"
-																class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Min
-															Value</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input type="text" required="" data-parsley-min="6"
-																placeholder="Min value is 6" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Max
-															Value</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input type="text" required="" data-parsley-max="6"
-																placeholder="Max value is 6" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Range
-															Value</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input required="" type="number" min="6" max="100"
-																placeholder="Number between 6 - 100"
-																class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Regular
-															Exp</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input type="text" required=""
-																data-parsley-pattern="#[A-Fa-f0-9]{6}"
-																placeholder="Hex. Color" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Equal
-															To</label>
-														<div class="col-sm-4 col-lg-3 mb-3 mb-sm-0">
-															<input id="pass2" type="password" required=""
-																placeholder="Password" class="form-control">
-														</div>
-														<div class="col-sm-4 col-lg-3">
-															<input type="password" required=""
-																data-parsley-equalto="#pass2"
-																placeholder="Re-Type Password" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label class="col-sm-3 col-form-label text-sm-right">Min
-															check</label>
-														<div class="col-sm-6">
-															<div class="custom-controls-stacked">
-																<label class="custom-control custom-checkbox"> <input
-																	id="ck1" name="ck1" type="checkbox"
-																	data-parsley-multiple="groups" value="bar"
-																	data-parsley-mincheck="2"
-																	data-parsley-errors-container="#error-container1"
-																	class="custom-control-input"><span
-																	class="custom-control-label">Option 1</span>
-																</label> <label class="custom-control custom-checkbox">
-																	<input id="ck2" name="ck2" type="checkbox"
-																	data-parsley-multiple="groups" value="bar2"
-																	data-parsley-mincheck="2"
-																	data-parsley-errors-container="#error-container1"
-																	class="custom-control-input"><span
-																	class="custom-control-label">Option 2</span>
-																</label> <label class="custom-control custom-checkbox">
-																	<input id="ck3" name="ck3" type="checkbox"
-																	data-parsley-multiple="groups" value="bar3"
-																	data-parsley-mincheck="2" required=""
-																	data-parsley-errors-container="#error-container1"
-																	class="custom-control-input"><span
-																	class="custom-control-label">Option 3</span>
-																</label>
-																<div id="error-container1"></div>
+																<h7> 대표사진</h7>
+																<div class="controls">
+																	<input class="input-file" id="mainPic" name="mainPic"
+																		type="file">
+																	<div id="prev-img-div1"></div>
+																</div>
 															</div>
 														</div>
 													</div>
+
 													<div class="form-group row">
-														<label class="col-sm-3 col-form-label text-sm-right">Max
-															check</label>
-														<div class="col-sm-6">
-															<div class="custom-controls-stacked">
-																<label class="custom-control custom-checkbox"> <input
-																	type="checkbox" value="bar" id="e1"
-																	data-parsley-multiple="group1"
-																	data-parsley-errors-container="#error-container2"
-																	class="custom-control-input"><span
-																	class="custom-control-label">Option 1</span>
-																</label> <label class="custom-control custom-checkbox">
-																	<input type="checkbox" value="bar" id="e2"
-																	data-parsley-multiple="group1"
-																	data-parsley-errors-container="#error-container2"
-																	class="custom-control-input"><span
-																	class="custom-control-label">Option 2</span>
-																</label> <label class="custom-control custom-checkbox">
-																	<input type="checkbox" value="bar" id="e3"
-																	data-parsley-multiple="group1"
-																	data-parsley-maxcheck="1"
-																	data-parsley-errors-container="#error-container2"
-																	class="custom-control-input"><span
-																	class="custom-control-label">Option 3</span>
-																</label>
-																<div id="error-container2"></div>
+														<div class="col-sm-8 ">
+															<div class="control-group">
+
+																<h7>기타사진</h7>
+																<div class="controls">
+																	<input class="input-file" id="addtionalPic"
+																		name="addtionalPic" Multiple type="file">
+																	<div id="prev-img-div2"></div>
+																</div>
 															</div>
 														</div>
 													</div>
+
+
+													<h2 class="card-title mb-2">
+														<br>숙소 설명하기</br>
+													</h2>
+
 													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">E-Mail</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input type="email" required="" data-parsley-type="email"
-																placeholder="Enter a valid e-mail" class="form-control">
+														<div class="col-sm-8 ">
+															<h7>요약</h7>
+
+															<div class="form-group row">
+
+																<div class="col-12 col-sm-8 col-lg-12">
+																	<textarea required=""
+																		placeholder="인테리어,채광,주변 정보 등을 입력하세요"
+																		class="form-control"></textarea>
+
+																</div>
+															</div>
+
 														</div>
 													</div>
+
+													<h2 class="card-title mb-2">
+														<br>이름 지정</br>
+													</h2>
 													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">URL</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input data-parsley-type="url" type="url" required=""
-																placeholder="URL" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Digits</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input data-parsley-type="digits" type="text" required=""
-																placeholder="Enter only digits" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Number</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input data-parsley-type="number" type="text" required=""
-																placeholder="Enter only numbers" class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Alphanumeric</label>
-														<div class="col-12 col-sm-8 col-lg-6">
-															<input data-parsley-type="alphanum" type="text"
-																required="" placeholder="Enter alphanumeric value"
-																class="form-control">
-														</div>
-													</div>
-													<div class="form-group row">
-														<label
-															class="col-12 col-sm-3 col-form-label text-sm-right">Textarea</label>
-														<div class="col-12 col-sm-8 col-lg-6">
+
+														<div class="col-12 col-sm-8 col-lg-12">
 															<textarea required="" class="form-control"></textarea>
+
 														</div>
 													</div>
+
+
+													<h2 class="card-title mb-2">체크인까지 최소한 어느 정도의 시간 여유가
+														있어야 하나요?</h2>
+
+													<div class="form-group row">
+														<div class="col-12 col-sm-8 col-lg-3">
+															<select class="form-control">
+																<option selected="">시간</option>
+																<option value="1">1시간</option>
+																<option value="2">2시간</option>
+																<option value="3">3시간</option>
+																<option value="4">4시간</option>
+																<option value="5">5시간</option>
+																<option value="6">6시간</option>
+																<option value="7">7시간</option>
+																<option value="8">8시간</option>
+																<option value="9">9시간</option>
+																<option value="10">10시간</option>
+																<option value="11">11시간</option>
+																<option value="12">12시간</option>
+
+															</select>
+
+														</div>
+													</div>
+													<h4 class="card-title mb-2">
+														<br>체크인 가능 시간을 선택해주세요.</br>
+													</h4>
+
+													<div class="form-group row">
+														<!-- <div class="col-12 col-sm-8 col-lg-3"> -->
+														<div class="col-sm-8 col-lg-3 mb-3 mb-sm-0">
+															<h7>시작:</h7>
+															<select class="form-control">
+																<option selected="">--:--</option>
+																<option value="1">01:00</option>
+																<option value="2">02:00</option>
+																<option value="3">03:00</option>
+																<option value="4">04:00</option>
+																<option value="5">05:00</option>
+																<option value="6">06:00</option>
+																<option value="7">07:00</option>
+																<option value="8">08:00</option>
+																<option value="9">09:00</option>
+																<option value="10">10:00</option>
+																<option value="11">11:00</option>
+																<option value="12">12:00</option>
+																<option value="13">13:00</option>
+																<option value="14">14:00</option>
+																<option value="15">15:00</option>
+																<option value="16">16:00</option>
+																<option value="17">17:00</option>
+																<option value="18">18:00</option>
+																<option value="19">19:00</option>
+																<option value="20">20:00</option>
+																<option value="21">21:00</option>
+																<option value="22">22:00</option>
+																<option value="23">23:00</option>
+																<option value="24">24:00</option>
+
+
+															</select>
+														</div>
+														<div class="col-sm-8 col-lg-3">
+															<h7>종료:</h7>
+															<select class="form-control">
+																<option selected="">--:--</option>
+																<option value="1">01:00</option>
+																<option value="2">02:00</option>
+																<option value="3">03:00</option>
+																<option value="4">04:00</option>
+																<option value="5">05:00</option>
+																<option value="6">06:00</option>
+																<option value="7">07:00</option>
+																<option value="8">08:00</option>
+																<option value="9">09:00</option>
+																<option value="10">10:00</option>
+																<option value="11">11:00</option>
+																<option value="12">12:00</option>
+																<option value="13">13:00</option>
+																<option value="14">14:00</option>
+																<option value="15">15:00</option>
+																<option value="16">16:00</option>
+																<option value="17">17:00</option>
+																<option value="18">18:00</option>
+																<option value="19">19:00</option>
+																<option value="20">20:00</option>
+																<option value="21">21:00</option>
+																<option value="22">22:00</option>
+																<option value="23">23:00</option>
+																<option value="24">24:00</option>
+
+
+															</select>
+
+														</div>
+													</div>
+
+
+													<h2 class="card-title mb-2">
+														<br>숙소 요금을 설정하여 주세요.</br>
+													</h2>
+													
+													<h7>게스트가 선택한 1시간 당 가격의 합계가 1일당 가격과 같아지거나 초과 될 시 1일 가격으로 자동 변경됩니다.</h7>
+
+													<div class="form-group row">
+
+														<div class="col-sm-8 col-lg-5 mb-3 mb-sm-0">
+														<label class="col-12 col-sm-3 col-form-label">
+															<h7>1시간 당</h7></label>
+
+															<input type="text" required="" placeholder="받을 금액" >
+														</div>
+													</div>
+
+													<div class="form-group row">
+														
+														<div class="col-sm-8 col-lg-5">
+														<label class="col-12 col-sm-3 col-form-label">
+															<h7>1일 당</h7></label>
+
+															<input type="text" required="" placeholder="받을 금액" >
+														</div>
+													</div>
+
+
+
 													<div class="form-group row text-right">
 														<div
 															class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
-															<button type="submit" class="btn btn-space btn-primary">Submit</button>
-															<button class="btn btn-space btn-secondary">Cancel</button>
+															<button type="submit" class="btn btn-space btn-primary">등록완료</button>
+															<button class="btn btn-space btn-secondary">취소</button>
 														</div>
 													</div>
 												</form>
