@@ -40,60 +40,12 @@ public class LodgingVO {
 	private ArrayList<LodgingPicVO> lvolist;
 	
 	private String lodging_pic_rename;
-	
-<<<<<<< HEAD
-	
-	public String getLodging_pic_rename() {
-		return lodging_pic_rename;
-	}
 
-	public void setLodging_pic_rename(String lodging_pic_rename) {
-		this.lodging_pic_rename = lodging_pic_rename;
-	}
-
-=======
-<<<<<<< HEAD
-	//////////
-	private String lodging_pic_oriname;
-	
-	
-	public void setLodging_seq(int lodging_seq) {
-		this.lodging_seq = lodging_seq;
-	}
-	public String getLodging_pic_oriname() {
-		return lodging_pic_oriname;
-	}
-	public void setLodging_pic_oriname(String lodging_pic_oriname) {
-		this.lodging_pic_oriname = lodging_pic_oriname;
-	}
-=======
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
-	public LodgingPicVO getLodgingPicVO() {
-		return lodgingPicVO;
-	}
-
-	public void setLodgingPicVO(LodgingPicVO lodgingPicVO) {
-		this.lodgingPicVO = lodgingPicVO;
-	}
-
-	public ArrayList<LodgingPicVO> getLvolist() {
-		return lvolist;
-	}
-
-	public void setLvolist(ArrayList<LodgingPicVO> lvolist) {
-		this.lvolist = lvolist;
-	}
-
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	public int getLodging_seq() {
 		return lodging_seq;
 	}
-<<<<<<< HEAD
-	public void Lodging_seq(int lodging_seq) {
-=======
 
 	public void setLodging_seq(int lodging_seq) {
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 		this.lodging_seq = lodging_seq;
 	}
 
@@ -281,4 +233,31 @@ public class LodgingVO {
 		this.checkin_score_avg = checkin_score_avg;
 	}
 
+	public LodgingPicVO getLodgingPicVO() {
+		return lodgingPicVO;
+	}
+
+	public void setLodgingPicVO(LodgingPicVO lodgingPicVO) {
+		this.lodgingPicVO = lodgingPicVO;
+	}
+
+	public ArrayList<LodgingPicVO> getLvolist() {
+		return lvolist;
+	}
+
+	public void setLvolist(ArrayList<LodgingPicVO> lvolist) {
+		this.lvolist = lvolist;
+	}
+
+	public String getLodging_pic_rename() {
+		return lodging_pic_rename;
+	}
+
+	public void setLodging_pic_rename(String lodging_pic_rename) {
+		this.lodging_pic_rename = lodging_pic_rename;
+	}
+	
+
+	
+	
 }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * Servlet implementation class SelectedLodging
  */
-@WebServlet("/SearchLodiginResult")
+@WebServlet("/SearchLodgingResult")
 public class SearchLodgingResult extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

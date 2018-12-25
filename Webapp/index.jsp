@@ -82,7 +82,7 @@
 								<div class="card">
 								
 
-							<form method="Post" name="searchkeyword" action="/SearchLodiginResult" >
+							<form method="Post" name="searchkeyword" action="/SearchLodgingResult" >
 									<div class="card-body border-top">
 
 										<div class="row">

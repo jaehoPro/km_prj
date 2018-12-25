@@ -38,7 +38,7 @@ public class LodgingDAO {
 		
 		return list;
 	}
-<<<<<<< HEAD
+
 	
 	//해당 호스트의 숙소리스트불러오기
 	
@@ -59,7 +59,7 @@ public class LodgingDAO {
 	}
 	
 	
-=======
+
 		
 	public ArrayList<ReserveVO> search(ReserveVO lvo)
 	{
@@ -73,11 +73,8 @@ public class LodgingDAO {
 		}
 		return list;
 	}
-<<<<<<< HEAD
+
 	
-	
-=======
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
+
 
 }
