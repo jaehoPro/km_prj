@@ -27,7 +27,16 @@
 		<result property="lodging_name" 			column="lodging_name" />
 		<result property="lodging_condition" 		column="lodging_condition" />
 		<result property="usercode" 				column="usercode" />
+<<<<<<< HEAD
 		<result property="lodging_pic_rename" 		column="lodging_pic_rename" />
+=======
+		
+		<result property="clean_score_avg" column="clean_score_avg" />
+		<result property="location_score_avg" column="location_score_avg" />
+		<result property="checkin_score_avg" column="checkin_score_avg" />
+		<result property="lodging_pic_oriname" column="lodging_pic_oriname" />
+		
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	</resultMap>
 	
 	<resultMap id="reviewMap" type="com.km.lodging.ReviewScoreVO">
@@ -84,8 +93,37 @@
 			where r.usercode = u.usercode
 				 and r.lodging_seq=#{lodging_seq}
  	</select>
+<<<<<<< HEAD
+=======
+ 	<!-- 숙소평점 -->
+<!--  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+			select lodging_seq, avg(clean_score), avg(location_score),avg(checkin_score)
+			from review_score
+			where lodging_seq=#{lodging_seq}
+			group by lodging_seq
+ 	</select> -->
+ 	
+<<<<<<< HEAD
+ 	<!-- 호스트 숙소 리스트 불러오기 -->
+ 	<select id="hostLodgingList" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+		select lg.lodging_seq,lp.lodging_pic_oriname,lg.lodging_name
+       	from lodging lg,lodging_pic lp
+		where lg.lodging_seq =lp.lodging_seq
+		and lp.lodging_pic_typical='y'
+ 	</select>
+ 	
+ 	
+=======
+ 	
+ 	
+ 	
+ 	
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
+ 	
+<<<<<<< HEAD
  	
  	<!-- 메인 조건검색 -->
+<<<<<<< HEAD
  	<select id="searchkeyword" parameterType="com.km.lodging.ReserveVO" resultMap="LodgingMap">
  	<![CDATA[
  	   select *
@@ -101,5 +139,57 @@
       and lp.lodging_pic_typical = 'y'
 	]]>
 	</select>
+=======
+ 	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+ 	
+ 	
+ 	select l.lodging_seq , l.build_type ,l.lodging_type, l.lodging_name,
+		   l.time_price, l.day_price, lp.lodging_seq, lp.lodging_pic_oriname,
+		   lp.lodging_pic_path, lp.lodging_pic_typical
+	from lodging l, lodging_pic lp
+	where l.lodging_seq not in 
+                 (select tt.lodging_seq as lodging_seq
+                  from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
+                        from reserve r
+                        where (checkin_date >= #{value} and checkin_date <= #{value}) 
+                        or (checkout_date >= #{value} and checkout_date <= #{value})) tt
+                  where tt.checkout_time > 7 and tt.checkin_time <= 12)
+		and  l.lodging_seq = lp.lodging_seq
+		and lp.lodging_pic_typical = 'y'
+		</select>
+
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+=======
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
+ 	<!-- 메인 조건검색 -->
+ 	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+ 	
+ 	
+ 	select l.lodging_seq , l.build_type ,l.lodging_type, l.lodging_name,
+		   l.time_price, l.day_price, lp.lodging_seq, lp.lodging_pic_oriname,
+		   lp.lodging_pic_path, lp.lodging_pic_typical
+	from lodging l, lodging_pic lp
+	where l.lodging_seq not in 
+                 (select tt.lodging_seq as lodging_seq
+                  from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
+                        from reserve r
+                        where (checkin_date >= #{value} and checkin_date <= #{value}) 
+                        or (checkout_date >= #{value} and checkout_date <= #{value})) tt
+                  where tt.checkout_time > 7 and tt.checkin_time <= 12)
+		and  l.lodging_seq = lp.lodging_seq
+		and lp.lodging_pic_typical = 'y'
+		</select>
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
+ 	
+ 	 	
+ 		
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	
 </mapper>	

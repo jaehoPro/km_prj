@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 public class LodgingVO {
+
 	private int lodging_seq;
 	private String build_type;
 	private String lodging_type;
@@ -40,6 +41,7 @@ public class LodgingVO {
 	
 	private String lodging_pic_rename;
 	
+<<<<<<< HEAD
 	
 	public String getLodging_pic_rename() {
 		return lodging_pic_rename;
@@ -49,6 +51,23 @@ public class LodgingVO {
 		this.lodging_pic_rename = lodging_pic_rename;
 	}
 
+=======
+<<<<<<< HEAD
+	//////////
+	private String lodging_pic_oriname;
+	
+	
+	public void setLodging_seq(int lodging_seq) {
+		this.lodging_seq = lodging_seq;
+	}
+	public String getLodging_pic_oriname() {
+		return lodging_pic_oriname;
+	}
+	public void setLodging_pic_oriname(String lodging_pic_oriname) {
+		this.lodging_pic_oriname = lodging_pic_oriname;
+	}
+=======
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	public LodgingPicVO getLodgingPicVO() {
 		return lodgingPicVO;
 	}
@@ -65,11 +84,16 @@ public class LodgingVO {
 		this.lvolist = lvolist;
 	}
 
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	public int getLodging_seq() {
 		return lodging_seq;
 	}
+<<<<<<< HEAD
+	public void Lodging_seq(int lodging_seq) {
+=======
 
 	public void setLodging_seq(int lodging_seq) {
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 		this.lodging_seq = lodging_seq;
 	}
 

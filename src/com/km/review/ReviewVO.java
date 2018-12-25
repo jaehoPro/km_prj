@@ -8,6 +8,8 @@ public class ReviewVO {
 	private int location_score;
 	private int checkin_score;
 	private String review_content;
+	private String review_regdate;
+	private String usercode;
 	
 	
 	
@@ -65,8 +67,7 @@ public class ReviewVO {
 	public void setUsercode(String usercode) {
 		this.usercode = usercode;
 	}
-	private String review_regdate;
-	private String usercode;
+	
 	 
 	
 	
