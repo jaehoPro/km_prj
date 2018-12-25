@@ -11,17 +11,6 @@
 
 <mapper namespace="LodgingSpace">
 
-<!-- <resultMap id="shop_pic_reply_1nn" type="com.biz.shop.ShopVO" 
-		extends="shopMap">
-			<collection property="pvolist" resultMap="shopPicMap"/>
-			<collection property="rvolist" resultMap="replyMap"/>
-	</resultMap> -->
-	
-	<resultMap id="lodging_pic_reply" type="com.km.lodging.LodgingVO" 
-		extends="shopMap">
-			<collection property="lvolist" resultMap="LodgingMap"/>
-			
-	</resultMap> 
 
 	<resultMap id="LodgingMap" type="com.km.lodging.LodgingVO">
 		<id 	property="lodging_seq" 				column="lodging_seq" />
@@ -61,7 +50,6 @@
 			<result property="introduction" column="introduction" />
 			<result property="user_pic_path" column="user_pic_path" />
 			<result property="user_pic_oriname" column="user_pic_oriname" />
-
 	</resultMap>
 	
 	
@@ -70,7 +58,7 @@
  	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_city,addr_state,addr_road,addr_unit,
  	addr_num,lodging_explain,out_in_interval,checkin_possible_start,checkin_possible_end,time_price,day_price,lodging_name,lodging_condition,usercode </sql>
  	
- 	<!-- 숙소정보-->
+ 	<!-- 숙소정보와 리뷰평점 같이 불러오기-->
  	<select id="selectOneLodging" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
 			select <include refid="commonSelect"  />, 
 		    (select avg(clean_score) from review_score	where lodging_seq=2 group by lodging_seq) as clean_score_avg, 
@@ -86,14 +74,13 @@
 				 and r.lodging_seq=#{lodging_seq}
  	</select>
  	<!-- 숙소평점 -->
-<!--  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
 			select lodging_seq, avg(clean_score), avg(location_score),avg(checkin_score)
 			from review_score
 			where lodging_seq=#{lodging_seq}
 			group by lodging_seq
- 	</select> -->
+ 	</select> 
  	
-<<<<<<< HEAD
  	<!-- 호스트 숙소 리스트 불러오기 -->
  	<select id="hostLodgingList" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
 		select lg.lodging_seq,lp.lodging_pic_oriname,lg.lodging_name
@@ -103,64 +90,9 @@
  	</select>
  	
  	
-=======
- 	
- 	
- 	
- 	
- 	
-<<<<<<< HEAD
- 	
- 	<!-- 메인 조건검색 -->
- 	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
- 	
- 	
- 	select l.lodging_seq , l.build_type ,l.lodging_type, l.lodging_name,
-		   l.time_price, l.day_price, lp.lodging_seq, lp.lodging_pic_oriname,
-		   lp.lodging_pic_path, lp.lodging_pic_typical
-	from lodging l, lodging_pic lp
-	where l.lodging_seq not in 
-                 (select tt.lodging_seq as lodging_seq
-                  from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
-                        from reserve r
-                        where (checkin_date >= #{value} and checkin_date <= #{value}) 
-                        or (checkout_date >= #{value} and checkout_date <= #{value})) tt
-                  where tt.checkout_time > 7 and tt.checkin_time <= 12)
-		and  l.lodging_seq = lp.lodging_seq
-		and lp.lodging_pic_typical = 'y'
-		</select>
-
- 	
- 	
- 	
- 	
- 	
- 	
- 	
-=======
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
- 	<!-- 메인 조건검색 -->
- 	<select id="searchkeyword" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
- 	
- 	
- 	select l.lodging_seq , l.build_type ,l.lodging_type, l.lodging_name,
-		   l.time_price, l.day_price, lp.lodging_seq, lp.lodging_pic_oriname,
-		   lp.lodging_pic_path, lp.lodging_pic_typical
-	from lodging l, lodging_pic lp
-	where l.lodging_seq not in 
-                 (select tt.lodging_seq as lodging_seq
-                  from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
-                        from reserve r
-                        where (checkin_date >= #{value} and checkin_date <= #{value}) 
-                        or (checkout_date >= #{value} and checkout_date <= #{value})) tt
-                  where tt.checkout_time > 7 and tt.checkin_time <= 12)
-		and  l.lodging_seq = lp.lodging_seq
-		and lp.lodging_pic_typical = 'y'
-		</select>
-
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
- 	
- 	 	
- 		
 	
+
+ 	<!-- 메인 조건검색 -->
+ 
+
 </mapper>	

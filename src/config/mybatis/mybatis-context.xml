@@ -18,10 +18,10 @@
 	</typeAliases>
 	 -->
 	 
-	<!-- DBCP 
+	<!-- DBCP -->
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC" />   MANAGED 
+			<transactionManager type="JDBC" />   
 			<dataSource type="POOLED">
 				<property name="driver" value="${driverClassName}" />
 				<property name="url" value="${url}" />
@@ -30,10 +30,11 @@
 			</dataSource>
 		</environment>
 	</environments>
-	-->
+	
 	
 	<mappers>
 		<mapper resource="user-map.xml" />		
+		<mapper resource="lodging-map.xml" />		
 	</mappers>
 
 </configuration>

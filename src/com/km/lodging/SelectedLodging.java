@@ -23,15 +23,15 @@ public class SelectedLodging extends HttpServlet {
 		
 		LodgingDAO dao = new LodgingDAO();
 		
-		lvo = dao.selectOneLodging(lvo);			//선택된 숙소정보 불러오기
+		//lvo = dao.selectOneLodging(lvo);			//선택된 숙소정보 불러오기
 		reviewlist = dao.selectLodgingReview(lvo);	//선택된 숙소의 리뷰정보
 
-		
-		request.setAttribute("KEY_LVO", lvo);
+		System.out.println(lvo.getLodging_seq());
+		//request.setAttribute("KEY_LVO", lvo);
 		request.setAttribute("KEY_REVIEW", reviewlist);
 		request.setAttribute("KEY_REVIEW_COUNT", reviewlist.size());
 		
-		System.out.println(lvo.getCheckin_score_avg());
+		
 		request.getRequestDispatcher("koreamate_sdetail.jsp").forward(request, response);
 	}
 
