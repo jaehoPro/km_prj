@@ -4,9 +4,9 @@
 		prefix="c" %>
 		
  <%
- 	String lodging_seq = request.getParameter("lodging_seq").toString();
+/*  	String lodging_seq = request.getParameter("lodging_seq").toString();
  	String lodging_name = request.getParameter("lodging_name").toString();
-	String lodging_explain = request.getParameter("lodging_explain").toString();
+	String lodging_explain = request.getParameter("lodging_explain").toString(); */
  %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,6 +14,10 @@
 	<!-- 헤더 css / jquery cdn -->
   	<%@ include file="/include/header.jsp" %>
 
+<script>
+
+
+</script>
   
 </head>
 
@@ -117,7 +121,9 @@
                                             <input class="form-control currency-inputmask2" id="currency-mask2" type="text" im-insert="true">
                                         </div>
                                     </div>
+                                    
                                     <ul class="list-group list-group-flush">
+                                    	<li>예약 확정 전에는 요금이 청구 되지 않습니다.</li>
                                         <li class="list-group-item"><a href="koreamate_payment_result.jsp" class="btn btn-primary">예약완료</a></li>
                                     </ul>
                                 </div>

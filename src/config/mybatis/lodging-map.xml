@@ -13,7 +13,6 @@
 		<result property="max_lodging_people" 		column="max_lodging_people" />
 		<result property="room_cnt" 				column="room_cnt" />
 		<result property="bath_cnt" 				column="bath_cnt" />
-		<result property="addr_nation" 				column="addr_nation" />
 		<result property="addr_city" 				column="addr_city" />
 		<result property="addr_state" 				column="addr_state" />
 		<result property="addr_road" 				column="addr_road" />
@@ -49,7 +48,7 @@
 	
 	
 	
- 	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_nation,addr_city,addr_state,addr_road,addr_unit,
+ 	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_city,addr_state,addr_road,addr_unit,
  	addr_num,lodging_explain,out_in_interval,checkin_possible_start,checkin_possible_end,time_price,day_price,lodging_name,lodging_condition,usercode </sql>
  	
  	<!-- 숙소정보-->
