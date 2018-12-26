@@ -75,22 +75,59 @@ public class LodgingDAO {
 	}
 	
 	
+<<<<<<< HEAD
 		
 	public ArrayList<ReviewScoreVO> search(LodgingVO lvo)
+=======
+
+		//해당 조건검색 불러오기
+	public ArrayList<ReserveVO> search(ReserveVO lvo)
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	{
-		ArrayList<ReviewScoreVO> list = new ArrayList<ReviewScoreVO>();
+		ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
 		SqlSession conn = null;
-		
 		try {
 			conn = MyBatisFactory.getFactory().openSession();
-			list=(ArrayList)conn.selectList("LodgingSpace.selectLodgingReview", lvo);
+			list=(ArrayList)conn.selectList("LodgingSpace.searchkeyword", lvo);
 		}finally {
 			conn.close();
 		}
-		
-		
 		return list;
 	}
+<<<<<<< HEAD
+=======
+	
+	
+	//해당 탑검색 불러오기
+	public ArrayList<ReserveVO> topsearch(ReserveVO lvo)
+	{
+		ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
+		SqlSession conn = null;
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			list=(ArrayList)conn.selectList("LodgingSpace.topsearch", lvo);
+		}finally { 
+			conn.close();
+		}
+		return list;
+	}
+	
+	//해당 위시리스트 불러오기
+		public ArrayList<ReserveVO> wishilist(ReserveVO lvo)
+		{
+			ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
+			SqlSession conn = null;
+			try {
+				conn = MyBatisFactory.getFactory().openSession();
+				list=(ArrayList)conn.selectList("LodgingSpace.topsearch", lvo);
+			}finally {
+				conn.close();
+			}
+			return list;
+		}
+
+	
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
 
 }

@@ -4,7 +4,7 @@
 <mapper namespace="usersNameSpace">
 
 	<resultMap id="usersMap" type="com.km.users.UsersVO">
-		<id property="usercode" column="usercode" />
+		<result property="usercode" column="usercode" />
 		<result property="email" column="email" />
 		<result property="password" column="password" />
 		<result property="f_name" column="f_name" />
@@ -37,7 +37,11 @@
 	</resultMap>
 	
 	
+<<<<<<< HEAD
 	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
+=======
+	<resultMap id="identifyMap2" type="com.km.users.IdentifyVO">
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	<id property="usercode" column="usercode" />
 		<result property="cardname" column="cardname" />
 		<result property="cardowner" column="cardowner" />
@@ -46,12 +50,24 @@
 		<result property="cvc_code" column="cvc_code" />
 	</resultMap>
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	
 	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
+<<<<<<< HEAD
 		select usercode, confirm, grade from users
+=======
+		select usercode, confirm, grade 
+		from users
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 		where email = #{email}
 		and password = #{password}
 	</select>
+	
+	
+	
 	
 	<update id="logdate" parameterType="String">
 	 update users set logdate = sysdate

@@ -10,6 +10,14 @@
 <!-- 헤더 css / jquery cdn -->
 <%@ include file="/include/header.jsp"%>
 
+<script>
+/* function search(){
+	form.submit();
+}
+ */
+
+</script>
+
 
 </head>
 
@@ -63,17 +71,23 @@
 
 
 				<div class="banner-area relative"
-					style="background-image: url(&quot;assets/images/배너.jpg&quot;);">
+					style="background-image: url(&quot;assets/images/배너한옥.jpg&quot;); background-size: 2000px;">
 					<div class="overlay overlay-bg"></div>
 					<div class="container">
 						<div
 							class="row fullscreen align-items-center justify-content-between"
-							style="height: 918px;">
+							style="height: 800px;" >
 
 							<div class="col-lg-8 col-md-10 banner-right">
 								<div class="card">
 
+<<<<<<< HEAD
+=======
+							<form method="Post" name="searchkeyword" action="/SearchLodgingResult" >
+									<div class="card-body border-top">
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
+<<<<<<< HEAD
 									<form method="post" id="searchkeyword"
 										action="/SearchLodiginResult" enctype="multipart/form-data">
 										<div class="card-body border-top">
@@ -86,8 +100,18 @@
 															placeholder="Search..">
 													</div>
 												</div>
+=======
+										<div class="row">
+										<div class="card-header ">
+											<h7>목적지</h7>
+											<div id="custom-search2" class="top-search-bar">
+					<!-- ===============================목적지================================================ -->
+												<input class="form-control2" type="text" name="destination"
+													placeholder="Search.." >
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 											</div>
 
+<<<<<<< HEAD
 											<div class="row">
 
 												<div class="card-body border-top">
@@ -104,10 +128,27 @@
 																<div class="input-group-text">
 																	<i class="far fa-calendar-alt"></i>
 																</div>
+=======
+											<div class="card-body border-top">
+												<h7>체크인</h7>
+												<div class="form-group">
+													<div class="input-group date" id="datetimepicker4"
+														data-target-input="nearest">
+						<!-- ===============================체크인================================================ -->
+														<input type="text" name="checkIn"
+															class="form-control datetimepicker-input"
+															data-target="#datetimepicker4" />
+														<div class="input-group-append"
+															data-target="#datetimepicker4"
+															data-toggle="datetimepicker">
+															<div class="input-group-text">
+																<i class="far fa-calendar-alt"></i>
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 															</div>
 														</div>
 													</div>
 												</div>
+<<<<<<< HEAD
 												<div class="card-body border-top">
 													<h7>체크아웃</h7>
 													<div class="form-group">
@@ -122,6 +163,23 @@
 																<div class="input-group-text">
 																	<i class="far fa-calendar-alt"></i>
 																</div>
+=======
+											</div>
+											<div class="card-body border-top">
+												<h7>체크아웃</h7>
+												<div class="form-group">
+													<div class="input-group date" id="datetimepicker44"
+														data-target-input="nearest">
+					<!-- ===============================체크아웃================================================ -->
+														<input type="text" name="checkOut"
+															class="form-control datetimepicker-input"
+															data-target="#datetimepicker44" />
+														<div class="input-group-append"
+															data-target="#datetimepicker44"
+															data-toggle="datetimepicker">
+															<div class="input-group-text">
+																<i class="far fa-calendar-alt"></i>
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 															</div>
 														</div>
 													</div>
@@ -135,16 +193,46 @@
 													<div class="form-group">
 														<div class="input-group date" id="datetimepicker3"
 															data-target-input="nearest">
-															<input type="text"
+								<!-- ===============================체크인 타임================================================ -->
+									 <select class="form-control" id="cps" name="checkInTime">
+                                             <option selected="">--:--</option>
+                                             <option value="1">01:00</option>
+                                             <option value="2">02:00</option>
+                                             <option value="3">03:00</option>
+                                             <option value="4">04:00</option>
+                                             <option value="5">05:00</option>
+                                             <option value="6">06:00</option>
+                                             <option value="7">07:00</option>
+                                             <option value="8">08:00</option>
+                                             <option value="9">09:00</option>
+                                             <option value="10">10:00</option>
+                                             <option value="11">11:00</option>
+                                             <option value="12">12:00</option>
+                                             <option value="13">13:00</option>
+                                             <option value="14">14:00</option>
+                                             <option value="15">15:00</option>
+                                             <option value="16">16:00</option>
+                                             <option value="17">17:00</option>
+                                             <option value="18">18:00</option>
+                                             <option value="19">19:00</option>
+                                             <option value="20">20:00</option>
+                                             <option value="21">21:00</option>
+                                             <option value="22">22:00</option>
+                                             <option value="23">23:00</option>
+                                             <option value="24">24:00</option>
+
+
+                                          </select><!-- 
+															<input type="text" name="checkInTime"
 																class="form-control datetimepicker-input"
-																data-target="#datetimepicker3" />
-															<div class="input-group-append"
+																data-target="#datetimepicker3" /> -->
+															<!-- <div class="input-group-append"
 																data-target="#datetimepicker3"
-																data-toggle="datetimepicker">
-																<div class="input-group-text">
+																data-toggle="datetimepicker"> -->
+																<!-- <div class="input-group-text">
 																	<i class="far fa-clock"></i>
-																</div>
-															</div>
+																</div> -->
+															<!-- </div> -->
 														</div>
 													</div>
 												</div>
@@ -153,7 +241,38 @@
 													<div class="form-group">
 														<div class="input-group date" id="datetimepicker33"
 															data-target-input="nearest">
-															<input type="text"
+							<!-- ===============================체크아웃 타임================================================ -->
+							<select class="form-control" id="cpe" name="checkOutTime">
+                                             <option selected="">--:--</option>
+                                             <option value="1">01:00</option>
+                                             <option value="2">02:00</option>
+                                             <option value="3">03:00</option>
+                                             <option value="4">04:00</option>
+                                             <option value="5">05:00</option>
+                                             <option value="6">06:00</option>
+                                             <option value="7">07:00</option>
+                                             <option value="8">08:00</option>
+                                             <option value="9">09:00</option>
+                                             <option value="10">10:00</option>
+                                             <option value="11">11:00</option>
+                                             <option value="12">12:00</option>
+                                             <option value="13">13:00</option>
+                                             <option value="14">14:00</option>
+                                             <option value="15">15:00</option>
+                                             <option value="16">16:00</option>
+                                             <option value="17">17:00</option>
+                                             <option value="18">18:00</option>
+                                             <option value="19">19:00</option>
+                                             <option value="20">20:00</option>
+                                             <option value="21">21:00</option>
+                                             <option value="22">22:00</option>
+                                             <option value="23">23:00</option>
+                                             <option value="24">24:00</option>
+
+
+                                          </select>
+							
+															<!-- <input type="text" name="checkOutTime"
 																class="form-control datetimepicker-input"
 																data-target="#datetimepicker33" />
 															<div class="input-group-append"
@@ -162,18 +281,40 @@
 																<div class="input-group-text">
 																	<i class="far fa-clock"></i>
 																</div>
-															</div>
+															</div> -->
 														</div>
 													</div>
 												</div>
 
 											</div>
+<<<<<<< HEAD
 									</form>
+=======
+											
+											 <div class="form-group row">
+                                       <!-- <div class="col-12 col-sm-8 col-lg-3"> -->
+                                       
+                                       
+                                    </div>
+											
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
+<<<<<<< HEAD
 									<div class="row">
 										<div class="card-body border-top">
 											<a href="koreamate_search.jsp"
 												class="btn btn-primary btn-block btn-lg">검색</a>
+=======
+											<div class="row">
+											<div class="card-body border-top">
+												<a href="javascript:document.searchkeyword.submit();" class="btn btn-primary btn-block btn-lg">검색</a>
+												
+											</div>
+											</div>
+											</form>
+
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 										</div>
 									</div>
 

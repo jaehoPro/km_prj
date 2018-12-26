@@ -2,23 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
 		prefix="c" %>   
-		
- <%
-  	/* String lodging_seq = request.getParameter("lodging_seq").toString();
- 	String lodging_name = request.getParameter("lodging_name").toString(); */
-	 
- %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 	<!-- 헤더 css / jquery cdn -->
   	<%@ include file="/include/header.jsp" %>
-
-<script>
-
-
-</script>
+  	
   
+    
 </head>
 
 <body>
@@ -32,7 +24,7 @@
         <!-- navbar -->
         <div class="dashboard-header">
              <!-- 상단 검색창/상단우측바 -->
-      		<%@ include file="/include/top.jsp" %>
+      		<%@ include file="/include/top_guest.jsp" %>
         </div>
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -56,7 +48,10 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header" id="top">
-                                    <h2 class="pageheader-title"> </h2>
+                                <br>
+                                <br>
+                                <br>
+                                    <h2 class="pageheader-title"> &nbsp;&nbsp; 위시 리스트</h2>
                                     
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
@@ -67,79 +62,69 @@
                             </div>
                         </div>
   
-                        
+                        	
                         <!-- ============================================================== -->
-                        <!-- basic form  -->
+                        <!-- 리스트 목록 시작  -->
                         <!-- ============================================================== -->
                         <div class="row">
-                        	
-                        	
-                            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                <div class="card">
-                                    <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h3 class="card-title">${KEY_RVO.lodging_name}</h3>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">게스트 : ${KEY_RVO.reserve_people}명</li>
-                                        <li class="list-group-item">${KEY_RVO.checkin_date} ~ ${KEY_RVO.checkout_date}</li>
-                                        <li class="list-group-item">총 결제 금액 :${KEY_RVO.price}</li>
-                                    </ul>
-                                    
-                                </div>
-                            </div>
-                           	<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                    	결제정보 입력
-                                    </div>
-                                    
-                                    <div class="card-body border-top">
-                                        <div class="form-group">
-                                            <label>카드번호 <small class="text-muted">9999 9999 9999 9999</small></label>
-                                            <input class="form-control cc-inputmask" id="cc-mask" type="text" im-insert="true" >
-                                            
-                                   
-                                        </div>
-                                    </div>
-                                    <div class="card-body border-top">
-                                        <div class="form-group">
-                                            <label>만료일<small class="text-muted">YY/MM</small>
-                                            </label>
-                                            <input class="form-control currency-inputmask" id="currency-mask" type="text" im-insert="true">
-                                        </div>
-                                    </div> 
-                                    <div class="card-body border-top">
-                                        <div class="form-group">
-                                            <label>CVV<small class="text-muted"> &nbsp; 3자리</small>
-                                            </label>
-                                            <input class="form-control currency-inputmask2" id="currency-mask2" type="text" im-insert="true">
-                                        </div>
-                                    </div>
-                                    
-                                    <ul class="list-group list-group-flush">
-                                    	<li>예약 확정 전에는 요금이 청구 되지 않습니다.</li>
-                                        <li class="list-group-item"><a href="javascript:document.myform.submit();" class="btn btn-primary">예약완료</a></li>
-                                    </ul>
-                                </div>
-                           
+                        <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+                            <div class="row">
                             
+                            
+                            	 <c:forEach var="vv" items="${SEARCH_LIST}">
+                                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+                                    <div class="product-thumbnail">
+                                        <div class="product-img-head">
+                                            <div class="product-img">
+                                                <a href="/SelectedLodging?lodging_seq=${vv.lodging_seq}"><img src="/cdir/project/${vv.lodging_pic_rename}" alt="" class="img-fluid"></a></div>
+                                            <div class="ribbons"></div>
+                                            <div class="ribbons-text">New</div>
+                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-content-head">
+                                                <h3 class="product-title">${vv.lodging_name} </h3>
+                                                <div class="product-rating d-inline-block">
+                                                    <i class="fa fa-fw fa-star"></i>
+                                                    <i class="fa fa-fw fa-star"></i>
+                                                    <i class="fa fa-fw fa-star"></i>
+                                                    <i class="fa fa-fw fa-star"></i>
+                                                    <i class="fa fa-fw fa-star"></i>
+                                                </div>
+                                                <div>시간당 요금:${vv.time_price}</div>
+                                                <div>하루이용 요금:${vv.day_price}</div>
+                                            </div>
+                                            <div class="product-btn">
+                                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                                <a href="#" class="btn btn-outline-light">Details</a>
+                                                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </c:forEach>
+                                
+                              <!--   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item active"><a class="page-link " href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        </ul>
+                                    </nav>
+                                </div> -->
+                            </div>
                         </div>
+                        
+                    </div>
                         
                         <!-- ============================================================== -->
                         <!-- end basic form  -->
                         <!-- ============================================================== -->
-                        <form name="myform" method="post" action="LodgingPaymentResult">
-							<input type="hidden" name="lodging_seq" value="${KEY_RVO.lodging_seq}">
-							<input type="hidden" name="checkin_date" value="${KEY_RVO.checkin_date}" >
-							<input type="hidden" name="checkout_date" value="${KEY_RVO.checkout_date}" >
-							<input type="hidden" name="checkin_time" value="${KEY_RVO.checkin_time}" >
-							<input type="hidden" name="checkout_time" value="${KEY_RVO.checkout_time}" >
-							<input type="hidden" name="reserve_people" value="${KEY_RVO.reserve_people}" >
-							<input type="hidden" name="price" value="${KEY_RVO.price}" >
-							<%-- <input type="hidden" name="USERCODE" value="${sessionScope.SESS_USERCODE}" > --%>
-							<input type="hidden" name="usercode" value="jjh12112123" >
-						</form>
+                        
                        
                         
                       
@@ -196,8 +181,7 @@
             $(".cc-inputmask").inputmask("9999 9999 9999 9999"),
             $(".ssn-inputmask").inputmask("999-99-9999"),
             $(".isbn-inputmask").inputmask("999-99-999-9999-9"),
-            $(".currency-inputmask").inputmask("99/99"),
-            $(".currency-inputmask2").inputmask("999"),
+            $(".currency-inputmask").inputmask("$9999"),
             $(".percentage-inputmask").inputmask("99%"),
             $(".decimal-inputmask").inputmask({
                 alias: "decimal",

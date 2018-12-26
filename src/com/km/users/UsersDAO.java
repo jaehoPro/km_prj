@@ -4,8 +4,10 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.km.common.MyBatisFactory;
 
+
 public class UsersDAO {
 
+	
 	
 	
 	
@@ -15,11 +17,18 @@ public class UsersDAO {
 		try { 
 			conn = MyBatisFactory.getFactory().openSession();
 			mvo = conn.selectOne("usersNameSpace.login", mvo);
+		}catch(Exception e){
+			e.printStackTrace();
 		} finally {
 			conn.close();
 		}
 		return mvo;
 	}
+	
+	
+	
+	
+	
 	
 	public void logdate(String email) {
 		SqlSession conn =null;
