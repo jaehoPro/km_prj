@@ -80,27 +80,11 @@
 
 							<div class="col-lg-8 col-md-10 banner-right">
 								<div class="card">
+								
 
-<<<<<<< HEAD
-=======
 							<form method="Post" name="searchkeyword" action="/SearchLodgingResult" >
 									<div class="card-body border-top">
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
-<<<<<<< HEAD
-									<form method="post" id="searchkeyword"
-										action="/SearchLodiginResult" enctype="multipart/form-data">
-										<div class="card-body border-top">
-
-											<div class="row">
-												<div class="card-header ">
-													<h7>목적지</h7>
-													<div id="custom-search2" class="top-search-bar">
-														<input class="form-control2" type="text"
-															placeholder="Search..">
-													</div>
-												</div>
-=======
 										<div class="row">
 										<div class="card-header ">
 											<h7>목적지</h7>
@@ -108,27 +92,12 @@
 					<!-- ===============================목적지================================================ -->
 												<input class="form-control2" type="text" name="destination"
 													placeholder="Search.." >
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 											</div>
+										</div>
+										</div>
+							
+										<div class="row">
 
-<<<<<<< HEAD
-											<div class="row">
-
-												<div class="card-body border-top">
-													<h7>체크인</h7>
-													<div class="form-group">
-														<div class="input-group date" id="datetimepicker4"
-															data-target-input="nearest">
-															<input type="text"
-																class="form-control datetimepicker-input"
-																data-target="#datetimepicker4" />
-															<div class="input-group-append"
-																data-target="#datetimepicker4"
-																data-toggle="datetimepicker">
-																<div class="input-group-text">
-																	<i class="far fa-calendar-alt"></i>
-																</div>
-=======
 											<div class="card-body border-top">
 												<h7>체크인</h7>
 												<div class="form-group">
@@ -143,27 +112,10 @@
 															data-toggle="datetimepicker">
 															<div class="input-group-text">
 																<i class="far fa-calendar-alt"></i>
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 															</div>
 														</div>
 													</div>
 												</div>
-<<<<<<< HEAD
-												<div class="card-body border-top">
-													<h7>체크아웃</h7>
-													<div class="form-group">
-														<div class="input-group date" id="datetimepicker44"
-															data-target-input="nearest">
-															<input type="text"
-																class="form-control datetimepicker-input"
-																data-target="#datetimepicker44" />
-															<div class="input-group-append"
-																data-target="#datetimepicker44"
-																data-toggle="datetimepicker">
-																<div class="input-group-text">
-																	<i class="far fa-calendar-alt"></i>
-																</div>
-=======
 											</div>
 											<div class="card-body border-top">
 												<h7>체크아웃</h7>
@@ -179,11 +131,11 @@
 															data-toggle="datetimepicker">
 															<div class="input-group-text">
 																<i class="far fa-calendar-alt"></i>
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 															</div>
 														</div>
 													</div>
 												</div>
+											</div>
 											</div>
 
 											<div class="row">
@@ -287,9 +239,6 @@
 												</div>
 
 											</div>
-<<<<<<< HEAD
-									</form>
-=======
 											
 											 <div class="form-group row">
                                        <!-- <div class="col-12 col-sm-8 col-lg-3"> -->
@@ -297,14 +246,7 @@
                                        
                                     </div>
 											
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
-<<<<<<< HEAD
-									<div class="row">
-										<div class="card-body border-top">
-											<a href="koreamate_search.jsp"
-												class="btn btn-primary btn-block btn-lg">검색</a>
-=======
 											<div class="row">
 											<div class="card-body border-top">
 												<a href="javascript:document.searchkeyword.submit();" class="btn btn-primary btn-block btn-lg">검색</a>
@@ -314,33 +256,28 @@
 											</form>
 
 
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 										</div>
+
+
 									</div>
 
 
+
+
 								</div>
-
-
 							</div>
-
-
-
-
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 
-		<div class="row">
-			<!-- ============================================================== -->
+				<div class="row">
+					<!-- ============================================================== -->
 
-			<!-- ============================================================== -->
+					<!-- ============================================================== -->
 
-			<!-- recent orders  -->
-			<!-- ============================================================== -->
-			<!--  <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+					<!-- recent orders  -->
+					<!-- ============================================================== -->
+					<!--  <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <h5 class="card-header">Recent Orders</h5>
                                     <div class="card-body p-0">
@@ -422,19 +359,19 @@
                                     </div>
                                 </div>
                             </div> -->
-			<!-- ============================================================== -->
-			<!-- end recent orders  -->
+					<!-- ============================================================== -->
+					<!-- end recent orders  -->
 
 
 
-		</div>
+				</div>
 
 
-		<div class="row">
-			<!-- ============================================================== -->
-			<!-- sales  -->
-			<!-- ============================================================== -->
-			<!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+				<div class="row">
+					<!-- ============================================================== -->
+					<!-- sales  -->
+					<!-- ============================================================== -->
+					<!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div class="card border-3 border-top border-top-primary">
                                     <div class="card-body">
                                         <h5 class="text-muted">Sales</h5>
@@ -447,13 +384,13 @@
                                     </div>
                                 </div>
                             </div> -->
-			<!-- ============================================================== -->
-			<!-- end sales  -->
-			<!-- ============================================================== -->
-			<!-- ============================================================== -->
-			<!-- new customer  -->
-			<!-- ============================================================== -->
-			<!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+					<!-- ============================================================== -->
+					<!-- end sales  -->
+					<!-- ============================================================== -->
+					<!-- ============================================================== -->
+					<!-- new customer  -->
+					<!-- ============================================================== -->
+					<!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div class="card border-3 border-top border-top-primary">
                                     <div class="card-body">
                                         <h5 class="text-muted">New Customer</h5>
@@ -466,13 +403,13 @@
                                     </div>
                                 </div>
                             </div> -->
-			<!-- ============================================================== -->
-			<!-- end new customer  -->
-			<!-- ============================================================== -->
-			<!-- ============================================================== -->
-			<!-- visitor  -->
-			<!-- ============================================================== -->
-			<!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+					<!-- ============================================================== -->
+					<!-- end new customer  -->
+					<!-- ============================================================== -->
+					<!-- ============================================================== -->
+					<!-- visitor  -->
+					<!-- ============================================================== -->
+					<!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div class="card border-3 border-top border-top-primary">
                                     <div class="card-body">
                                         <h5 class="text-muted">Visitor</h5>
@@ -485,63 +422,63 @@
                                     </div>
                                 </div>
                             </div> -->
-			<!-- ============================================================== -->
-			<!-- end visitor  -->
-			<!-- ============================================================== -->
+					<!-- ============================================================== -->
+					<!-- end visitor  -->
+					<!-- ============================================================== -->
 
+				</div>
+				<div class="row"></div>
+			</div>
 		</div>
-		<div class="row"></div>
-	</div>
-	</div>
 
-	<!--  </div> -->
+		<!--  </div> -->
 
 
 
-	<%--  <!-- 푸터 영역 -->
+		<%--  <!-- 푸터 영역 -->
       <%@ include file="/include/footer.jsp" %> --%>
 
-	<!-- ============================================================== -->
-	<!-- end wrapper  -->
-	<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- end wrapper  -->
+		<!-- ============================================================== -->
 
-	<!-- ============================================================== -->
-	<!-- end main wrapper  -->
-	<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- end main wrapper  -->
+		<!-- ============================================================== -->
 
-	<!-- 스크립트 영역 -->
-	<%--  <%@ include file="/include/script.jsp" %> --%>
-
-
+		<!-- 스크립트 영역 -->
+		<%--  <%@ include file="/include/script.jsp" %> --%>
 
 
 
 
-	<!-- Optional JavaScript -->
-	<!-- jquery 3.3.1 -->
-	<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-	<!-- bootstap bundle js -->
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-	<!-- slimscroll js -->
-	<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-	<!-- main js -->
-	<script src="assets/libs/js/main-js.js"></script>
-	<!-- chart chartist js -->
-	<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-	<!-- sparkline js -->
-	<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-	<!-- morris js -->
-	<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-	<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-	<!-- chart c3 js -->
-	<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-	<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-	<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-	<script src="assets/libs/js/dashboard-ecommerce.js"></script>
 
-	<script src="assets/vendor/datepicker/moment.js"></script>
-	<script src="assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
-	<script src="assets/vendor/datepicker/datepicker.js"></script>
+
+		<!-- Optional JavaScript -->
+		<!-- jquery 3.3.1 -->
+		<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+		<!-- bootstap bundle js -->
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+		<!-- slimscroll js -->
+		<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+		<!-- main js -->
+		<script src="assets/libs/js/main-js.js"></script>
+		<!-- chart chartist js -->
+		<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+		<!-- sparkline js -->
+		<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+		<!-- morris js -->
+		<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+		<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+		<!-- chart c3 js -->
+		<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+		<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+		<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+		<script src="assets/libs/js/dashboard-ecommerce.js"></script>
+
+		<script src="assets/vendor/datepicker/moment.js"></script>
+		<script src="assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
+		<script src="assets/vendor/datepicker/datepicker.js"></script>
 </body>
 
 </html>
