@@ -4,9 +4,9 @@
 		prefix="c" %>
 		
  <%
-/*  	String lodging_seq = request.getParameter("lodging_seq").toString();
- 	String lodging_name = request.getParameter("lodging_name").toString();
-	String lodging_explain = request.getParameter("lodging_explain").toString(); */
+  	/* String lodging_seq = request.getParameter("lodging_seq").toString();
+ 	String lodging_name = request.getParameter("lodging_name").toString(); */
+	 
  %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -82,13 +82,12 @@
                                 <div class="card">
                                     <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <h3 class="card-title"><%=lodging_name%> <%=lodging_seq %></h3>
-                                        <p class="card-text"><%=lodging_explain%></p>
+                                        <h3 class="card-title">${KEY_RVO.lodging_name}</h3>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">게스트 : 2명</li>
-                                        <li class="list-group-item">2018년 1월 5일 ~ 2019년 1월 6일</li>
-                                        <li class="list-group-item">총 결제 금액 : 얼마</li>
+                                        <li class="list-group-item">게스트 : ${KEY_RVO.reserve_people}명</li>
+                                        <li class="list-group-item">${KEY_RVO.checkin_date} ~ ${KEY_RVO.checkout_date}</li>
+                                        <li class="list-group-item">총 결제 금액 :${KEY_RVO.price}</li>
                                     </ul>
                                     
                                 </div>
@@ -124,7 +123,7 @@
                                     
                                     <ul class="list-group list-group-flush">
                                     	<li>예약 확정 전에는 요금이 청구 되지 않습니다.</li>
-                                        <li class="list-group-item"><a href="koreamate_payment_result.jsp" class="btn btn-primary">예약완료</a></li>
+                                        <li class="list-group-item"><a href="javascript:document.myform.submit();" class="btn btn-primary">예약완료</a></li>
                                     </ul>
                                 </div>
                            
@@ -134,7 +133,17 @@
                         <!-- ============================================================== -->
                         <!-- end basic form  -->
                         <!-- ============================================================== -->
-                        
+                        <form name="myform" method="post" action="LodgingPaymentResult">
+							<input type="hidden" name="lodging_seq" value="${KEY_RVO.lodging_seq}">
+							<input type="hidden" name="checkin_date" value="${KEY_RVO.checkin_date}" >
+							<input type="hidden" name="checkout_date" value="${KEY_RVO.checkout_date}" >
+							<input type="hidden" name="checkin_time" value="${KEY_RVO.checkin_time}" >
+							<input type="hidden" name="checkout_time" value="${KEY_RVO.checkout_time}" >
+							<input type="hidden" name="reserve_people" value="${KEY_RVO.reserve_people}" >
+							<input type="hidden" name="price" value="${KEY_RVO.price}" >
+							<%-- <input type="hidden" name="USERCODE" value="${sessionScope.SESS_USERCODE}" > --%>
+							<input type="hidden" name="usercode" value="jjh12112123" >
+						</form>
                        
                         
                       

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <!--  
 <mapper namespace="userNameSpace"> 
 <mapper namespace="com.biz.mapper.UserMap">
 -->
-
-
-
 <mapper namespace="LodgingSpace">
-
-
 	<resultMap id="LodgingMap" type="com.km.lodging.LodgingVO">
 		<id 	property="lodging_seq" 				column="lodging_seq" />
 		<result property="build_type" 				column="build_type" />
@@ -33,14 +27,7 @@
 		<result property="lodging_name" 			column="lodging_name" />
 		<result property="lodging_condition" 		column="lodging_condition" />
 		<result property="usercode" 				column="usercode" />
-		
-		<result property="clean_score_avg" column="clean_score_avg" />
-		<result property="location_score_avg" column="location_score_avg" />
-		<result property="checkin_score_avg" column="checkin_score_avg" />
-		<result property="lodging_pic_oriname" column="lodging_pic_oriname" />
-		
 	</resultMap>
-	
 	<resultMap id="reviewMap" type="com.km.lodging.ReviewScoreVO">
 			<id property="review_seq" column="review_seq" />
 			<result property="review_content" column="review_content" />
@@ -53,46 +40,37 @@
 	</resultMap>
 	
 	
+
 	
 	
  	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_city,addr_state,addr_road,addr_unit,
  	addr_num,lodging_explain,out_in_interval,checkin_possible_start,checkin_possible_end,time_price,day_price,lodging_name,lodging_condition,usercode </sql>
  	
- 	<!-- 숙소정보와 리뷰평점 같이 불러오기-->
+ 	<sql id="reserveSelect">reserve_seq,lodging_seq,checkin_date,checkout_date,checkin_time,checkout_time,reserve_people,price,reserve_confirm,
+ 	paymemt_confirm,reserve_cancle,reserve_cancle_reason,massege_to_host,usercode</sql>
+ 	
  	<select id="selectOneLodging" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
 			select <include refid="commonSelect"  />, 
-		    (select avg(clean_score) from review_score	where lodging_seq=2 group by lodging_seq) as clean_score_avg, 
-		    (select avg(location_score) from review_score	where lodging_seq=2 group by lodging_seq) as location_score_avg, 
-		    (select avg(checkin_score) from review_score	where lodging_seq=2 group by lodging_seq) as checkin_score_avg
+		    (select avg(clean_score) from review_score	where lodging_seq=#{lodging_seq} group by lodging_seq) as clean_score_avg, 
+		    (select avg(location_score) from review_score	where lodging_seq=#{lodging_seq} group by lodging_seq) as location_score_avg, 
+		    (select avg(checkin_score) from review_score	where lodging_seq=#{lodging_seq} group by lodging_seq) as checkin_score_avg
     		from lodging where lodging_seq=#{lodging_seq}
  	</select>
- 	<!-- 숙소 리뷰 리스트 불러오기 -->
+ 	
  	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="reviewMap">
 			select r.review_seq, r.review_content, r.review_regdate,u.l_name,u.f_name, u.introduction, u.user_pic_path, u.user_pic_oriname
 			from review_score r, users u
 			where r.usercode = u.usercode
 				 and r.lodging_seq=#{lodging_seq}
  	</select>
- 	<!-- 숙소평점 -->
-  	<select id="selectLodgingReviewscore" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
-			select lodging_seq, avg(clean_score), avg(location_score),avg(checkin_score)
-			from review_score
-			where lodging_seq=#{lodging_seq}
-			group by lodging_seq
- 	</select> 
- 	
- 	<!-- 호스트 숙소 리스트 불러오기 -->
- 	<select id="hostLodgingList" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
-		select lg.lodging_seq,lp.lodging_pic_oriname,lg.lodging_name
-       	from lodging lg,lodging_pic lp
-		where lg.lodging_seq =lp.lodging_seq
-		and lp.lodging_pic_typical='y'
- 	</select>
  	
  	
+ 	<insert id="insertReservation" parameterType="com.km.lodging.ReserveVO">
+ 			insert into reserve (<include refid="reserveSelect"  />)
+			values (reserve_seq.nextval,   #{lodging_seq},   TO_DATE(#{checkin_date},'DD/MM/YYYY'),   TO_DATE(#{checkout_date},'DD/MM/YYYY'),   #{checkin_time},   #{checkout_time},   #{reserve_people},   #{price},   'y',   'y',   'n',   null,   #{massege_to_host},   'jjh12112123')
+ 	</insert>
+ 	
+ 	 	
+ 		
 	
-
- 	<!-- 메인 조건검색 -->
- 
-
 </mapper>	

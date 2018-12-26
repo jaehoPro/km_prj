@@ -30,16 +30,16 @@ $(document).ready(function(){
 	function calClick() {
 		checkindate = new Date($("#datepicker").datepicker("getDate"));
 		checkoutdate = new Date($("#datepicker2").datepicker("getDate"));
-		comparedate = new Date();
 		checkintime = $("#checkintime").val();
 		checkouttime = $("#checkouttime").val();
 		console.log("체크인타임"+checkintime);
 		console.log("체크인데이트"+checkindate);
 		console.log("체크아웃타임"+checkouttime);
 		console.log("체크아웃데이트"+checkoutdate);
-		console.log("comparedate"+comparedate);
+		
 		//total=((checkoutdate-checkindate)/1000/3600)+(24-checkintime);
 		total=((checkoutdate-checkindate)/1000/3600);
+
 		
 
 		if(total > 0){
@@ -59,6 +59,8 @@ $(document).ready(function(){
 				
 				$("#priceOnly").html(htmlStrPrice);
 				$("#totalPrice").html(htmlStr);
+				$("#payment").val(payment);
+				
 			}
 		}
 	}
@@ -73,21 +75,6 @@ $(document).ready(function(){
     
 });
 
-function sumAllpay(e){
-    var checkindate;
-    var checkoutdate;
-    var checkintime;
-    var checkouttime;
-    var daypay;
-    var hourpay;
-    
-	   var sum = 0;
-	   var sum_daypay
-	   sum = ((checkoutdate-checkindate)*24)+(24-checkintime)+e;
-	   sum_daypay=(sum / 24)*daypay;
- 
-	   return sum_daypay;
-	}
 </script>
 
 <script>
@@ -168,9 +155,14 @@ function sumAllpay(e){
 							<!-- ============================================================== -->
 							<!-- overview  -->
 							<!-- ============================================================== -->
+						<form name="myform" method="post" action="/LodgingPayment">
+										<input type="hidden" name="lodging_seq" value="${KEY_LVO.lodging_seq}">
+										<input type="hidden" name="lodging_name" value="${KEY_LVO.lodging_name}">
+										<input type="hidden" name="payment" id="payment" >
+						
 							<div class="row">
 							
-								<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 	                                <div class="card">
 	                                    <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
 	                                    <div class="card-body">
@@ -191,6 +183,12 @@ function sumAllpay(e){
                            		</div>
 								
 
+										
+									
+									
+	
+								
+
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 									<div class="card">
 										<div class="card-header bg-white text-center p-4 ">
@@ -203,11 +201,11 @@ function sumAllpay(e){
 											
 											
 											
-											<p>체크인          Date: <input type="text" class="dateCal" id="datepicker">
+											<p>체크인          Date: <input type="text" class="dateCal" id="datepicker" name="datepicker" readonly>
 									
 											
 											체크인 시간
-													<select class="selectpicker dateCal" data-size="5" id="checkintime">
+													<select class="selectpicker dateCal" data-size="5" id="checkintime" name="checkintime">
 														<option value=0>0:00</option>
 														<option value=1>1:00</option>
 														<option value=2>2:00</option>
@@ -235,9 +233,9 @@ function sumAllpay(e){
 													</select>
 											
 											</p>
-											<p>체크아웃         Date: <input type="text" class="dateCal" id="datepicker2">
+											<p>체크아웃         Date: <input type="text" class="dateCal" id="datepicker2" name="datepicker2" readonly>
 											체크아웃 시간
-													<select class="selectpicker dateCal" data-size="5" id="checkouttime">
+													<select class="selectpicker dateCal" data-size="5" id="checkouttime" name="checkouttime">
 														<option value=0>0:00</option>
 														<option value=1>1:00</option>
 														<option value=2>2:00</option>
@@ -265,6 +263,16 @@ function sumAllpay(e){
 													</select>
 											
 											</p>
+											
+											<p>게스트 수 <select id="reserve_people" name="reserve_people">
+											
+											<c:forEach var="cnt" begin="1" end="${KEY_LVO.max_lodging_people}">
+      											   <option value=${cnt}><c:out value = "${cnt}"/>명<br/>
+      										</c:forEach>
+											</select>
+											
+											</p>
+											
 										</div>
 										<div class="card-body">
 											<ul class="list-unstyled bullet-check mb-0">
@@ -282,7 +290,10 @@ function sumAllpay(e){
 										</div>
 									</div>
 								</div>
+								
+								
 							</div>
+							</form>
 							<!-- ============================================================== -->
 							<!-- end overview  -->
 							<!-- ============================================================== -->
@@ -396,12 +407,7 @@ function sumAllpay(e){
 	<!-- ============================================================== -->
 	<!-- end main wrapper -->
 	<!-- ============================================================== -->
-	<form name="myform" method="post" action="/koreamate_payment.jsp">
-		<input type="hidden" name="lodging_name" value="${KEY_LVO.lodging_name}">
-		<input type="hidden" name="lodging_explain" value="${KEY_LVO.lodging_explain}">
-		
-	</form>
-	
+
 	
 	<!-- Optional JavaScript -->
 	   <!-- <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script> -->

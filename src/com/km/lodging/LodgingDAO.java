@@ -8,6 +8,22 @@ import com.km.common.MyBatisFactory;
 
 
 public class LodgingDAO {
+	//숙소 예약하기
+	public int insertReserve(ReserveVO rvo)
+	{
+		SqlSession conn = null;
+		int res = 0;
+		
+		try {
+		
+			conn = MyBatisFactory.getFactory().openSession();
+			res=conn.insert("LodgingSpace.insertReservation", rvo);
+			conn.commit();
+		}finally {
+			conn.close();
+		}
+		return res;
+	}
 	//선택된 숙소정보 불러오기
 	public LodgingVO selectOneLodging(LodgingVO lvo)
 	{
