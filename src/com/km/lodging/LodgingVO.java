@@ -40,12 +40,9 @@ public class LodgingVO {
 	private ArrayList<LodgingPicVO> lvolist;
 
 	
-<<<<<<< HEAD
 	
-=======
 	private String lodging_pic_rename;
 
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	public int getLodging_seq() {
 		return lodging_seq;
 	}
@@ -253,12 +250,6 @@ public class LodgingVO {
 	public void setLvolist(ArrayList<LodgingPicVO> lvolist) {
 		this.lvolist = lvolist;
 	}
-<<<<<<< HEAD
-	
-	
-
-
-=======
 
 	public String getLodging_pic_rename() {
 		return lodging_pic_rename;
@@ -271,5 +262,4 @@ public class LodgingVO {
 
 	
 	
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 }

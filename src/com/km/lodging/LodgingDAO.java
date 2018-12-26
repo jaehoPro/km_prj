@@ -75,14 +75,11 @@ public class LodgingDAO {
 	}
 	
 	
-<<<<<<< HEAD
+
 		
-	public ArrayList<ReviewScoreVO> search(LodgingVO lvo)
-=======
 
 		//해당 조건검색 불러오기
 	public ArrayList<ReserveVO> search(ReserveVO lvo)
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	{
 		ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
 		SqlSession conn = null;
@@ -94,8 +91,6 @@ public class LodgingDAO {
 		}
 		return list;
 	}
-<<<<<<< HEAD
-=======
 	
 	
 	//해당 탑검색 불러오기
@@ -127,7 +122,6 @@ public class LodgingDAO {
 		}
 
 	
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
 
 }

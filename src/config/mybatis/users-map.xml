@@ -27,52 +27,41 @@
 		<result property="user_dropdate" column="user_dropdate" />
 		<result property="regpath" column="regpath" />
 	</resultMap>
-	
-	
+
+
 	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
 		<id property="usercode" column="usercode" />
 		<result property="id_pic_path" column="id_pic_path" />
 		<result property="id_pic_oriname" column="id_pic_oriname" />
 		<result property="id_pic_rename" column="id_pic_rename" />
 	</resultMap>
-	
-	
-<<<<<<< HEAD
-	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
-=======
+
+
 	<resultMap id="identifyMap2" type="com.km.users.IdentifyVO">
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
-	<id property="usercode" column="usercode" />
+		<id property="usercode" column="usercode" />
 		<result property="cardname" column="cardname" />
 		<result property="cardowner" column="cardowner" />
 		<result property="cardnum" column="cardnum" />
 		<result property="expire_date" column="expire_date" />
 		<result property="cvc_code" column="cvc_code" />
 	</resultMap>
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
-	
-	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
-<<<<<<< HEAD
-		select usercode, confirm, grade from users
-=======
-		select usercode, confirm, grade 
+
+
+	<select id="login" parameterType="com.km.users.UsersVO"
+		resultMap="usersMap">
+		select usercode, confirm, grade
 		from users
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 		where email = #{email}
 		and password = #{password}
 	</select>
-	
-	
-	
-	
+
+
+
+
 	<update id="logdate" parameterType="String">
-	 update users set logdate = sysdate
-	 where email = #{value}
+		update users set logdate = sysdate
+		where email = #{value}
 	</update>
-	
+
 
 </mapper>
