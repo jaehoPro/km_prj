@@ -24,7 +24,7 @@
         <!-- navbar -->
         <div class="dashboard-header">
              <!-- 상단 검색창/상단우측바 -->
-      		<%@ include file="/include/top.jsp" %>
+      		<%@ include file="/include/top_guest.jsp" %>
         </div>
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -48,7 +48,10 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header" id="top">
-                                    <h2 class="pageheader-title"> </h2>
+                                <br>
+                                <br>
+                                <br>
+                                    <h2 class="pageheader-title"> &nbsp;&nbsp; 위시 리스트</h2>
                                     
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
@@ -68,7 +71,7 @@
                             <div class="row">
                             
                             
-                            	<c:forEach var="vv" items="${SEARCH_LIST}">
+                            	 <c:forEach var="vv" items="${SEARCH_LIST}">
                                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
                                     <div class="product-thumbnail">
                                         <div class="product-img-head">
@@ -76,10 +79,8 @@
                                                 <a href="/SelectedLodging?lodging_seq=${vv.lodging_seq}"><img src="/cdir/project/${vv.lodging_pic_rename}" alt="" class="img-fluid"></a></div>
                                             <div class="ribbons"></div>
                                             <div class="ribbons-text">New</div>
-                                            <form method="Post" name="wishlist" action="/wishList" >
-                                            <div class=""><a href="javascript:document.wishlist.submit();" name="mywishlist" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
+                                            <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
                                         </div>
-                                        </form>
                                         <div class="product-content">
                                             <div class="product-content-head">
                                                 <h3 class="product-title">${vv.lodging_name} </h3>
@@ -102,10 +103,9 @@
                                     </div>
                                 </div>
                                 
-                                
                                 </c:forEach>
                                 
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                              <!--   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
                                             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -115,7 +115,7 @@
                                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                         </ul>
                                     </nav>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         

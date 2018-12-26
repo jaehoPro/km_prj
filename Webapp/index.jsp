@@ -71,12 +71,12 @@
 
 
 				<div class="banner-area relative"
-					style="background-image: url(&quot;assets/images/배너.jpg&quot;);">
+					style="background-image: url(&quot;assets/images/배너한옥.jpg&quot;); background-size: 2000px;">
 					<div class="overlay overlay-bg"></div>
 					<div class="container">
 						<div
 							class="row fullscreen align-items-center justify-content-between"
-							style="height: 918px;">
+							style="height: 800px;" >
 
 							<div class="col-lg-8 col-md-10 banner-right">
 								<div class="card">

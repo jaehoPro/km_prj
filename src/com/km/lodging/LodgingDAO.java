@@ -60,7 +60,7 @@ public class LodgingDAO {
 	
 	
 
-		
+		//해당 조건검색 불러오기
 	public ArrayList<ReserveVO> search(ReserveVO lvo)
 	{
 		ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
@@ -73,6 +73,35 @@ public class LodgingDAO {
 		}
 		return list;
 	}
+	
+	
+	//해당 탑검색 불러오기
+	public ArrayList<ReserveVO> topsearch(ReserveVO lvo)
+	{
+		ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
+		SqlSession conn = null;
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			list=(ArrayList)conn.selectList("LodgingSpace.topsearch", lvo);
+		}finally { 
+			conn.close();
+		}
+		return list;
+	}
+	
+	//해당 위시리스트 불러오기
+		public ArrayList<ReserveVO> wishilist(ReserveVO lvo)
+		{
+			ArrayList<ReserveVO> list = new ArrayList<ReserveVO>();
+			SqlSession conn = null;
+			try {
+				conn = MyBatisFactory.getFactory().openSession();
+				list=(ArrayList)conn.selectList("LodgingSpace.topsearch", lvo);
+			}finally {
+				conn.close();
+			}
+			return list;
+		}
 
 	
 
