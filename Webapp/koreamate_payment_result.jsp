@@ -54,7 +54,7 @@
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Form Elements</li>
+                                                <li class="breadcrumb-item active" aria-current="page">예약완료</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -72,14 +72,17 @@
                             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title mb-2">Card title</h3>
-                                        <h6 class="card-subtitle text-muted">Lorem ipusm dolro sit amet</h6>
+                                        <h3 class="card-title mb-2">예약이 완료되었습니다.</h3>
                                     </div>
                                     <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <p class="card-text">Luctus et ultrices posuere cubilia Curae Integer quis ipsum in augue posuere congue.</p>
-                                        <a href="#" class="card-link">홈으로 가기 </a>
-                                        <a href="#" class="card-link">예약내역 확인</a>
+	                                    <ul class="list-group list-group-flush">
+	                                        <li class="list-group-item">게스트 : ${KEY_RVO.reserve_people}명</li>
+	                                        <li class="list-group-item">${KEY_RVO.checkin_date} ~ ${KEY_RVO.checkout_date}</li>
+	                                        <li class="list-group-item">
+	                                        	<a href="/index.jsp" class="btn btn-primary">홈으로가기</a>&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-primary">예약내역확인</a>
+	                                        </li>
+	                                    </ul>
                                     </div>
                                 </div>
                             </div>
@@ -158,40 +161,7 @@
     <script src="assets/vendor/datepicker/datepicker.js"></script>
     
     
-    <script>
-    $(function(e) {
-        "use strict";
-        $(".date-inputmask").inputmask("dd/mm/yyyy"),
-            $(".phone-inputmask").inputmask("(999) 999-9999"),
-            $(".international-inputmask").inputmask("+9(999)999-9999"),
-            $(".xphone-inputmask").inputmask("(999) 999-9999 / x999999"),
-            $(".purchase-inputmask").inputmask("aaaa 9999-****"),
-            $(".cc-inputmask").inputmask("9999 9999 9999 9999"),
-            $(".ssn-inputmask").inputmask("999-99-9999"),
-            $(".isbn-inputmask").inputmask("999-99-999-9999-9"),
-            $(".currency-inputmask").inputmask("$9999"),
-            $(".percentage-inputmask").inputmask("99%"),
-            $(".decimal-inputmask").inputmask({
-                alias: "decimal",
-                radixPoint: "."
-            }),
-
-            $(".email-inputmask").inputmask({
-                mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[*{2,6}][*{1,2}].*{1,}[.*{2,6}][.*{1,2}]",
-                greedy: !1,
-                onBeforePaste: function(n, a) {
-                    return (e = e.toLowerCase()).replace("mailto:", "")
-                },
-                definitions: {
-                    "*": {
-                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~/-]",
-                        cardinality: 1,
-                        casing: "lower"
-                    }
-                }
-            })
-    });
-    </script>
+    
 </body>
  
 </html>

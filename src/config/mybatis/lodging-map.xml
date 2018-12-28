@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 <!--  
 <mapper namespace="userNameSpace"> 
 <mapper namespace="com.biz.mapper.UserMap">
 -->
+<<<<<<< HEAD
+=======
+
+<!-- <mapper namespace="userNameSpace"> <mapper namespace="com.biz.mapper.UserMap"> -->
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 <mapper namespace="LodgingSpace">
+<<<<<<< HEAD
 	<resultMap id="LodgingMap" type="com.km.lodging.LodgingVO">
 		<id 	property="lodging_seq" 				column="lodging_seq" />
 		<result property="build_type" 				column="build_type" />
@@ -28,8 +39,68 @@
 		<result property="lodging_name" 			column="lodging_name" />
 		<result property="lodging_condition" 		column="lodging_condition" />
 		<result property="usercode" 				column="usercode" />
+=======
+   <resultMap id="LodgingMap" type="com.km.lodging.LodgingVO">
+      <id property="lodging_seq" column="lodging_seq" />
+      <result property="build_type" column="build_type" />
+      <result property="lodging_type" column="lodging_type" />
+      <result property="max_lodging_people"
+         column="max_lodging_people" />
+      <result property="room_cnt" column="room_cnt" />
+      <result property="bath_cnt" column="bath_cnt" />
+      <result property="addr_city" column="addr_city" />
+      <result property="addr_state" column="addr_state" />
+      <result property="addr_road" column="addr_road" />
+      <result property="addr_unit" column="addr_unit" />
+      <result property="addr_num" column="addr_num" />
+      <result property="lodging_explain" column="lodging_explain" />
+      <result property="out_in_interval" column="out_in_interval" />
+      <result property="checkin_possible_start"
+         column="checkin_possible_start" />
+      <result property="checkin_possible_end"
+         column="checkin_possible_end" />
+      <result property="time_price" column="time_price" />
+      <result property="day_price" column="day_price" />
+      <result property="lodging_name" column="lodging_name" />
+      <result property="lodging_condition" column="lodging_condition" />
+      <result property="usercode" column="usercode" />
+      <result property="lodging_pic_rename"
+         column="lodging_pic_rename" />
+   </resultMap>
+
+   <resultMap id="reviewMap" type="com.km.lodging.ReviewScoreVO">
+      <id property="review_seq" column="review_seq" />
+      <result property="review_content" column="review_content" />
+      <result property="review_regdate" column="review_regdate" />
+      <result property="l_name" column="l_name" />
+      <result property="f_name" column="f_name" />
+      <result property="introduction" column="introduction" />
+      <result property="user_pic_path" column="user_pic_path" />
+      <result property="user_pic_oriname" column="user_pic_oriname" />
+   </resultMap>
+
+   <resultMap id="reserveMap" type="com.km.lodging.ReserveVO">
+      <id property="reserve_seq" column="reserve_seq" />
+      <result property="lodging_seq" column="lodging_seq" />
+      <result property="checkin_date" column="checkin_date" />
+      <result property="checkout_date" column="checkout_date" />
+      <result property="checkin_time" column="checkin_time" />
+      <result property="checkout_time" column="checkout_time" />
+      <result property="reserve_people" column="reserve_people" />
+      <result property="price" column="price" />
+      <result property="reserve_confirm" column="reserve_confirm" />
+      <result property="prpaymemt_confirmice"
+         column="ppaymemt_confirmrice" />
+      <result property="reserve_cancle" column="reserve_cancle" />
+      <result property="reserve_cancle_reason"
+         column="reserve_cancle_reason" />
+      <result property="massege_to_host" column="massege_to_host" />
+      <result property="usercode" column="usercode" />
+      <result property="addr_city" column="addr_city" />
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	</resultMap>
 	
+<<<<<<< HEAD
 	<resultMap id="reviewMap" type="com.km.lodging.ReviewScoreVO">
 			<id property="review_seq" column="review_seq" />
 			<result property="review_content" column="review_content" />
@@ -40,17 +111,32 @@
 			<result property="user_pic_path" column="user_pic_path" />
 			<result property="user_pic_oriname" column="user_pic_oriname" />
 	</resultMap>
+=======
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	
 	
-	
-	
- 	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_nation,addr_city,addr_state,addr_road,addr_unit,
+ 	<sql id="commonSelect">lodging_seq,build_type,lodging_type,max_lodging_people,room_cnt,bath_cnt,addr_city,addr_state,addr_road,addr_unit,
  	addr_num,lodging_explain,out_in_interval,checkin_possible_start,checkin_possible_end,time_price,day_price,lodging_name,lodging_condition,usercode </sql>
  	
+<<<<<<< HEAD
+=======
+ 	<sql id="reserveSelect">reserve_seq,lodging_seq,checkin_date,checkout_date,checkin_time,checkout_time,reserve_people,price,reserve_confirm,
+ 	paymemt_confirm,reserve_cancle,reserve_cancle_reason,massege_to_host,usercode</sql>
+ 	
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
  	<select id="selectOneLodging" parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+<<<<<<< HEAD
 			select <include refid="commonSelect"  /><!-- 파라미터에는 맵 없음 -->
 			from lodging
 			where lodging_seq=#{lodging_seq}
+=======
+			select <include refid="commonSelect"  />, 
+		    (select avg(clean_score) from review_score	where lodging_seq=#{lodging_seq} group by lodging_seq) as clean_score_avg, 
+		    (select avg(location_score) from review_score	where lodging_seq=#{lodging_seq} group by lodging_seq) as location_score_avg, 
+		    (select avg(checkin_score) from review_score	where lodging_seq=#{lodging_seq} group by lodging_seq) as checkin_score_avg
+    		from lodging where lodging_seq=#{lodging_seq}
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
  	</select>
  	
  	<select id="selectLodgingReview" parameterType="com.km.lodging.LodgingVO" resultMap="reviewMap">
@@ -61,7 +147,75 @@
  	</select>
  	
  	
+<<<<<<< HEAD
  	 	
  		
+=======
+ 	<insert id="insertReservation" parameterType="com.km.lodging.ReserveVO">
+ 			insert into reserve (<include refid="reserveSelect"  />)
+			values (reserve_seq.nextval,   #{lodging_seq},   TO_DATE(#{checkin_date},'DD/MM/YYYY'),   TO_DATE(#{checkout_date},'DD/MM/YYYY'),   #{checkin_time},   #{checkout_time},   #{reserve_people},   #{price},   'y',   'y',   'n',   null,   #{massege_to_host},   'jjh12112123')
+ 	</insert>
+ 	
+
+	<select id="selectOneLodging"
+		parameterType="com.km.lodging.LodgingVO" resultMap="LodgingMap">
+		select
+		<include refid="commonSelect" />
+		,
+		(select avg(clean_score) from review_score where lodging_seq=#{lodging_seq}
+		group by lodging_seq) as clean_score_avg,
+		(select avg(location_score) from review_score where
+		lodging_seq=#{lodging_seq} group by lodging_seq) as
+		location_score_avg,
+		(select avg(checkin_score) from review_score where lodging_seq=#{lodging_seq}
+		group by lodging_seq) as checkin_score_avg
+		from lodging where lodging_seq=#{lodging_seq}
+	</select>
+
+
+	<!-- 메인 조건검색 -->
+	<select id="searchkeyword"
+		parameterType="com.km.lodging.ReserveVO" resultMap="LodgingMap">
+ 	<![CDATA[
+ 	   select *
+		from lodging l, lodging_pic lp
+		where l.lodging_seq not in (select tt.lodging_seq as lodging_seq
+		from (select lodging_seq, checkin_date, checkin_time, checkout_date, checkout_time
+      from reserve
+      where (checkin_date >= #{checkin_date} and checkin_date <= #{checkin_date}) or (checkout_date >= #{checkout_date} and checkout_date <= #{checkout_date})) tt
+            where tt.checkout_time > #{checkin_time} and tt.checkin_time <= #{checkin_time})
+      and (addr_city LIKE '%'||#{addr_city}||'%' or addr_state LIKE '%'||#{addr_city}||'%'
+            or addr_road LIKE '%'||#{addr_city}||'%' or lodging_explain LIKE '%'||#{addr_city}||'%')
+      and  l.lodging_seq = lp.lodging_seq
+      and lp.lodging_pic_typical = 'y'
+	]]>
+	</select>
+
+	<!-- 메인 상단탑검색 -->
+	<select id="topsearch" parameterType="com.km.lodging.ReserveVO"
+		resultMap="LodgingMap">
+ 	<![CDATA[
+ 	   select * 
+		from lodging l, lodging_pic lp
+
+where (addr_city like '%'||#{addr_city}||'%'
+or addr_state like '%'||#{addr_city}||'%'
+or addr_road like '%'||#{addr_city}||'%')
+and l.lodging_seq = lp.lodging_seq
+and lp.lodging_pic_typical = 'y'
+	]]>
+	</select>
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	
+	<!-- 위시리스트 -->
+	<select id="wishlist"
+		parameterType="com.km.lodging.ReserveVO" resultMap="LodgingMap">
+ 	<![CDATA[
+ 	   insert into wishlist values(#{usercode},#{lodging_seq});
+ 	   
+	]]>
+	</select>
+
+
 </mapper>	

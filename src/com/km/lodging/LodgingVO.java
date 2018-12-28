@@ -37,8 +37,14 @@ public class LodgingVO {
 
 	// 상세보기 페이지 : 이미지목록 n장
 	private ArrayList<LodgingPicVO> lvolist;
+
 	
+<<<<<<< HEAD
 	private String lodging_pic_oriname;
+=======
+	
+	private String lodging_pic_rename;
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 
 	public int getLodging_seq() {
 		return lodging_seq;
@@ -240,6 +246,7 @@ public class LodgingVO {
 		this.lvolist = lvolist;
 	}
 
+<<<<<<< HEAD
 	public String getLodging_pic_oriname() {
 		return lodging_pic_oriname;
 	}
@@ -250,3 +257,17 @@ public class LodgingVO {
 	
 	
 }
+=======
+	public String getLodging_pic_rename() {
+		return lodging_pic_rename;
+	}
+
+	public void setLodging_pic_rename(String lodging_pic_rename) {
+		this.lodging_pic_rename = lodging_pic_rename;
+	}
+	
+
+	
+	
+}
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj

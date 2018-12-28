@@ -1589,7 +1589,8 @@ scale
 	left: 0px;
 }
 
-.nav-user-dropdown {
+.nav-user-drop
+ {
 	
 }
 
@@ -1991,12 +1992,14 @@ Sidebar Page Navigations
 }
 
 /*--- Bootstrap Dropdown ----*/
+
 .dropdown-menu {
 	background: #000000;
 	font-size: 14px;
 	color: #3d405c;
 	border: 0px solid #e6e6f2;
 }
+
 
 .dropdown-item {
 	display: block;

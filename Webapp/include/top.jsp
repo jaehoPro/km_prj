@@ -20,13 +20,16 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
+                            <form method="Post" name="topsearch" action="/TopSearchResult" >
                             <div id="custom-search1" class="top-search-bar">
-                                <input class="form-control3" type="text" placeholder="Search..">
+                                <input href="javascript:document.topsearch.submit();" name="destination2" class="form-control3" type="text" placeholder="Search..">
+                                
                             </div>
                             <!--  <div id="custom-search2" class="top-search-bar">
                                 <input class="form-control2" type="text" placeholder="Search..">
                             </div> -->
                         </li>
+                        </form>
                       
                        
                           
@@ -61,13 +64,21 @@
                             <img src="assets/images/LOGIN.PNG" alt="" class="user-avatar-md rounded-circle" ></a>
 		                		<div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
+<<<<<<< HEAD
                                     <h5 class="mb-0 text-white nav-user-name">Hi,<span class="status"></span><span class="ml-2">${sessionScope.SESS_FNAME} &nbsp; ${sessionScope.SESS_LNAME}</span> </h5> 
+=======
+                                    <h5 class="mb-0 text-white nav-user-name">Hi,<span class="status"></span><span class="ml-2">DahunPark ${sessionScope.SESS_USERCODE}</span> </h5> 
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
                                    
                                 </div>           		
 		                	
                             
                                 
+<<<<<<< HEAD
                                 <a class="dropdown-item" href="/guest_index.jsp">마이페이지</a>
+=======
+                                <a class="dropdown-item" href="/pages/users_modify.jsp">마이페이지</a>
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
                                 <br>
                                 <a class="dropdown-item" href="#">위시리스트</a>
                                 <br>

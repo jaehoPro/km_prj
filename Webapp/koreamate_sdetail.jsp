@@ -13,15 +13,68 @@
 <!-- 헤더 css / jquery cdn -->
 <%@ include file="/include/header.jsp"%>
 <script>
+
+
 $(document).ready(function(){
-	 $("#ui-datepicker-div").click(function(){
-			console.log($("#datepicker").val())
-	 });
-	 
-	 $("#datepicker2").click(function(){
-			console.log($("#datepicker2").val())
-	 });
+	var checkindate;
+	var checkintime;
+	var checkoutdate;
+	var checkouttime;
+	var total;
+	var reserveDay;
+	var reserveTime;
+	var payment;
+	
+	
+	$(".dateCal").on("change", calClick);
+	function calClick() {
+		checkindate = new Date($("#datepicker").datepicker("getDate"));
+		checkoutdate = new Date($("#datepicker2").datepicker("getDate"));
+		checkintime = $("#checkintime").val();
+		checkouttime = $("#checkouttime").val();
+		console.log("체크인타임"+checkintime);
+		console.log("체크인데이트"+checkindate);
+		console.log("체크아웃타임"+checkouttime);
+		console.log("체크아웃데이트"+checkoutdate);
+		
+		//total=((checkoutdate-checkindate)/1000/3600)+(24-checkintime);
+		total=((checkoutdate-checkindate)/1000/3600);
+
+		
+
+		if(total > 0){
+			console.log("총시간 "+total);
+			if(total > 23){
+				reserveDay = total / 24;
+				reserveTime = total % 24;
+				console.log(reserveDay+"박"+reserveTime+"시간");
+				payment =${KEY_LVO.day_price} * reserveDay;
+				console.log("총금액 "+payment);
+				
+				var htmlStr ="<li>&#8361;${KEY_LVO.time_price} X 3시간</li>";
+				    htmlStr+="<li>&#8361;${KEY_LVO.day_price} X "+reserveDay+"박</li>";
+				    htmlStr+="<li>합계 : &#8361;"+payment+"</li>";
+				    
+				var htmlStrPrice ="<span class='font-24'>&#8361;</span><sub class='display-4'>"+payment+"</sub>";
+				
+				$("#priceOnly").html(htmlStrPrice);
+				$("#totalPrice").html(htmlStr);
+				$("#payment").val(payment);
+				
+			}
+		}
+	}
+	/* $("#datepicker2").on("change", calClick2);
+	function calClick2() {
+		//var date1 = new Date($("#datepicker").datepicker("getDate"));
+		checkoutdate = new Date($("#datepicker2").datepicker("getDate"));
+		console.log(checkoutdate);
+		total=(checkoutdate-checkindate)/1000/3600;
+	} */
+	
+    
 });
+
 </script>
 
 <script>
@@ -29,28 +82,14 @@ $(document).ready(function(){
 	    $( "#datepicker" ).datepicker();
 	  });
 	
-</script> 
-
-<script>
 	  $(function() {
 	    $( "#datepicker2" ).datepicker();
 	  });
 
 </script>
 
-<script>
-
-function sumAllpay(var checkindate, var checkoutdate, var checkintime, var checkouttime, var daypay, var hourpay){
-	   var sum = 0;
-	   var sum_daypay
-	   sum = ((checkoutdate-checkindate)*24)+(24-checkintime)+checkouttime;
-	   sum_daypay=(sum / 24)*daypay;
-   
-	   return sum_daypay;
-	}
 
 
-</script>
 </head>
 
 <body>
@@ -88,24 +127,18 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
 						<div class="row">
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="page-header" id="top">
-									<h2 class="pageheader-title">Form Elememnts</h2>
-									<p class="pageheader-text">Proin placerat ante duiullam
-										scelerisque a velit ac porta, fusce sit amet vestibulum mi.
-										Morbi lobortis pulvinar quam.</p>
+									<h2 class="pageheader-title"></h2>
+									<p class="pageheader-text"></p>
 									<div class="page-breadcrumb">
 										<nav aria-label="breadcrumb">
-										<ol class="breadcrumb">
-											<li class="breadcrumb-item"><a href="#"
-												class="breadcrumb-link">Dashboard</a></li>
-											<li class="breadcrumb-item"><a href="#"
-												class="breadcrumb-link">Forms</a></li>
-											<li class="breadcrumb-item active" aria-current="page">Form
-												Elements</li>
-										</ol>
+										
 										</nav>
 									</div>
 								</div>
 							</div>
+							
+							
+							
 
 
 						</div>
@@ -116,9 +149,14 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
 							<!-- ============================================================== -->
 							<!-- overview  -->
 							<!-- ============================================================== -->
+						<form name="myform" method="post" action="/LodgingPayment">
+										<input type="hidden" name="lodging_seq" value="${KEY_LVO.lodging_seq}">
+										<input type="hidden" name="lodging_name" value="${KEY_LVO.lodging_name}">
+										<input type="hidden" name="payment" id="payment" >
+						
 							<div class="row">
 							
-								<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 	                                <div class="card">
 	                                    <img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">
 	                                    <div class="card-body">
@@ -139,79 +177,96 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
                            		</div>
 								
 
+										
+									
+									
+	
+								
+
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 									<div class="card">
 										<div class="card-header bg-white text-center p-4 ">
 											<h3 class="mb-1">총 결제 금액</h3>
 											
 											<h1 class=" mb-1">
-												<span class="font-24">$</span><sub class="display-4">19</sub>
+												<div id=priceOnly></div>
+												
 											</h1>
 											
 											
 											
-											<p>체크인          Date: <input type="text" id="datepicker">
+											<p>체크인          Date: <input type="text" class="dateCal" id="datepicker" name="datepicker" readonly>
 									
 											
 											체크인 시간
-													<select class="selectpicker" data-size="5">
-														<option>0:00</option>
-														<option>1:00</option>
-														<option>2:00</option>
-														<option>3:00</option>
-														<option>4:00</option>
-														<option>5:00</option>
-														<option>6:00</option>
-														<option>7:00</option>
-														<option>8:00</option>
-														<option>9:00</option>
-														<option>10:00</option>
-														<option>11:00</option>
-														<option>12:00</option>
-														<option>13:00</option>
-														<option>14:00</option>
-														<option>15:00</option>
-														<option>16:00</option>
-														<option>17:00</option>
-														<option>18:00</option>
-														<option>19:00</option>
-														<option>20:00</option>
-														<option>21:00</option>
-														<option>22:00</option>
-														<option>23:00</option>
+													<select class="selectpicker dateCal" data-size="5" id="checkintime" name="checkintime">
+														<option value=0>0:00</option>
+														<option value=1>1:00</option>
+														<option value=2>2:00</option>
+														<option value=3>3:00</option>
+														<option value=4>4:00</option>
+														<option value=5>5:00</option>
+														<option value=6>6:00</option>
+														<option value=7>7:00</option>
+														<option value=8>8:00</option>
+														<option value=9>9:00</option>
+														<option value=10>10:00</option>
+														<option value=11>11:00</option>
+														<option value=12>12:00</option>
+														<option value=13>13:00</option>
+														<option value=14>14:00</option>
+														<option value=15>15:00</option>
+														<option value=16>16:00</option>
+														<option value=17>17:00</option>
+														<option value=18>18:00</option>
+														<option value=19>19:00</option>
+														<option value=20>20:00</option>
+														<option value=21>21:00</option>
+														<option value=22>22:00</option>
+														<option value=23>23:00</option>
 													</select>
 											
 											</p>
-											<p>체크아웃         Date: <input type="text" id="datepicker2">
+											<p>체크아웃         Date: <input type="text" class="dateCal" id="datepicker2" name="datepicker2" readonly>
 											체크아웃 시간
-													<select class="selectpicker" data-size="5">
-														<option>0:00</option>
-														<option>1:00</option>
-														<option>2:00</option>
-														<option>3:00</option>
-														<option>4:00</option>
-														<option>5:00</option>
-														<option>6:00</option>
-														<option>7:00</option>
-														<option>8:00</option>
-														<option>9:00</option>
-														<option>10:00</option>
-														<option>11:00</option>
-														<option>12:00</option>
-														<option>13:00</option>
-														<option>14:00</option>
-														<option>15:00</option>
-														<option>16:00</option>
-														<option>17:00</option>
-														<option>18:00</option>
-														<option>19:00</option>
-														<option>20:00</option>
-														<option>21:00</option>
-														<option>22:00</option>
-														<option>23:00</option>
+													<select class="selectpicker dateCal" data-size="5" id="checkouttime" name="checkouttime">
+														<option value=0>0:00</option>
+														<option value=1>1:00</option>
+														<option value=2>2:00</option>
+														<option value=3>3:00</option>
+														<option value=4>4:00</option>
+														<option value=5>5:00</option>
+														<option value=6>6:00</option>
+														<option value=7>7:00</option>
+														<option value=8>8:00</option>
+														<option value=9>9:00</option>
+														<option value=10>10:00</option>
+														<option value=11>11:00</option>
+														<option value=12>12:00</option>
+														<option value=13>13:00</option>
+														<option value=14>14:00</option>
+														<option value=15>15:00</option>
+														<option value=16>16:00</option>
+														<option value=17>17:00</option>
+														<option value=18>18:00</option>
+														<option value=19>19:00</option>
+														<option value=20>20:00</option>
+														<option value=21>21:00</option>
+														<option value=22>22:00</option>
+														<option value=23>23:00</option>
 													</select>
 											
 											</p>
+											
+											<p>게스트 수 <select id="reserve_people" name="reserve_people">
+											
+											<c:forEach var="cnt" begin="1" end="${KEY_LVO.max_lodging_people}">
+      											   <option value=${cnt}><c:out value = "${cnt}"/>명<br/>
+      										</c:forEach>
+											</select>
+											
+											</p>
+											
 										</div>
 										<div class="card-body">
 											<ul class="list-unstyled bullet-check mb-0">
@@ -222,16 +277,17 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
 										</div>
 										<div class="card-body border-top">
 											<ul class="list-unstyled">
-												<li>${KEY_LVO.time_price} X 2박</li>
-												<li>${KEY_LVO.day_price} X 3시간</li>
-												<li>합계 : 81,000원</li>
+												<div id="totalPrice"></div>
 											</ul>
 											<a href="javascript:document.myform.submit();"
 												class="btn btn-outline-secondary btn-block btn-lg">예약하기</a>
 										</div>
 									</div>
 								</div>
+								
+								
 							</div>
+							</form>
 							<!-- ============================================================== -->
 							<!-- end overview  -->
 							<!-- ============================================================== -->
@@ -317,38 +373,13 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
 					<!-- ============================================================== -->
 				</div>
 			</div>
-			<!-- ============================================================== -->
-			<!-- footer -->
-			<!-- ============================================================== -->
-			<div class="footer">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-							Copyright © 2018 Concept. All rights reserved. Dashboard by <a
-								href="https://colorlib.com/wp/">Colorlib</a>.
-						</div>
-						<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-							<div class="text-md-right footer-links d-none d-sm-block">
-								<a href="javascript: void(0);">About</a> <a
-									href="javascript: void(0);">Support</a> <a
-									href="javascript: void(0);">Contact Us</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- ============================================================== -->
-			<!-- end footer -->
-			<!-- ============================================================== -->
+		
 		</div>
 	</div>
 	<!-- ============================================================== -->
 	<!-- end main wrapper -->
 	<!-- ============================================================== -->
-	<form name="myform" method="post" action="/koreamate_payment.jsp">
-		<input type="hidden" name="lodging_name" value="${KEY_LVO.lodging_name}">
-	</form>
-	
+
 	
 	<!-- Optional JavaScript -->
 	   <!-- <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script> -->
@@ -394,6 +425,9 @@ function sumAllpay(var checkindate, var checkoutdate, var checkintime, var check
                 }
             })
     });
+    
+    
+
     </script>
 
 </body>

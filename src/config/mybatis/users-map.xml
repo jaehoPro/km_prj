@@ -4,7 +4,7 @@
 <mapper namespace="usersNameSpace">
 
 	<resultMap id="usersMap" type="com.km.users.UsersVO">
-		<id property="usercode" column="usercode" />
+		<result property="usercode" column="usercode" />
 		<result property="email" column="email" />
 		<result property="password" column="password" />
 		<result property="f_name" column="f_name" />
@@ -27,8 +27,8 @@
 		<result property="user_dropdate" column="user_dropdate" />
 		<result property="regpath" column="regpath" />
 	</resultMap>
-	
-	
+
+
 	<resultMap id="identifyMap" type="com.km.users.IdentifyVO">
 		<id property="usercode" column="usercode" />
 		<result property="id_pic_path" column="id_pic_path" />
@@ -36,16 +36,17 @@
 		<result property="id_pic_rename" column="id_pic_rename" />
 		<result property="confirm" column="confirm" />
 	</resultMap>
-	
-	
-	<resultMap id="cardMap" type="com.km.users.CardVO">
-	<id property="usercode" column="usercode" />
+
+
+	<resultMap id="identifyMap2" type="com.km.users.IdentifyVO">
+		<id property="usercode" column="usercode" />
 		<result property="cardname" column="cardname" />
 		<result property="cardowner" column="cardowner" />
 		<result property="cardnum" column="cardnum" />
 		<result property="expire_date" column="expire_date" />
 		<result property="cvc_code" column="cvc_code" />
 	</resultMap>
+<<<<<<< HEAD
 	
 	<resultMap id="ident_user_11" type="com.km.users.IdentifyVO" extends="identifyMap">
 			<association property="usersVO" resultMap="usersMap"/>
@@ -55,15 +56,26 @@
 	
 	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
 		select usercode, confirm, grade, f_name, l_name, user_pic_path, user_pic_oriname, user_pic_rename 
+=======
+
+
+	<select id="login" parameterType="com.km.users.UsersVO"
+		resultMap="usersMap">
+		select usercode, confirm, grade
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 		from users
 		where email = #{email}
-		and password =  #{password}
+		and password = #{password}
 	</select>
-	
+
+
+
+
 	<update id="logdate" parameterType="String">
-	 update users set logdate = sysdate
-	 where email = #{value}
+		update users set logdate = sysdate
+		where email = #{value}
 	</update>
+<<<<<<< HEAD
 	
 
 	<insert id="register" parameterType="com.km.users.UsersVO">
@@ -145,4 +157,8 @@
 	</select>
 	
 	
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 </mapper>

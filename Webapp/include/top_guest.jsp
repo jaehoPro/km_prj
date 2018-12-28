@@ -23,11 +23,20 @@ function withdraw() {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 	
+<<<<<<< HEAD
                 	<a class="navbar-brand" href="/guest_index.jsp"> 홈 </a>
+=======
+                	<a class="navbar-brand" href="#"> 홈 </a>
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
                 	<a class="navbar-brand" href="/pages/users_modify.jsp"> 프로필 수정 </a> 
 					<a class="navbar-brand" href="#"> 예약관리 </a> 
+<<<<<<< HEAD
 					<a class="navbar-brand" href="#"> 위시리스트 </a>  
 					<a class="navbar-brand" href="/identify"> 신분증 확인</a>  
+=======
+					<a class="navbar-brand" href="/koreamate_wish_list.jsp"> 위시리스트 </a>  
+					<a class="navbar-brand" href="#"> 신분증 확인</a>  
+>>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 					
                 
 
