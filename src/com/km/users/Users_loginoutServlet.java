@@ -55,7 +55,6 @@ public class Users_loginoutServlet extends HttpServlet {
 			//최근접속일 갱신
 			dao.logdate(email);
 			
-			
 			//세션담기
 			System.out.println(mvo.getUsercode());
 			System.out.println(mvo.getGrade());
@@ -65,7 +64,6 @@ public class Users_loginoutServlet extends HttpServlet {
 			System.out.println(mvo.getUser_pic_path());
 			System.out.println(mvo.getUser_pic_oriname());
 			System.out.println(mvo.getUser_pic_rename());
-			
 			HttpSession session = request.getSession();
 			session.setAttribute("SESS_USERCODE", mvo.getUsercode());
 			session.setAttribute("SESS_GRADE", mvo.getGrade());
@@ -75,6 +73,8 @@ public class Users_loginoutServlet extends HttpServlet {
 			session.setAttribute("SESS_PIC_PATH", mvo.getUser_pic_path());
 			session.setAttribute("SESS_PIC_ORINAME", mvo.getUser_pic_oriname());
 			session.setAttribute("SESS_PIC_RENAME", mvo.getUser_pic_rename());
+			String grade = (String) session.getAttribute(("SESS_GRADE"));
+			System.out.println("세션 : "+ grade);
 		
 			
 			System.out.println(mvo.getGrade());

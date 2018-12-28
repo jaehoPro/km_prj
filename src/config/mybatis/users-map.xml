@@ -34,6 +34,7 @@
 		<result property="id_pic_path" column="id_pic_path" />
 		<result property="id_pic_oriname" column="id_pic_oriname" />
 		<result property="id_pic_rename" column="id_pic_rename" />
+		<result property="confirm" column="confirm" />
 	</resultMap>
 	
 	
@@ -46,7 +47,10 @@
 		<result property="cvc_code" column="cvc_code" />
 	</resultMap>
 	
-	<sql id="commonSelect">usercode ,email ,password ,f_name , l_name ,sex ,birth_y ,birth_m ,birth_d ,nation ,tel  ,user_pic_path ,user_pic_oriname ,user_pic_rename,introduction ,confirm ,grade ,user_regdate ,logdate ,user_drop ,user_dropdate ,regpath </sql>
+	<resultMap id="ident_user_11" type="com.km.users.IdentifyVO" extends="identifyMap">
+			<association property="usersVO" resultMap="usersMap"/>
+	</resultMap>
+
 	
 	
 	<select id="login" parameterType="com.km.users.UsersVO" resultMap="usersMap">
@@ -61,6 +65,7 @@
 	 where email = #{value}
 	</update>
 	
+
 	<insert id="register" parameterType="com.km.users.UsersVO">
 	insert into users  
 	(usercode ,email ,password ,f_name , l_name ,sex ,birth_y ,birth_m ,birth_d ,
@@ -72,5 +77,72 @@
 		null,	'n',	null,	'k')  
 	</insert>
 	
-
+	
+	<select id="delcheck1" resultType="int">
+		select count(reserve_seq)
+		from reserve
+		where (checkin_date > '20181210'
+		or checkout_date > '20181214')
+		and usercode = #{value}
+	</select>
+	
+	<select id="delcheck2" resultType="int">
+		select count(r.reserve_seq)
+		from reserve r , lodging l
+		where r.lodging_seq = l.lodging_seq
+        and (r.checkin_date > '20181210'
+		or r.checkout_date > '20181214')
+		and l.usercode = #{value}
+	</select>
+	
+	<update id="withdraw" parameterType="String">
+		update users 
+		set user_drop = 'y', user_dropdate = sysdate
+		where usercode = #{value}
+	</update>
+	
+	<select id="emailcheck" resultType="int">
+		select count(usercode)
+		from users
+		where email = #{value}
+	</select>
+	
+	<update id="temppassword" parameterType="com.km.users.UsersVO">
+		update users
+		set password = #{password}
+		where email = #{email}
+	</update>
+	
+	<update id="updatepropic" parameterType="com.km.users.IdentifyVO">
+		update identify
+		set  id_pic_path = #{id_pic_path}	, 
+		     id_pic_oriname = #{id_pic_oriname} ,
+			 id_pic_rename = #{id_pic_rename}
+		where usercode = #{usercode}
+	</update>
+	
+	<update id="updatepropic2" parameterType="com.km.users.IdentifyVO">
+		update users
+		set	 confirm = 'n'
+		where usercode = #{usercode}
+	</update>
+	
+	<select id="identy" parameterType="com.km.users.IdentifyVO" resultMap="identifyMap">
+		select id_pic_path, id_pic_oriname, id_pic_rename
+		from identify
+		where usercode = #{value}
+	</select>
+	
+	<select id="identy2" parameterType="com.km.users.UsersVO" resultMap="identifyMap">
+		select confirm
+		from users
+		where usercode = #{value}
+	</select>
+	
+	<select id="userlist" resultMap="usersMap">
+		select *
+		from users
+	</select>
+	
+	
 </mapper>

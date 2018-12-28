@@ -4,7 +4,7 @@
 
 <!doctype html>
 <html>
- 
+ <%@ include file="/include/top_guest.jsp"%>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,20 +18,14 @@
     <script>
     function validate() {
 
-       if(email.value=="") {
-    	   alert("이메일을 입력해 주세요");
-           email.focus();
+       if(identy.value=="") {
+    	   alert("신분증을 선택해주세요");
            return false;
        }else{
-    	   if(password.value==""){
-		   alert("비밀번호를 입력해 주세요");
-		   password.focus();
-		   return false;
-    	   }else{
     		   return true;
     	   }
-       }
-   }
+     }
+   
     </script>
     <style>
     html,
@@ -56,28 +50,22 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="/index.jsp"><img class="logo-img" src="../assets/images/loginlogo.PNG" alt="logo"></a>
+            <div class="card-header text-center">
             <br>
-            <span class="splash-description">아이디와 비밀번호를 입력해주세요.</span></div>
+            <img  width='200' height='200' src='/cdir/id/${ivo.id_pic_rename } '>
+            <span class="splash-description">신분증 등록이 완료되었습니다. <br> 승인대기중 입니다.</span></div>
             <div class="card-body">
-                <form action="/login"  onsubmit="return validate();" id="login-form" method="post">
+                <form action="/identify"  onsubmit="return validate();" id="indent-form" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" name="email" id="email"  placeholder="E-mail" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" type="password"  name="password" id="password"  placeholder="Password">
                     </div>
                     <div class="form-group">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">로그인</button>
+                    <a href="/pages/identy-pop.jsp" onclick="window.open(this.href, '_blank', 'width=500px,height=350px,toolbars=no,scrollbars=no'); return false;">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">신분증재등록</button></a>
+                    <br>
+                    <a href="/index.jsp" ><button type="button" class="btn btn-primary btn-lg btn-block">메인페이지로</button></a>
+                    
                 </form>
-            </div>
-            <div class="card-footer bg-white p-0  ">
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="regist.jsp" class="footer-link">회원가입</a></div>
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="/pages/forgot_password.jsp" class="footer-link">비밀번호 찾기</a>
-                </div>
             </div>
         </div>
     </div>

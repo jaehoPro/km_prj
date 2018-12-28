@@ -5,13 +5,14 @@
 <!doctype html>
 <html lang="en">
 
+<%@ include file="/include/top_guest.jsp"%>
 <head>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>회원가입</title>
+<title>회원수정</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -63,7 +64,7 @@ body {
 	display: flex;
 	-ms-flex-align: center;
 	align-items: center;
-	padding-top: 40px;
+	padding-top:100px;
 	padding-bottom: 40px;
 }
 </style>
@@ -78,11 +79,12 @@ body {
         <div class="card">
             <div class="card-header text-center">
             <a href="/index.jsp"><img class="logo-img" src="../assets/images/loginlogo.PNG" alt="logo"></a>
-                <h3 class="mb-1">회원가입</h3>
+                <h3 class="mb-1">회원수정</h3>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="email" name="email" id="email" placeholder="이메일 입력" autocomplete="off">
+                    <input class="form-control form-control-lg" type="email" name="email" id="email" placeholder="이메일 입력" value="
+" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" name="password" id="password"  type="text" placeholder="비밀번호 설정" autocomplete="off">
@@ -309,26 +311,12 @@ body {
             </div>
           </div>
           <br>
-</div>
+		</div>
 				<div class="form-group pt-2">
 					<button class="btn btn-block btn-primary" type="submit">가입완료</button>
 				</div>
-				<div class="form-group row pt-0">
-					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-						<button class="btn btn-block btn-social btn-facebook "
-							type="button">Facebook</button>
-					</div>
-					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-						<button class="btn  btn-block btn-social btn-twitter"
-							type="button">Twitter</button>
-					</div>
-				</div>
 			</div>
-			<div class="card-footer bg-white">
-				<p>
-					이미 회원이신가요? <a href="./login.jsp" class="text-secondary">로그인 하기</a>
-				</p>
-			</div>
+
 		</div>
 	</form>
 </body>

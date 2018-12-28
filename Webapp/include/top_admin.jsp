@@ -13,7 +13,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 	
-                	<a class="navbar-brand" href="#"> 홈 </a>
+                	<a class="navbar-brand" href="/admin_index.jsp"> 홈 </a>
 					<a class="navbar-brand" href="#"> 회원관리 </a> 
 					<a class="navbar-brand" href="#"> 결제관리 </a>  
 

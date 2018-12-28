@@ -5,10 +5,11 @@ public class IdentifyVO {
 	private String id_pic_path;
 	private String id_pic_oriname;
 	private String id_pic_rename;
+	private String confirm;
+	
 	public String getUsercode() {
 		return usercode;
 	}
-	
 	
 	public void setUsercode(String usercode) {
 		this.usercode = usercode;
@@ -31,6 +32,16 @@ public class IdentifyVO {
 	public void setId_pic_rename(String id_pic_rename) {
 		this.id_pic_rename = id_pic_rename;
 	}
+
+	public String getConfirm() {
+		return confirm;
+	}
+
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
+
+	
 	
 	
 

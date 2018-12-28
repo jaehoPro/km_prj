@@ -2,7 +2,8 @@ package config.mybatis;
 
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -55,7 +56,8 @@ public class DBMyBaitsManager {
       SqlSession conn =db.mybatisConn();
       
       UsersVO vo = new UsersVO();
-      vo.setEmail("grz@koreamate.com");
+      int res = 0;
+      vo.setEmail("grz");
       vo.setPassword("0000");
 //      vo.setUserName("오알엠");
     System.out.println("yessssss");
@@ -70,19 +72,35 @@ public class DBMyBaitsManager {
 		System.out.println(vo.getUser_pic_path());
 		System.out.println(vo.getUser_pic_oriname());
 		System.out.println(vo.getUser_pic_rename());
+		System.out.println("2014");
+		
+		res = conn.selectOne("usersNameSpace.delcheck1", "jjh12112123");
+		
+		System.out.println(res + "실화냐");
+		
+		res = conn.selectOne("usersNameSpace.delcheck2", "hst1216678");
+		
+		System.out.println(res + "진짜냐");
+		
+		List<UsersVO> ulist = null;
+		
+		ulist = conn.selectList("usersNameSpace.userlist");
+		
+		 System.out.println(ulist);
+		 
+		 System.out.println(ulist.size());
+		 
+		 for(int i = 0; ulist.size() > i; i++) {
+		 System.out.println(ulist.get(i).getF_name());
+		 }
+		 
+		 
+//		 Iterator it = ulist.iterator();
+//		 while(it.hasNext()){
+//		 System.out.println(it.next());
+//		 System.out.println(ulist.get(0).getF_name());
+//		 }
     
-		
-		
-		//---자고
-		StringBuffer rnd3 = new StringBuffer();
-		for(int i=0; i < 5; i++) {
-		Random rnd = new Random();
-		String randomStr = String.valueOf((char) ((int) (rnd.nextInt(26)) + 97));
-		rnd3.append(randomStr);
-		}
-		
-		
-		System.out.println(rnd3);
        
       
 //      conn.rollback();

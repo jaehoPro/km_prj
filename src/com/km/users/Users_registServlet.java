@@ -1,6 +1,7 @@
 package com.km.users;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,8 +24,36 @@ public class Users_registServlet extends HttpServlet {
     
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String usercode = request.getParameter("usercode");
+		int res1 = 0;
+		int res2 = 0;
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		UsersDAO dao = new UsersDAO();
+		res1 = dao.delcheck1(usercode);
+		
+		if(res1 != 0) {
+			out.println("<script>alert('진행중인 예약이 있습니다.1'); location.href='/index.jsp';</script>");
+			 
+			out.flush();
+		}
+		
+		res2 = dao.delcheck2(usercode);
+		if(res2 != 0) {
+			out.println("<script>alert('진행중인 예약이 있습니다.2'); location.href='/index.jsp';</script>");
+			 
+			out.flush();
+		}
+		
+		if(res1 == 0 && res2 ==0) {
+		dao.withdraw(usercode);
+		
+		out.println("<script>alert(' 탈퇴처리되었습니다. '); location.href='/login';</script>");
+		 
+		out.flush();
+		}
+		
 	}
 
 
@@ -58,13 +87,13 @@ public class Users_registServlet extends HttpServlet {
 		// Script안되는듯하여 유효성검사는 여기서
 		if(password != repassword) {
 			System.out.println("비번불일치");
-			response.sendRedirect(".index.jsp");
+			response.sendRedirect("/index.jsp");
 		}
 		if(email == null || password == null || f_name == null || l_name == null || 
 		   sex == null || birth_y == null || birth_m == null || birth_d == null ||
 		   nation == null || tel == null || introduction == null || user_pic_oriname == null) {
 			System.out.println("항목미입력");
-			response.sendRedirect(".index.jsp");
+			response.sendRedirect("/index.jsp");
 		}
 		
 			
@@ -110,7 +139,7 @@ public class Users_registServlet extends HttpServlet {
 			response.sendRedirect("./pages/login.jsp");
 		}else {
 			System.out.println("가입실패");
-			response.sendRedirect(".index.jsp");
+			response.sendRedirect("/index.jsp");
 		}
 	}
 

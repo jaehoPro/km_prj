@@ -11,7 +11,6 @@ public class LodgingVO {
 	private int max_lodging_people;
 	private int room_cnt;
 	private int bath_cnt;
-	private String addr_nation;
 	private String addr_city;
 	private String addr_state;
 	private String addr_road;
@@ -39,48 +38,13 @@ public class LodgingVO {
 	// 상세보기 페이지 : 이미지목록 n장
 	private ArrayList<LodgingPicVO> lvolist;
 	
-	
-<<<<<<< HEAD
-	//////////
 	private String lodging_pic_oriname;
-	
-	
-	public void setLodging_seq(int lodging_seq) {
-		this.lodging_seq = lodging_seq;
-	}
-	public String getLodging_pic_oriname() {
-		return lodging_pic_oriname;
-	}
-	public void setLodging_pic_oriname(String lodging_pic_oriname) {
-		this.lodging_pic_oriname = lodging_pic_oriname;
-	}
-=======
-	public LodgingPicVO getLodgingPicVO() {
-		return lodgingPicVO;
-	}
 
-	public void setLodgingPicVO(LodgingPicVO lodgingPicVO) {
-		this.lodgingPicVO = lodgingPicVO;
-	}
-
-	public ArrayList<LodgingPicVO> getLvolist() {
-		return lvolist;
-	}
-
-	public void setLvolist(ArrayList<LodgingPicVO> lvolist) {
-		this.lvolist = lvolist;
-	}
-
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 	public int getLodging_seq() {
 		return lodging_seq;
 	}
-<<<<<<< HEAD
-	public void Lodging_seq(int lodging_seq) {
-=======
 
 	public void setLodging_seq(int lodging_seq) {
->>>>>>> branch 'master' of https://github.com/jaehoPro/km_prj
 		this.lodging_seq = lodging_seq;
 	}
 
@@ -122,14 +86,6 @@ public class LodgingVO {
 
 	public void setBath_cnt(int bath_cnt) {
 		this.bath_cnt = bath_cnt;
-	}
-
-	public String getAddr_nation() {
-		return addr_nation;
-	}
-
-	public void setAddr_nation(String addr_nation) {
-		this.addr_nation = addr_nation;
 	}
 
 	public String getAddr_city() {
@@ -268,4 +224,29 @@ public class LodgingVO {
 		this.checkin_score_avg = checkin_score_avg;
 	}
 
+	public LodgingPicVO getLodgingPicVO() {
+		return lodgingPicVO;
+	}
+
+	public void setLodgingPicVO(LodgingPicVO lodgingPicVO) {
+		this.lodgingPicVO = lodgingPicVO;
+	}
+
+	public ArrayList<LodgingPicVO> getLvolist() {
+		return lvolist;
+	}
+
+	public void setLvolist(ArrayList<LodgingPicVO> lvolist) {
+		this.lvolist = lvolist;
+	}
+
+	public String getLodging_pic_oriname() {
+		return lodging_pic_oriname;
+	}
+
+	public void setLodging_pic_oriname(String lodging_pic_oriname) {
+		this.lodging_pic_oriname = lodging_pic_oriname;
+	}
+	
+	
 }

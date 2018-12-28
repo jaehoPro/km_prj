@@ -61,13 +61,13 @@
                             <img src="assets/images/LOGIN.PNG" alt="" class="user-avatar-md rounded-circle" ></a>
 		                		<div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">Hi,<span class="status"></span><span class="ml-2">DahunPark</span> </h5> 
+                                    <h5 class="mb-0 text-white nav-user-name">Hi,<span class="status"></span><span class="ml-2">${sessionScope.SESS_FNAME} &nbsp; ${sessionScope.SESS_LNAME}</span> </h5> 
                                    
                                 </div>           		
 		                	
                             
                                 
-                                <a class="dropdown-item" href="#">마이페이지</a>
+                                <a class="dropdown-item" href="/guest_index.jsp">마이페이지</a>
                                 <br>
                                 <a class="dropdown-item" href="#">위시리스트</a>
                                 <br>
